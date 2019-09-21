@@ -12,4 +12,7 @@ export class ShoutBoxComponent implements OnInit {
   ngOnInit() {
   }
 
+  send() {
+    console.log('Send function');
+  }
 }
