@@ -1,3 +1,8 @@
+::ng-deep body {
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
 ::ng-deep .mat-elevation-z2 {
   position: relative;
   z-index: 2;

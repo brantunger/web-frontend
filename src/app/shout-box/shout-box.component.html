@@ -10,9 +10,12 @@
       </div>
     </div>
 
-    <form>
+    <form [formGroup]="formGroup">
       <mat-form-field style="width: 100%;">
-        <input matInput placeholder="Leave a comment" type="text" autocomplete="off" (keyup.enter)="send()"/>
+        <input matInput formControlName="messageInput" placeholder="Leave a comment" type="text" autocomplete="off"
+          (keyup.enter)="send()" />
+        <mat-icon matSuffix color="accent">send</mat-icon>
+        <mat-hint>Press 'enter' to send a message.</mat-hint>
       </mat-form-field>
     </form>
   </mat-card-content>

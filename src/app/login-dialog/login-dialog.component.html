@@ -1,0 +1,26 @@
+<h1>Login</h1>
+<form [formGroup]="formGroup">
+  <mat-form-field>
+    <input matInput formControlName="usernameInput" placeholder="Username" type="text" [errorStateMatcher]="matcher" />
+    <mat-icon matSuffix>face</mat-icon>
+    <mat-error>
+      Username is required to login.
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="passwordInput" placeholder="Password" type="{{passwordInputType}}"
+      [errorStateMatcher]="matcher" (keyup.enter)="login()"/>
+    <mat-error>
+      Password is required to login.
+    </mat-error>
+    <button mat-icon-button matSuffix (click)="toggleShowPassword()">
+      <mat-icon *ngIf="showPassword">visibility</mat-icon>
+      <mat-icon *ngIf="!showPassword">visibility_off</mat-icon>
+    </button>
+  </mat-form-field>
+</form>
+
+<div class="form-buttons">
+  <button mat-raised-button color="accent">Login</button>
+  <button mat-button color="accent" [mat-dialog-close]="true">Cancel</button>
+</div>

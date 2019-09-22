@@ -5,8 +5,8 @@
     <!-- This fills the remaining space of the current row -->
     <span class="top-nav-bar"></span>
     <span>
-      <button mat-stroked-button>Login</button>
-      <button mat-button color="accent">Sign Up</button>
+      <button mat-stroked-button (click)="openLoginDialog()">Login</button>
+      <button mat-button color="accent" (click)="openSignupDialog()">Sign Up</button>
     </span>
   </mat-toolbar-row>
 </mat-toolbar>

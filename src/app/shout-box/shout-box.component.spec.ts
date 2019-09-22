@@ -1,8 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ShoutBoxComponent } from './shout-box.component';
-import { MatCardModule, MatToolbarModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatCardModule, MatToolbarModule, MatFormFieldModule, MatInputModule, MatIconModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('ShoutBoxComponent', () => {
   let component: ShoutBoxComponent;
@@ -14,6 +15,8 @@ describe('ShoutBoxComponent', () => {
       imports: [MatCardModule,
         MatToolbarModule,
         MatInputModule,
+        MatIconModule,
+        ReactiveFormsModule,
         BrowserAnimationsModule]
     })
       .compileComponents();

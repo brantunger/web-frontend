@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MatDialogModule, MatToolbarModule } from '@angular/material';
 import { TopNavigationComponent } from './top-navigation.component';
-import { MatToolbarModule } from '@angular/material';
+
 
 describe('TopNavigationComponent', () => {
   let component: TopNavigationComponent;
@@ -9,10 +9,10 @@ describe('TopNavigationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TopNavigationComponent ],
-      imports: [MatToolbarModule]
+      declarations: [TopNavigationComponent],
+      imports: [MatToolbarModule, MatDialogModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

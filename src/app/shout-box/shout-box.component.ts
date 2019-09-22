@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-shout-box',
@@ -6,13 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shout-box.component.scss']
 })
 export class ShoutBoxComponent implements OnInit {
+  formGroup: FormGroup;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.formGroup = this.formBuilder.group(
+      {
+        messageInput: ''
+      }
+    );
   }
 
   send() {
-    console.log('Send function');
   }
 }
