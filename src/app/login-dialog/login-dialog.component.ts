@@ -2,6 +2,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { EarlyErrorStateMatcher } from '../../helpers/EarlyErrorStateMatcher';
+import { WebApiService } from '../services/web-api.service';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login-dialog',
@@ -14,7 +16,7 @@ export class LoginDialogComponent implements OnInit {
   showPassword = false;
   passwordInputType = 'password';
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data, private formBuilder: FormBuilder) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data, private formBuilder: FormBuilder, private webApiService: WebApiService) { }
 
   ngOnInit() {
     this.formGroup = this.formBuilder.group({
@@ -36,5 +38,16 @@ export class LoginDialogComponent implements OnInit {
     if (this.formGroup.invalid) {
       return;
     }
+
+    const username = this.formGroup.controls['usernameInput'].value
+    const password = this.formGroup.controls['passwordInput'].value
+
+    this.webApiService
+      .authenticate(username, password)
+      .pipe(take(1))
+      .subscribe(
+        response => this.webApiService.setAccessToken(response.token),
+        error => console.log(error.error.message)
+      );
   }
 }

@@ -11,6 +11,7 @@ import { ShoutBoxComponent } from './shout-box/shout-box.component';
 import { SignupDialogComponent } from './signup-dialog/signup-dialog.component';
 import { TopNavigationComponent } from './top-navigation/top-navigation.component';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { CommonModule } from '@angular/common';
     MatCardModule,
     MatInputModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule
   ],
   entryComponents: [LoginDialogComponent, SignupDialogComponent],
   providers: [],
