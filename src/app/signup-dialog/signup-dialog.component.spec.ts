@@ -11,7 +11,7 @@ describe('SignupDialogComponent', () => {
   let component: SignupDialogComponent;
   let fixture: ComponentFixture<SignupDialogComponent>;
   const mockWebApiService = jasmine.createSpyObj('WebApiService', ['register']);
-  
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [

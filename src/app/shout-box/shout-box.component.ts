@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { AuthorizationService } from '../services/authorization.service';
 
 @Component({
   selector: 'app-shout-box',
@@ -9,7 +10,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class ShoutBoxComponent implements OnInit {
   formGroup: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(public authorizationService: AuthorizationService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.formGroup = this.formBuilder.group(

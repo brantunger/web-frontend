@@ -18,7 +18,7 @@ export class AlertBannerComponent implements OnInit, OnDestroy {
   //  expanded despite no banner.
 
   unsubscribe$ = new Subject();
-  message: string = '';
+  message = '';
   type: AlertType;
   @Input() viewLabel: string;
 

@@ -30,7 +30,7 @@ export class SignupDialogComponent implements OnInit {
       emailInput: ['', Validators.required],
       passwordInput: ['', Validators.required],
       passwordVerifyInput: ['', Validators.required]
-    })
+    });
   }
 
   toggleShowPassword(): void {
@@ -45,7 +45,7 @@ export class SignupDialogComponent implements OnInit {
   passwordVerified(): boolean {
     const password = this.formGroup.controls.passwordInput.value;
     const passwordVerify = this.formGroup.controls.passwordVerifyInput.value;
-    return (password === passwordVerify && passwordVerify != "");
+    return (password === passwordVerify && passwordVerify !== '');
   }
 
   register(): void {
@@ -58,7 +58,7 @@ export class SignupDialogComponent implements OnInit {
     user.password = this.formGroup.controls.passwordInput.value;
     user.email = this.formGroup.controls.usernameInput.value;
     user.role = 'USER';
-    
+
     this.webApiService
       .register(user)
       .pipe(take(1))
@@ -67,7 +67,7 @@ export class SignupDialogComponent implements OnInit {
         error => this.alertService.error('app-signup-dialog', error.error.message)
       );
 
-      this.clearInputs();
+    this.clearInputs();
   }
 
   private clearInputs(): void {
