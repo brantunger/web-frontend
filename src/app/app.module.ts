@@ -12,6 +12,8 @@ import { SignupDialogComponent } from './signup-dialog/signup-dialog.component';
 import { TopNavigationComponent } from './top-navigation/top-navigation.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { AlertBannerComponent } from './alert-banner/alert-banner.component';
+import { ExpandCollapseComponent } from './expand-collapse/expand-collapse.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
     TopNavigationComponent,
     ShoutBoxComponent,
     LoginDialogComponent,
-    SignupDialogComponent
+    SignupDialogComponent,
+    AlertBannerComponent,
+    ExpandCollapseComponent
   ],
   imports: [
     BrowserModule,

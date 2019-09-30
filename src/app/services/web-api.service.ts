@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpMethod } from 'src/helpers/Constants';
+import { AuthorizationService } from './authorization.service';
+import { Users } from '../models/Users';
 
 const { GET, POST, PUT, DELETE, PATCH } = HttpMethod;
 
@@ -12,28 +14,24 @@ const { GET, POST, PUT, DELETE, PATCH } = HttpMethod;
 export class WebApiService {
   apiUrl = environment.baseApiUrl + '/v1';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authorizationService: AuthorizationService) { }
 
-  authenticate(username: string, password: string): Observable<any> {
+  authenticate(username: string, password: string): Observable<Users> {
     return this.perform(POST, `${this.apiUrl}/user/authenticate`, { username, password });
   }
 
-  getUsers(): Observable<any> {
-    return this.perform(GET, `${this.apiUrl}/user`);
-  }
-
-  setAccessToken(token: string) {
-    sessionStorage.setItem('access_token', token);
+  register(user: Users): Observable<Users> {
+    return this.perform(POST, `${this.apiUrl}/user/register`, user);
   }
 
   private perform(method: HttpMethod, url: string, data?: any): Observable<any> {
     let headers;
-    let response$: Observable<Object>;
+    let response$: Observable<object>;
 
-    if (this.getAccessToken() !== null) {
+    if (this.authorizationService.getAccessToken() !== null) {
       headers = {
         headers: new HttpHeaders({
-          'Authorization': `Bearer ${this.getAccessToken()}`,
+          Authorization: `Bearer ${this.authorizationService.getAccessToken()}`,
           'Content-Type': 'application/json'
         })
       };
@@ -63,9 +61,5 @@ export class WebApiService {
     }
 
     return response$;
-  }
-
-  private getAccessToken(): string {
-    return sessionStorage.getItem('access_token') as string;
   }
 }
