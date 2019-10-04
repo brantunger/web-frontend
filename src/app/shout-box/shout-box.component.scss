@@ -1,6 +1,21 @@
 .shout-container {
     margin-bottom: 1em;
+    background-color: #7FDBFF;
+    border: #00b5fc 1px solid;
 }
+
+.shout-inner-container {
+    height: 200px;
+    overflow-y: auto;
+}
+
+.message {
+    padding: 0.5em;
+    border-radius: 1em;
+    margin: 0.5em;
+    line-height: 1.1em;
+    background-color: white;
+  }
 
 .inline-username {
     display: inline;

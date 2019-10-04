@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthorizationService {
-  constructor() { }
+  private username: string;
+  private role: string;
+
+  constructor(private jwtService: JwtHelperService) { }
 
   setAccessToken(token: string) {
     sessionStorage.setItem('access_token', token);
@@ -14,16 +18,30 @@ export class AuthorizationService {
     return sessionStorage.getItem('access_token') as string;
   }
 
-  setUsername(user: string) {
-    sessionStorage.setItem('user', user);
+  setUsernameFromToken(token: string) {
+    this.username = this.getAccessToken() === null ? null : this.jwtService.decodeToken(token).sub;
   }
 
   getUsername(): string {
-    return sessionStorage.getItem('user') as string;
+    return this.username;
+  }
+
+  setRoleFromToken(token: string) {
+    this.role = this.getAccessToken() === null ? null : this.jwtService.decodeToken(token).role;
+  }
+
+  getRole(): string {
+    return this.role;
   }
 
   isUserLoggedIn(): boolean {
-    return (this.getUsername() !== null && this.getAccessToken() !== null);
+    return this.getAccessToken() !== null;
+  }
+
+  login(token: string) {
+    this.setAccessToken(token);
+    this.setUsernameFromToken(token);
+    this.setRoleFromToken(token);
   }
 
   logout() {

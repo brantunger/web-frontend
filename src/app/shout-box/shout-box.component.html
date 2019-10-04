@@ -4,9 +4,8 @@
   </mat-toolbar>
   <mat-card-content class="card-content">
     <div class="shout-container">
-      <div>
-        <div class="inline-username">Xoleedo: </div>
-        <div class="inline-message">I sent a message!</div>
+      <div #shoutInnerContainer [scrollTop]="shoutInnerContainer.scrollHeight" class="shout-inner-container">
+        <div *ngFor="let message of messages" class="message">{{ message }}</div>
       </div>
     </div>
 

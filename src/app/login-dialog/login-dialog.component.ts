@@ -1,11 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { EarlyErrorStateMatcher } from '../../helpers/EarlyErrorStateMatcher';
-import { WebApiService } from '../services/web-api.service';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { take } from 'rxjs/operators';
-import { AuthorizationService } from '../services/authorization.service';
+import { EarlyErrorStateMatcher } from '../../helpers/EarlyErrorStateMatcher';
 import { AlertService } from '../services/alert.service';
+import { AuthorizationService } from '../services/authorization.service';
+import { WebApiService } from '../services/web-api.service';
 
 @Component({
   selector: 'app-login-dialog',
@@ -55,8 +55,7 @@ export class LoginDialogComponent implements OnInit {
       .pipe(take(1))
       .subscribe(
         response => {
-          this.authorizationService.setAccessToken(response.token);
-          this.authorizationService.setUsername(response.username);
+          this.authorizationService.login(response.token);
           this.dialogRef.close();
         },
         error => this.alertService.error('app-login-dialog', error.error.message)

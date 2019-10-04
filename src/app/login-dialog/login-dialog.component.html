@@ -2,15 +2,16 @@
 <h1>Login</h1>
 <form [formGroup]="formGroup" (keydown.enter)="$event.preventDefault()">
   <mat-form-field>
-    <input matInput formControlName="usernameInput" placeholder="Username" type="text" [errorStateMatcher]="matcher" />
+    <input matInput formControlName="usernameInput" placeholder="Username" type="text" [errorStateMatcher]="matcher"
+      autocomplete="off" />
     <mat-icon matSuffix>face</mat-icon>
     <mat-error>
       Username is required to login.
     </mat-error>
   </mat-form-field>
   <mat-form-field>
-    <input matInput formControlName="passwordInput" placeholder="Password" (keyup.enter)="login()" type="{{passwordInputType}}"
-      [errorStateMatcher]="matcher"/>
+    <input matInput formControlName="passwordInput" placeholder="Password" (keyup.enter)="login()"
+      type="{{passwordInputType}}" [errorStateMatcher]="matcher" autocomplete="off" />
     <mat-error>
       Password is required to login.
     </mat-error>
