@@ -9,7 +9,6 @@ import { AuthorizationService } from '../services/authorization.service';
 })
 export class ShoutBoxComponent implements OnInit {
   formGroup: FormGroup;
-
   messages = [
     'I wondered why the baseball was getting bigger. Then it hit me.',
     'Police were called to a day care, where a three-year-old was resisting a rest.',
