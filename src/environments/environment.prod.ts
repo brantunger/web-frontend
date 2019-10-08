@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  baseApiUrl: 'https://api.wildangelsguild.com'
+  baseApiUrl: 'https://api.wildangelsguild.com',
+  baseSocketUrl: 'ws://api.wildangelsguild.com/ws'
 };
