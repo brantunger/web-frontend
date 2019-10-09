@@ -1,11 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, from } from 'rxjs';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpMethod } from 'src/helpers/Constants';
-import { AuthorizationService } from './authorization.service';
-import { User } from '../models/User';
 import { ShoutMessage } from '../models/ShoutMessage';
+import { User } from '../models/User';
+import { AuthorizationService } from './authorization.service';
 
 const { GET, POST, PUT, DELETE, PATCH } = HttpMethod;
 
