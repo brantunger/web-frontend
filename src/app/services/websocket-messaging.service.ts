@@ -12,14 +12,12 @@ export class WebsocketMessagingService {
   private messages: Observable<Message>;
   private stompService: StompService;
 
-  constructor(
-    streamUrl: string,
-    private authorizationService: AuthorizationService) {
+  constructor(streamUrl: string) {
 
     const stompConfig: StompConfig = {
       url: environment.baseSocketUrl,
       headers: {
-        Authorization: `Bearer ${this.authorizationService.getAccessToken()}`
+        Authorization: 'No Authentication'
       },
       heartbeat_in: 0,
       heartbeat_out: 20000,

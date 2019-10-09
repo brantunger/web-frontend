@@ -38,10 +38,7 @@ export class ShoutBoxComponent implements OnInit {
             this.messages.push(`${message.username}: ${message.message}`));
       }, error => console.error(error.error.message));
 
-    this.websocketMessagingService = new WebsocketMessagingService(
-      TOPIC_URL,
-      this.authorizationService
-    );
+    this.websocketMessagingService = new WebsocketMessagingService(TOPIC_URL);
 
     this.websocketMessagingService
       .stream()
