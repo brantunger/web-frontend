@@ -1,10 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpMethod } from 'src/helpers/Constants';
 import { AuthorizationService } from './authorization.service';
-import { Users } from '../models/Users';
+import { User } from '../models/User';
+import { ShoutMessage } from '../models/ShoutMessage';
 
 const { GET, POST, PUT, DELETE, PATCH } = HttpMethod;
 
@@ -16,12 +17,16 @@ export class WebApiService {
 
   constructor(private http: HttpClient, private authorizationService: AuthorizationService) { }
 
-  authenticate(username: string, password: string): Observable<Users> {
+  authenticate(username: string, password: string): Observable<User> {
     return this.perform(POST, `${this.apiUrl}/user/authenticate`, { username, password });
   }
 
-  register(user: Users): Observable<Users> {
+  register(user: User): Observable<User> {
     return this.perform(POST, `${this.apiUrl}/user/register`, user);
+  }
+
+  getShoutMessages(): Observable<ShoutMessage[]> {
+    return this.perform(GET, `${this.apiUrl}/shoutmessage`);
   }
 
   private perform(method: HttpMethod, url: string, data?: any): Observable<any> {

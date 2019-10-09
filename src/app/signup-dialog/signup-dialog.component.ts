@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { take } from 'rxjs/operators';
 import { EarlyErrorStateMatcher } from 'src/helpers/EarlyErrorStateMatcher';
-import { Users } from '../models/Users';
+import { User } from '../models/User';
 import { AlertService } from '../services/alert.service';
 import { WebApiService } from '../services/web-api.service';
 
@@ -53,7 +53,7 @@ export class SignupDialogComponent implements OnInit {
       return;
     }
 
-    const user: Users = new Users();
+    const user: User = new User();
     user.username = this.formGroup.controls.usernameInput.value;
     user.password = this.formGroup.controls.passwordInput.value;
     user.email = this.formGroup.controls.usernameInput.value;

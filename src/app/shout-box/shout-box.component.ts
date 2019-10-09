@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Message } from '@stomp/stompjs';
 import { AuthorizationService } from '../services/authorization.service';
 import { WebsocketMessagingService } from '../services/websocket-messaging.service';
+import { WebApiService } from '../services/web-api.service';
+import { take } from 'rxjs/operators';
 
 const TOPIC_URL = '/topic/shoutmessage';
 
@@ -18,6 +20,7 @@ export class ShoutBoxComponent implements OnInit {
 
   constructor(
     public authorizationService: AuthorizationService,
+    private webServiceApi: WebApiService,
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -26,6 +29,14 @@ export class ShoutBoxComponent implements OnInit {
         messageInput: ''
       }
     );
+
+    this.webServiceApi.getShoutMessages()
+      .pipe(take(1))
+      .subscribe(shoutMessages => {
+        shoutMessages
+          .forEach(message =>
+            this.messages.push(`${message.username}: ${message.message}`));
+      }, error => console.error(error.error.message));
 
     this.websocketMessagingService = new WebsocketMessagingService(
       TOPIC_URL,
@@ -42,10 +53,12 @@ export class ShoutBoxComponent implements OnInit {
 
   send() {
     const message = this.formGroup.controls.messageInput.value;
-    this.formGroup.controls.messageInput.setValue('');
-    this.websocketMessagingService.send('/shout', {
-      name: this.authorizationService.getUsername(),
-      message: `${message}`
-    });
+    if (message !== '') {
+      this.formGroup.controls.messageInput.setValue('');
+      this.websocketMessagingService.send('/shout', {
+        name: this.authorizationService.getUsername(),
+        message: `${message}`
+      });
+    }
   }
 }
