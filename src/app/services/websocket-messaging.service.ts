@@ -1,10 +1,11 @@
-import { StompService, StompConfig, StompState } from '@stomp/ng2-stompjs';
-import { Message } from '@stomp/stompjs';
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { AuthorizationService } from './authorization.service';
+import { StompConfig, StompService, StompState } from '@stomp/ng2-stompjs';
+import { Message } from '@stomp/stompjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
+
+// TODO: Upgrade to RxStomp
 @Injectable({
   providedIn: 'root'
 })
@@ -22,7 +23,7 @@ export class WebsocketMessagingService {
       heartbeat_in: 0,
       heartbeat_out: 20000,
       reconnect_delay: 5000,
-      debug: true
+      debug: false
     };
 
     this.stompService = new StompService(stompConfig);
