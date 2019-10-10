@@ -7,6 +7,7 @@ import { WebApiService } from '../services/web-api.service';
 import { take } from 'rxjs/operators';
 
 const TOPIC_URL = '/topic/shoutmessage';
+const SEND_URL = '/shout';
 
 @Component({
   selector: 'app-shout-box',
@@ -52,7 +53,7 @@ export class ShoutBoxComponent implements OnInit {
     const message = this.formGroup.controls.messageInput.value;
     if (message !== '') {
       this.formGroup.controls.messageInput.setValue('');
-      this.websocketMessagingService.send('/shout', {
+      this.websocketMessagingService.send(SEND_URL, {
         name: this.authorizationService.getUsername(),
         message: `${message}`
       });
