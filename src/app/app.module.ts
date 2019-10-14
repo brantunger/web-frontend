@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatCardModule, MatDialogModule, MatIconModule, MatInputModule } from '@angular/material';
@@ -17,6 +17,7 @@ import { SignupDialogComponent } from './signup-dialog/signup-dialog.component';
 import { TopNavigationComponent } from './top-navigation/top-navigation.component';
 import { NewsCardComponent } from './news-card/news-card.component';
 import { NewsContainerComponent } from './news-card/news-container/news-container.component';
+import { AuthenticationInterceptor } from './authentication-interceptor';
 
 
 @NgModule({
@@ -54,7 +55,11 @@ import { NewsContainerComponent } from './news-card/news-container/news-containe
     })
   ],
   entryComponents: [LoginDialogComponent, SignupDialogComponent],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthenticationInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

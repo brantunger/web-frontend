@@ -45,6 +45,8 @@ export class AuthorizationService {
   }
 
   logout() {
+    this.username = null;
+    this.role = null;
     sessionStorage.clear();
   }
 }
