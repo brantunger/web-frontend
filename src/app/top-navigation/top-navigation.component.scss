@@ -1,11 +1,18 @@
 .nav-logo {
-  height: 64px;
-  width: 64px;
+  height: 50px;
+  width: 50px;
+  border-radius:50%;
+  border: #7e868d 1px solid;
+  box-shadow: 2px 2px 10px #888888;
   margin-right: 1em;
 }
 
 .top-nav-toolbar {
   background-color: white;
+  h5 {
+    color: #be5e24;
+    text-shadow: 2px 2px 10px #be5e24;
+  }
 }
 
 .top-nav-bar {
@@ -15,7 +22,7 @@
 .username-span {
   margin-right: 1em;
   h3 {
-    color: #0099ff;
+    color: #be5e24;
     font-size: .75em;
   }
 }

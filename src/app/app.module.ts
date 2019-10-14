@@ -15,6 +15,8 @@ import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 import { ShoutBoxComponent } from './shout-box/shout-box.component';
 import { SignupDialogComponent } from './signup-dialog/signup-dialog.component';
 import { TopNavigationComponent } from './top-navigation/top-navigation.component';
+import { NewsCardComponent } from './news-card/news-card.component';
+import { NewsContainerComponent } from './news-card/news-container/news-container.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { TopNavigationComponent } from './top-navigation/top-navigation.componen
     LoginDialogComponent,
     SignupDialogComponent,
     AlertBannerComponent,
-    ExpandCollapseComponent
+    ExpandCollapseComponent,
+    NewsCardComponent,
+    NewsContainerComponent
   ],
   imports: [
     BrowserModule,
