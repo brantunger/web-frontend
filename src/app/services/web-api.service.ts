@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { HttpMethod } from 'src/helpers/Constants';
 import { ShoutMessage } from '../models/ShoutMessage';
 import { User } from '../models/User';
+import { News } from '../models/News';
 import { AuthorizationService } from './authorization.service';
 
 const { GET, POST, PUT, DELETE, PATCH } = HttpMethod;
@@ -27,6 +28,10 @@ export class WebApiService {
 
   getShoutMessages(): Observable<ShoutMessage[]> {
     return this.perform(GET, `${this.apiUrl}/shoutmessage`);
+  }
+
+  getAllNews(): Observable<News[]> {
+    return this.perform(GET, `${this.apiUrl}/news`);
   }
 
   private perform(method: HttpMethod, url: string, data?: any): Observable<any> {
