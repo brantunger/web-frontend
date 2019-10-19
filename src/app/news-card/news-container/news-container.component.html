@@ -3,18 +3,18 @@
     <div>
       <mat-icon matSuffix color="accent" class="clickable-icon" (click)="voteUp()">arrow_drop_up</mat-icon>
     </div>
-    <div class="vote-number">1</div>
+    <div class="vote-number">{{ newsStory.votes}}</div>
     <div>
       <mat-icon matSuffix color="accent" class="clickable-icon" (click)="voteDown()">arrow_drop_down</mat-icon>
     </div>
   </div>
   <div>
     <div class="news-header">
-      <h3>I am a new post!</h3>
-      <h5>- Posted by admin - 10/10/2019 12:00</h5>
+      <h3>{{ newsStory.title }}</h3>
+      <h5>- Posted by {{ newsStory.createdBy }} - {{ convertDate() }}</h5>
     </div>
     <div class="news-content">
-      I am some news content!
+      {{ newsStory.content }}
     </div>
   </div>
 </div>

@@ -3,6 +3,6 @@
     News
   </mat-toolbar>
   <mat-card-content class="card-content">
-    <app-news-container></app-news-container>
+    <app-news-container *ngFor="let story of news" [newsStory]="story"></app-news-container>
   </mat-card-content>
 </mat-card>
