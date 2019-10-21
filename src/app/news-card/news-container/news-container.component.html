@@ -13,8 +13,7 @@
       <h3>{{ newsStory.title }}</h3>
       <h5>- Posted by {{ newsStory.createdBy }} - {{ convertDate() }}</h5>
     </div>
-    <div class="news-content">
-      {{ newsStory.content }}
+    <div class="news-content" [innerHTML]="newsStory.content | keepHtml">
     </div>
   </div>
 </div>

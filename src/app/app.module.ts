@@ -18,6 +18,7 @@ import { TopNavigationComponent } from './top-navigation/top-navigation.componen
 import { NewsCardComponent } from './news-card/news-card.component';
 import { NewsContainerComponent } from './news-card/news-container/news-container.component';
 import { AuthenticationInterceptor } from './authentication-interceptor';
+import { NoSantizingHtmlPipe } from './pipes/no-santizing-html.pipe';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { AuthenticationInterceptor } from './authentication-interceptor';
     AlertBannerComponent,
     ExpandCollapseComponent,
     NewsCardComponent,
-    NewsContainerComponent
+    NewsContainerComponent,
+    NoSantizingHtmlPipe
   ],
   imports: [
     BrowserModule,
