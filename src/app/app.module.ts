@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule, MatCardModule, MatDialogModule, MatIconModule, MatInputModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatDialogModule, MatIconModule, MatInputModule, MatTooltipModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -43,6 +43,7 @@ import { NoSantizingHtmlPipe } from './pipes/no-santizing-html.pipe';
     ReactiveFormsModule,
     MatToolbarModule,
     MatButtonModule,
+    MatTooltipModule,
     MatCardModule,
     MatInputModule,
     MatIconModule,

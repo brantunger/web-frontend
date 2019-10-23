@@ -1,15 +1,23 @@
 <mat-toolbar class="mat-elevation-z2 top-nav-toolbar" color="primary">
   <mat-toolbar-row>
     <img class="nav-logo" src="../../assets/DF_Icon.png" />
-    <span><h5>Dread Fall Guild - SWTOR</h5></span>
+    <span>
+      <h5>Dread Fall Guild - SWTOR</h5>
+    </span>
     <!-- This fills the remaining space of the current row -->
     <span class="top-nav-bar"></span>
-    <span *ngIf="!authorizationService.isUserLoggedIn()">
-      <button mat-stroked-button (click)="openLoginDialog()">Login</button>
-      <button mat-button color="accent" (click)="openSignupDialog()">Sign Up</button>
+    <span>
+      <button mat-icon-button color="primary" matTooltip="Create new news story." matTooltipPosition="before">
+        <mat-icon class="new-news-icon">create
+        </mat-icon>
+      </button>
     </span>
     <span *ngIf="authorizationService.isUserLoggedIn()" class="username-span">
       <h3>{{ authorizationService.getUsername() }}</h3>
+    </span>
+    <span *ngIf="!authorizationService.isUserLoggedIn()">
+      <button mat-stroked-button (click)="openLoginDialog()">Login</button>
+      <button mat-button color="accent" (click)="openSignupDialog()">Sign Up</button>
     </span>
     <span *ngIf="authorizationService.isUserLoggedIn()">
       <button mat-stroked-button (click)="logout()">Logout</button>
