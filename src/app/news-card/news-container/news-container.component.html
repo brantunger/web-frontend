@@ -1,11 +1,19 @@
 <div class="news-container">
   <div class="news-vote-column">
     <div>
-      <mat-icon matSuffix color="accent" class="clickable-icon" (click)="voteUp()">arrow_drop_up</mat-icon>
+      <button mat-icon-button color="accent" matTooltip="Upvote for the story." matTooltipPosition="after"
+        (click)="voteUp()">
+        <mat-icon>arrow_drop_up
+        </mat-icon>
+      </button>
     </div>
     <div class="vote-number">{{ newsStory.votes}}</div>
     <div>
-      <mat-icon matSuffix color="accent" class="clickable-icon" (click)="voteDown()">arrow_drop_down</mat-icon>
+      <button mat-icon-button color="accent" matTooltip="Downvote for the story." matTooltipPosition="after"
+        (click)="voteDown()">
+        <mat-icon>arrow_drop_down
+        </mat-icon>
+      </button>
     </div>
   </div>
   <div>

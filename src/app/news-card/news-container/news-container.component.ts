@@ -39,6 +39,7 @@ export class NewsContainerComponent implements OnInit {
 
   voteDown() {
     const newsRequest: News = this.newsStory;
+    newsRequest.votes -= 1;
 
     this.webApiService
       .updateNews(newsRequest.newsId, newsRequest)
