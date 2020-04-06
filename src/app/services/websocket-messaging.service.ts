@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { StompConfig, StompService, StompState } from '@stomp/ng2-stompjs';
 import { Message } from '@stomp/stompjs';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -13,7 +13,7 @@ export class WebsocketMessagingService {
   private messages: Observable<Message>;
   private stompService: StompService;
 
-  constructor(streamUrl: string) {
+  constructor(@Inject(String) streamUrl: string) {
 
     const stompConfig: StompConfig = {
       url: environment.baseSocketUrl,
