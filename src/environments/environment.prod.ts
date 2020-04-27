@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  baseApiUrl: 'https://api.dreadfallguild.com',
-  baseSocketUrl: 'ws://api.dreadfallguild.com/ws'
+  baseApiUrl: 'https://api.dreadfall.com',
+  baseSocketUrl: 'ws://api.dreadfall.com/ws'
 };
