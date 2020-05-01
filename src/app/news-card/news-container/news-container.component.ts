@@ -14,7 +14,7 @@ export class NewsContainerComponent implements OnInit {
 
   constructor(private webApiService: WebApiService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
   convertDate(): string {
@@ -24,7 +24,7 @@ export class NewsContainerComponent implements OnInit {
       .format('MM/DD/YY hh:mm:ss');
   }
 
-  voteUp() {
+  voteUp(): void {
     const newsRequest: News = this.newsStory;
     newsRequest.votes += 1;
 
@@ -37,7 +37,7 @@ export class NewsContainerComponent implements OnInit {
       );
   }
 
-  voteDown() {
+  voteDown(): void {
     const newsRequest: News = this.newsStory;
     newsRequest.votes -= 1;
 

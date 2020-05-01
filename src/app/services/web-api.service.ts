@@ -18,23 +18,23 @@ export class WebApiService {
 
   constructor(private http: HttpClient, private authorizationService: AuthorizationService) { }
 
-  authenticate(username: string, password: string): Observable<User> {
+  public authenticate(username: string, password: string): Observable<User> {
     return this.perform(POST, `${this.apiUrl}/user/authenticate`, { username, password });
   }
 
-  register(user: User): Observable<User> {
+  public register(user: User): Observable<User> {
     return this.perform(POST, `${this.apiUrl}/user/register`, user);
   }
 
-  getShoutMessages(): Observable<ShoutMessage[]> {
+  public getShoutMessages(): Observable<ShoutMessage[]> {
     return this.perform(GET, `${this.apiUrl}/shoutmessage`);
   }
 
-  getAllNews(): Observable<News[]> {
+  public getAllNews(): Observable<News[]> {
     return this.perform(GET, `${this.apiUrl}/news`);
   }
 
-  updateNews(id: number, news: News): Observable<News> {
+  public updateNews(id: number, news: News): Observable<News> {
     return this.perform(PUT, `${this.apiUrl}/news/${id}`, news);
   }
 

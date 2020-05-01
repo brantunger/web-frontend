@@ -10,41 +10,41 @@ export class AuthorizationService {
 
   constructor(private jwtService: JwtHelperService) { }
 
-  setAccessToken(token: string) {
+  public setAccessToken(token: string): void {
     sessionStorage.setItem('access_token', token);
   }
 
-  getAccessToken(): string {
+  public getAccessToken(): string {
     return sessionStorage.getItem('access_token') as string;
   }
 
-  setUsernameFromToken(token: string) {
+  public setUsernameFromToken(token: string): void {
     this.username = this.getAccessToken() === null ? null : this.jwtService.decodeToken(token).sub;
   }
 
-  getUsername(): string {
+  public getUsername(): string {
     return this.username;
   }
 
-  setRoleFromToken(token: string) {
+  public setRoleFromToken(token: string): void {
     this.role = this.getAccessToken() === null ? null : this.jwtService.decodeToken(token).role;
   }
 
-  getRole(): string {
+  public getRole(): string {
     return this.role;
   }
 
-  isUserLoggedIn(): boolean {
+  public isUserLoggedIn(): boolean {
     return this.getAccessToken() !== null;
   }
 
-  login(token: string) {
+  public login(token: string): void {
     this.setAccessToken(token);
     this.setUsernameFromToken(token);
     this.setRoleFromToken(token);
   }
 
-  logout() {
+  public logout(): void {
     this.username = null;
     this.role = null;
     sessionStorage.clear();

@@ -58,11 +58,11 @@ export class ExpandCollapseComponent implements OnChanges, OnInit {
     };
   }
 
-  setStartHeight() {
+  setStartHeight(): void {
     this.startHeight = this.element.nativeElement.clientHeight;
   }
 
-  ngOnChanges() {
+  ngOnChanges(): void {
     this.setStartHeight();
   }
 }

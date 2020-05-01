@@ -24,7 +24,7 @@ export class SignupDialogComponent implements OnInit {
   private webApiService: WebApiService,
   private alertService: AlertService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
       usernameInput: ['', Validators.required],
       emailInput: ['', Validators.required],

@@ -12,22 +12,22 @@ import { AuthorizationService } from '../services/authorization.service';
 export class TopNavigationComponent implements OnInit {
   constructor(public authorizationService: AuthorizationService, private dialog: MatDialog) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  openLoginDialog() {
+  openLoginDialog(): void {
     this.dialog.open(LoginDialogComponent, {
       width: '400px'
     });
   }
 
-  openSignupDialog() {
+  openSignupDialog(): void {
     this.dialog.open(SignupDialogComponent, {
       width: '400px'
     });
   }
 
-  logout() {
+  logout(): void {
     this.authorizationService.logout();
   }
 }

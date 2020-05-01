@@ -22,29 +22,29 @@ export class AlertService {
 
   constructor() {}
 
-  clear = (viewLabel: string) => {
+  public clear = (viewLabel: string): void => {
     delete this.currentAlerts[viewLabel];
     this.alert$.next({ viewLabel, message: '', type: AlertType.Clear });
   }
 
-  clearAll = () => {
+  public clearAll = (): void => {
     this.currentAlerts = {};
   }
 
-  updateAlert(viewLabel: string, message: string, type: AlertType): void {
+  public updateAlert(viewLabel: string, message: string, type: AlertType): void {
     this.pushAlert({ viewLabel, message, type });
   }
 
-  updateApiAlert(viewLabel: string, response: any): void {
+  public updateApiAlert(viewLabel: string, response: any): void {
     const alertType = response.success ? AlertType.Success : AlertType.Error;
     this.pushAlert({ viewLabel, message: response.message, type: alertType });
   }
 
-  success(viewLabel: string, message: string): void {
+  public success(viewLabel: string, message: string): void {
     this.updateAlert(viewLabel, message, AlertType.Success);
   }
 
-  error(viewLabel: string, message: string): void {
+  public error(viewLabel: string, message: string): void {
     this.updateAlert(viewLabel, message, AlertType.Error);
     if ( message.toLowerCase().startsWith('insufficient privileges') ) {
       setTimeout(() => {

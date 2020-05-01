@@ -13,9 +13,6 @@ import { Subject } from 'rxjs';
   styleUrls: ['./alert-banner.component.scss']
 })
 export class AlertBannerComponent implements OnInit, OnDestroy {
-  // TODO: cancelling a message as it disappears due to timeout can
-  //  cause the trigger for expand/collapse to break, making it stay
-  //  expanded despite no banner.
 
   unsubscribe$ = new Subject();
   message = '';
@@ -24,7 +21,7 @@ export class AlertBannerComponent implements OnInit, OnDestroy {
 
   constructor(private alertService: AlertService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     const currentAlert = this.alertService.currentAlerts[this.viewLabel];
     if (currentAlert) {
       this.updateDisplay(currentAlert);
@@ -43,7 +40,7 @@ export class AlertBannerComponent implements OnInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
-  updateDisplay = (options: AlertServiceOptions) => {
+  updateDisplay = (options: AlertServiceOptions): void => {
     this.message = options.message;
     if (options.type !== AlertType.Clear) {
       this.type = options.type;

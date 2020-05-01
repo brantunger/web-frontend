@@ -34,8 +34,8 @@ export class WebsocketMessagingService {
     return this.messages;
   }
 
-  public send(url: string, message: any) {
-    return this.stompService.publish(url, JSON.stringify(message));
+  public send(url: string, message: any): void {
+    this.stompService.publish(url, JSON.stringify(message));
   }
 
   public state(): BehaviorSubject<StompState> {

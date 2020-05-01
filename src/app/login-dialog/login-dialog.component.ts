@@ -26,14 +26,14 @@ export class LoginDialogComponent implements OnInit {
   private dialogRef: MatDialogRef<LoginDialogComponent>,
   private alertService: AlertService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
       usernameInput: ['', Validators.required],
       passwordInput: ['', Validators.required]
     });
   }
 
-  toggleShowPassword() {
+  toggleShowPassword(): void {
     this.showPassword = !this.showPassword;
     if (this.showPassword) {
       this.passwordInputType = 'text';
@@ -42,7 +42,7 @@ export class LoginDialogComponent implements OnInit {
     }
   }
 
-  login() {
+  login(): void {
     if (this.formGroup.invalid) {
       return;
     }

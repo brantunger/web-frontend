@@ -24,7 +24,7 @@ export class ShoutBoxComponent implements OnInit {
     private webServiceApi: WebApiService,
     private formBuilder: FormBuilder) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.formGroup = this.formBuilder.group(
       {
         messageInput: ''
@@ -49,7 +49,7 @@ export class ShoutBoxComponent implements OnInit {
       });
   }
 
-  send() {
+  send(): void {
     const message = this.formGroup.controls.messageInput.value;
     if (message !== '') {
       this.formGroup.controls.messageInput.setValue('');

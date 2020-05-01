@@ -12,7 +12,7 @@ export class NewsCardComponent implements OnInit {
   news = new Array<News>();
   constructor(private webApiService: WebApiService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.webApiService
       .getAllNews()
       .pipe(take(1))
