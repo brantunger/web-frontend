@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CreateNewsComponent } from './create-news/create-news.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { HomePageComponent } from './home-page/home-page.component';
+import { CreateNewsComponent } from './components/create-news/create-news.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },

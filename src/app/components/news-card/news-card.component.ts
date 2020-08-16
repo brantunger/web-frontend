@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { WebApiService } from '../services/web-api.service';
-import { News } from '../models/News';
+import { WebApiService } from '../../services/web-api.service';
+import { News } from '../../models/News';
 import { take } from 'rxjs/operators';
 
 @Component({

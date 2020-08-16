@@ -16,17 +16,17 @@ import { AlertBannerComponent } from './alert-banner/alert-banner.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ExpandCollapseComponent } from './expand-collapse/expand-collapse.component';
-import { LoginDialogComponent } from './login-dialog/login-dialog.component';
-import { ShoutBoxComponent } from './shout-box/shout-box.component';
-import { SignupDialogComponent } from './signup-dialog/signup-dialog.component';
-import { TopNavigationComponent } from './top-navigation/top-navigation.component';
-import { NewsCardComponent } from './news-card/news-card.component';
-import { NewsContainerComponent } from './news-card/news-container/news-container.component';
+import { LoginDialogComponent } from './components/login-dialog/login-dialog.component';
+import { ShoutBoxComponent } from './components/shout-box/shout-box.component';
+import { SignupDialogComponent } from './components/signup-dialog/signup-dialog.component';
+import { TopNavigationComponent } from './components/top-navigation/top-navigation.component';
+import { NewsCardComponent } from './components/news-card/news-card.component';
+import { NewsContainerComponent } from './components/news-card/news-container/news-container.component';
 import { AuthenticationInterceptor } from './authentication-interceptor';
 import { NoSantizingHtmlPipe } from './pipes/no-santizing-html.pipe';
-import { CreateNewsComponent } from './create-news/create-news.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { HomePageComponent } from './home-page/home-page.component';
+import { CreateNewsComponent } from './components/create-news/create-news.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 
 @NgModule({

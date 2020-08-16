@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Message } from '@stomp/stompjs';
-import { AuthorizationService } from '../services/authorization.service';
-import { WebsocketMessagingService } from '../services/websocket-messaging.service';
-import { WebApiService } from '../services/web-api.service';
+import { AuthorizationService } from '../../services/authorization.service';
+import { WebsocketMessagingService } from '../../services/websocket-messaging.service';
+import { WebApiService } from '../../services/web-api.service';
 import { take } from 'rxjs/operators';
 
 const TOPIC_URL = '/topic/shoutmessage';
