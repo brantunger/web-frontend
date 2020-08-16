@@ -7,7 +7,8 @@
     <!-- This fills the remaining space of the current row -->
     <span class="top-nav-bar"></span>
     <span *ngIf="authorizationService.getRole() === 'ADMIN'">
-      <button mat-icon-button color="accent" matTooltip="Create news story." matTooltipPosition="before">
+      <button mat-icon-button color="accent" matTooltip="Create news story." matTooltipPosition="before"
+        (click)="openCreateDialog()">
         <mat-icon class="new-news-icon">create
         </mat-icon>
       </button>

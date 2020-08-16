@@ -24,9 +24,9 @@ import { NewsCardComponent } from './components/news-card/news-card.component';
 import { NewsContainerComponent } from './components/news-card/news-container/news-container.component';
 import { AuthenticationInterceptor } from './authentication-interceptor';
 import { NoSantizingHtmlPipe } from './pipes/no-santizing-html.pipe';
-import { CreateNewsComponent } from './components/create-news/create-news.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { CreateNewsDialogComponent } from './components/create-news-dialog/create-news-dialog.component';
 
 
 @NgModule({
@@ -41,9 +41,9 @@ import { HomePageComponent } from './components/home-page/home-page.component';
     NewsCardComponent,
     NewsContainerComponent,
     NoSantizingHtmlPipe,
-    CreateNewsComponent,
     PageNotFoundComponent,
-    HomePageComponent
+    HomePageComponent,
+    CreateNewsDialogComponent
   ],
   imports: [
     BrowserModule,

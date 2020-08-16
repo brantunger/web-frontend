@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
 import { SignupDialogComponent } from '../signup-dialog/signup-dialog.component';
 import { AuthorizationService } from '../../services/authorization.service';
+import { CreateNewsDialogComponent } from '../create-news-dialog/create-news-dialog.component';
 
 @Component({
   selector: 'app-top-navigation',
@@ -23,6 +24,12 @@ export class TopNavigationComponent implements OnInit {
 
   openSignupDialog(): void {
     this.dialog.open(SignupDialogComponent, {
+      width: '400px'
+    });
+  }
+
+  openCreateDialog(): void {
+    this.dialog.open(CreateNewsDialogComponent, {
       width: '400px'
     });
   }
