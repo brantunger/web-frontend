@@ -5,8 +5,8 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   providedIn: 'root'
 })
 export class AuthorizationService {
-  private username: string;
-  private role: string;
+  username: string;
+  role: string;
 
   constructor(private jwtService: JwtHelperService) { }
 
@@ -36,6 +36,10 @@ export class AuthorizationService {
 
   public isUserLoggedIn(): boolean {
     return this.getAccessToken() !== null;
+  }
+
+  public isTokenExpired(): boolean {
+    return this.jwtService.isTokenExpired(this.getAccessToken());
   }
 
   public login(token: string): void {

@@ -38,6 +38,10 @@ export class WebApiService {
     return this.perform(PUT, `${this.apiUrl}/news/${id}`, news);
   }
 
+  public updateNewsVoteCount(id: number, count: number): Observable<News> {
+    return this.perform(PUT, `${this.apiUrl}/news?id=${id}&voteCount=${count}`);
+  }
+
   private perform(method: HttpMethod, url: string, data?: any): Observable<any> {
     let headers;
     let response$: Observable<object>;

@@ -25,28 +25,22 @@ export class NewsContainerComponent implements OnInit {
   }
 
   voteUp(): void {
-    const newsRequest: News = this.newsStory;
-    newsRequest.votes += 1;
-
     this.webApiService
-      .updateNews(newsRequest.newsId, newsRequest)
+      .updateNewsVoteCount(this.newsStory.newsId, this.newsStory.votes + 1)
       .pipe(take(1))
       .subscribe(
         (newsResponse: News) => this.newsStory = newsResponse,
-        (error: any) => console.log(error.error.message)
+        (error: any) => console.error(error.error.message)
       );
   }
 
   voteDown(): void {
-    const newsRequest: News = this.newsStory;
-    newsRequest.votes -= 1;
-
     this.webApiService
-      .updateNews(newsRequest.newsId, newsRequest)
+      .updateNewsVoteCount(this.newsStory.newsId, this.newsStory.votes - 1)
       .pipe(take(1))
       .subscribe(
         (newsResponse: News) => this.newsStory = newsResponse,
-        (error: any) => console.log(error.error.message)
+        (error: any) => console.error(error.error.message)
       );
   }
 }

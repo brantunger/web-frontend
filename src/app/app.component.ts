@@ -11,8 +11,9 @@ export class AppComponent implements OnInit {
   constructor(private authorizationService: AuthorizationService) { }
 
   ngOnInit(): void {
-    this.authorizationService.setUsernameFromToken(sessionStorage.getItem('access_token'));
-    this.authorizationService.setRoleFromToken(sessionStorage.getItem('access_token'));
+    const accessToken = this.authorizationService.getAccessToken();
+    this.authorizationService.setUsernameFromToken(accessToken);
+    this.authorizationService.setRoleFromToken(accessToken);
   }
 
 }
