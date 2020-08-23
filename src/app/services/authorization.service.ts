@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,14 +9,15 @@ export class AuthorizationService {
   username: string;
   role: string;
 
-  constructor(private jwtService: JwtHelperService) { }
+  constructor(private jwtService: JwtHelperService, private cookieService: CookieService) { }
 
   public setAccessToken(token: string): void {
-    sessionStorage.setItem('access_token', token);
+    const expiresOn = this.jwtService.getTokenExpirationDate(token);
+    this.cookieService.set('access_token', token, expiresOn);
   }
 
   public getAccessToken(): string {
-    return sessionStorage.getItem('access_token') as string;
+    return this.cookieService.get('access_token');
   }
 
   public setUsernameFromToken(token: string): void {
@@ -35,7 +37,7 @@ export class AuthorizationService {
   }
 
   public isUserLoggedIn(): boolean {
-    return this.getAccessToken() !== null;
+    return this.getAccessToken() !== '';
   }
 
   public isTokenExpired(): boolean {
@@ -51,6 +53,6 @@ export class AuthorizationService {
   public logout(): void {
     this.username = null;
     this.role = null;
-    sessionStorage.clear();
+    this.cookieService.deleteAll('access_token');
   }
 }

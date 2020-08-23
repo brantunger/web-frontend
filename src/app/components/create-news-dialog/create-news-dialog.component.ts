@@ -10,7 +10,7 @@ export class CreateNewsDialogComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data,
-    private dialogRef: MatDialogRef<CreateNewsDialogComponent>,) { }
+    private dialogRef: MatDialogRef<CreateNewsDialogComponent>) { }
 
   ngOnInit(): void {
   }

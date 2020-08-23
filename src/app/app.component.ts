@@ -12,8 +12,13 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     const accessToken = this.authorizationService.getAccessToken();
-    this.authorizationService.setUsernameFromToken(accessToken);
-    this.authorizationService.setRoleFromToken(accessToken);
-  }
 
+    if (accessToken !== '') {
+      this.authorizationService.setUsernameFromToken(accessToken);
+      this.authorizationService.setRoleFromToken(accessToken);
+      this.authorizationService.login(accessToken);
+    } else {
+      this.authorizationService.logout();
+    }
+  }
 }

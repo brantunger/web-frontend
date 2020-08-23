@@ -11,10 +11,14 @@ import { AuthorizationService } from './services/authorization.service';
 export class AuthenticationInterceptor implements HttpInterceptor {
   constructor(private dialog: MatDialog, private authorizationService: AuthorizationService) { }
 
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    return next
-      .handle(req)
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    return next.handle(request)
       .pipe(
+        map((response: HttpEvent<any>) => {
+          if (response instanceof HttpResponse) {
+            return response;
+          }
+        }),
         catchError((error: HttpErrorResponse) => {
           if (error.status === 401) {
             this.authorizationService.logout();
