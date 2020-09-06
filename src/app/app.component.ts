@@ -10,6 +10,7 @@ export class AppComponent implements OnInit {
 
   constructor(private authorizationService: AuthorizationService) { }
 
+  // TODO: Refactor
   ngOnInit(): void {
     const accessToken = this.authorizationService.getAccessToken();
 

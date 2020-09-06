@@ -14,7 +14,7 @@ const { GET, POST, PUT, DELETE, PATCH } = HttpMethod;
   providedIn: 'root'
 })
 export class WebApiService {
-  apiUrl = environment.baseApiUrl + '/v1';
+  private apiUrl = environment.baseApiUrl + '/v1';
 
   constructor(private http: HttpClient, private authorizationService: AuthorizationService) { }
 
@@ -43,19 +43,18 @@ export class WebApiService {
   }
 
   private perform(method: HttpMethod, url: string, data?: any): Observable<any> {
-    let headers;
+    let headers = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+
     let response$: Observable<object>;
 
-    if (this.authorizationService.getAccessToken() !== null) {
+    if (this.authorizationService.getAccessToken() !== '') {
       headers = {
         headers: new HttpHeaders({
           Authorization: `Bearer ${this.authorizationService.getAccessToken()}`,
-          'Content-Type': 'application/json'
-        })
-      };
-    } else {
-      headers = {
-        headers: new HttpHeaders({
           'Content-Type': 'application/json'
         })
       };

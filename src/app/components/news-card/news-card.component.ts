@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { WebApiService } from '../../services/web-api.service';
 import { News } from '../../models/News';
-import { take } from 'rxjs/operators';
+import { NewsService } from 'src/app/services/news.service';
 
 @Component({
   selector: 'app-news-card',
@@ -10,17 +9,13 @@ import { take } from 'rxjs/operators';
 })
 export class NewsCardComponent implements OnInit {
   news = new Array<News>();
-  constructor(private webApiService: WebApiService) { }
+
+  constructor(private newsService: NewsService) { }
 
   ngOnInit(): void {
-    this.webApiService
+    this.newsService
       .getAllNews()
-      .pipe(take(1))
-      .subscribe((newsStories: News[]) => {
-        newsStories.forEach((story: News) => {
-          this.news.push(story);
-        });
-      });
+      .subscribe((newsStory: News) => this.news.push(newsStory));
   }
 
 }
