@@ -30,7 +30,9 @@ export class TopNavigationComponent implements OnInit {
 
   openCreateDialog(): void {
     this.dialog.open(CreateNewsDialogComponent, {
-      width: '400px'
+      width: '1000px',
+      disableClose: true,
+      maxHeight: '90vh'
     });
   }
 
