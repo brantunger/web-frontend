@@ -17,10 +17,15 @@
     </div>
 
     <div>
-        <mat-form-field class="formFields">
+        <mat-form-field class="formFields" appearance="outline">
             <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5"
-                formControlName="postInput" placeholder="Post Text" type="text" autocomplete="off"></textarea>
+                formControlName="postInput" placeholder="Post Text" type="text" autocomplete="off"
+                [(ngModel)]="markdown"></textarea>
         </mat-form-field>
+    </div>
+
+    <div>
+        <markdown [data]="markdown"></markdown>
     </div>
 </form>
 

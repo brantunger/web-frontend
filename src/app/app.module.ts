@@ -27,6 +27,7 @@ import { NoSantizingHtmlPipe } from './pipes/no-santizing-html.pipe';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { CreateNewsDialogComponent } from './components/create-news-dialog/create-news-dialog.component';
+import {MarkdownModule} from 'ngx-markdown';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { CreateNewsDialogComponent } from './components/create-news-dialog/creat
           return sessionStorage.getItem('access_token');
         }
       }
-    })
+    }),
+    MarkdownModule.forRoot()
   ],
   entryComponents: [LoginDialogComponent, SignupDialogComponent],
   providers: [{
