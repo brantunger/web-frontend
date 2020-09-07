@@ -1,22 +1,26 @@
 {
   "name": "web-frontend",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ngcc"
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/core": "^10.1.0",
+    "@angular-devkit/schematics": "^10.1.0",
     "@angular/animations": "^9.1.12",
     "@angular/cdk": "^9.2.4",
     "@angular/common": "^9.1.12",
     "@angular/compiler": "^9.1.12",
     "@angular/core": "^9.1.12",
     "@angular/forms": "^9.1.12",
+    "@angular/localize": "^9.1.12",
     "@angular/material": "^9.2.4",
     "@angular/platform-browser": "^9.1.12",
     "@angular/platform-browser-dynamic": "^9.1.12",
