@@ -1,6 +1,6 @@
 # WebFrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.2.
 
 ## Development server
 **Note:** On a fresh git clone: Run `npm install` before trying to run the app.
