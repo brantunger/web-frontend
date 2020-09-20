@@ -20,14 +20,13 @@
         <mat-form-field class="formFields" appearance="outline">
             <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5"
                 formControlName="postInput" placeholder="Post Text" type="text" autocomplete="off"
-                [(ngModel)]="markdown"></textarea>
+                (input)="onChangePost($event.target.value)"></textarea>
         </mat-form-field>
     </div>
 
     <h3>Preview:</h3>
-
     <div class="markdownPreview-container">
-        <markdown  [data]="markdown" emoji lineNumbers ngPreserveWhitespaces></markdown>
+        <markdown [data]="markdown" emoji lineNumbers ngPreserveWhitespaces></markdown>
     </div>
 </form>
 

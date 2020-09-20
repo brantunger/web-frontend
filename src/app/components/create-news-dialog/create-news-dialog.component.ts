@@ -26,4 +26,8 @@ export class CreateNewsDialogComponent implements OnInit {
       postInput: ['', Validators.required]
     });
   }
+
+  onChangePost(post: string): void {
+    this.markdown = post;
+  }
 }
