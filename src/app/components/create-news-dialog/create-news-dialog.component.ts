@@ -12,7 +12,7 @@ import { CdkTextareaAutosize } from '@angular/cdk/text-field';
 export class CreateNewsDialogComponent implements OnInit {
   @ViewChild('autosize') autosize: CdkTextareaAutosize;
   formGroup: FormGroup;
-  markdown = `## Markdown`;
+  markdown = '';
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data,

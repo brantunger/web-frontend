@@ -24,8 +24,10 @@
         </mat-form-field>
     </div>
 
-    <div>
-        <markdown [data]="markdown"></markdown>
+    <h3>Preview:</h3>
+
+    <div class="markdownPreview-container">
+        <markdown  [data]="markdown" emoji lineNumbers ngPreserveWhitespaces></markdown>
     </div>
 </form>
 
