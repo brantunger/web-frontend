@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatTabsModule} from '@angular/material/tabs';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -60,6 +61,7 @@ import {MarkdownModule} from 'ngx-markdown';
     MatInputModule,
     MatIconModule,
     MatDialogModule,
+    MatTabsModule,
     HttpClientModule,
     JwtModule.forRoot({
       config: {

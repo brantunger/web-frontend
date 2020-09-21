@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   constructor(private authorizationService: AuthorizationService) { }
 
   // TODO: Refactor
+  // TODO: Snackbar on login
   ngOnInit(): void {
     const accessToken = this.authorizationService.getAccessToken();
 
