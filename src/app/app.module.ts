@@ -29,6 +29,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { CreateNewsDialogComponent } from './components/create-news-dialog/create-news-dialog.component';
 import {MarkdownModule} from 'ngx-markdown';
+import { MarkdownHelpComponent } from './components/create-news-dialog/markdown-help/markdown-help.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import {MarkdownModule} from 'ngx-markdown';
     NoSantizingHtmlPipe,
     PageNotFoundComponent,
     HomePageComponent,
-    CreateNewsDialogComponent
+    CreateNewsDialogComponent,
+    MarkdownHelpComponent
   ],
   imports: [
     BrowserModule,
