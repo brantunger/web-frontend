@@ -11,7 +11,7 @@ import { take } from 'rxjs/operators';
 })
 export class NewsContainerComponent implements OnInit {
   @Input() newsStory: News;
-
+  
   constructor(private webApiService: WebApiService) { }
 
   ngOnInit(): void {

@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { NewsService } from 'src/app/services/news.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
+import { News } from 'src/app/models/News';
 
 @Component({
   selector: 'app-create-news-dialog',
@@ -29,5 +30,9 @@ export class CreateNewsDialogComponent implements OnInit {
 
   onChangePost(post: string): void {
     this.markdown = post;
+  }
+
+  postNews(title: string, content: string): void {
+    // this.newsService.addNews()
   }
 }

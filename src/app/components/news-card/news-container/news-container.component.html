@@ -3,15 +3,15 @@
     <div>
       <button mat-icon-button color="accent" matTooltip="Upvote for the story." matTooltipPosition="after"
         (click)="voteUp()">
-        <mat-icon>arrow_drop_up
+        <mat-icon>thumb_up
         </mat-icon>
       </button>
     </div>
-    <div class="vote-number">{{ newsStory.votes}}</div>
+    <div class="vote-number">{{ newsStory.votes }}</div>
     <div>
       <button mat-icon-button color="accent" matTooltip="Downvote for the story." matTooltipPosition="after"
         (click)="voteDown()">
-        <mat-icon>arrow_drop_down
+        <mat-icon>thumb_down
         </mat-icon>
       </button>
     </div>
@@ -21,7 +21,8 @@
       <h3>{{ newsStory.title }}</h3>
       <h5>- Posted by {{ newsStory.createdBy }} - {{ convertDate() }}</h5>
     </div>
-    <div class="news-content" [innerHTML]="newsStory.content | keepHtml">
+    <div class="news-content">
+      <markdown [data]="newsStory.content" emoji lineNumbers ngPreserveWhitespaces></markdown>
     </div>
   </div>
 </div>

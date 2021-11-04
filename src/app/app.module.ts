@@ -9,7 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -28,7 +28,7 @@ import { NoSantizingHtmlPipe } from './pipes/no-santizing-html.pipe';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { CreateNewsDialogComponent } from './components/create-news-dialog/create-news-dialog.component';
-import {MarkdownModule} from 'ngx-markdown';
+import { MarkdownModule } from 'ngx-markdown';
 import { MarkdownHelpComponent } from './components/create-news-dialog/markdown-help/markdown-help.component';
 
 
@@ -65,6 +65,7 @@ import { MarkdownHelpComponent } from './components/create-news-dialog/markdown-
     MatDialogModule,
     MatTabsModule,
     HttpClientModule,
+    MarkdownModule.forRoot(),
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {

@@ -9,7 +9,7 @@
     </mat-error>
   </mat-form-field>
   <mat-form-field>
-    <input matInput formControlName="emailInput" placeholder="Email" type="text" [errorStateMatcher]="matcher" />
+    <input matInput formControlName="emailInput" placeholder="Email" type="email" [errorStateMatcher]="matcher" />
     <mat-icon matSuffix>email</mat-icon>
     <mat-error>
       Email is required to register.
@@ -29,7 +29,8 @@
   <mat-form-field>
     <input matInput formControlName="passwordVerifyInput" placeholder="Verify Password" (keyup.enter)="register()"
       type="{{passwordInputType}}" [errorStateMatcher]="matcher" />
-    <mat-icon matSuffix class="green-check" *ngIf="passwordVerified()">check</mat-icon>
+    <mat-icon matSuffix class="green-check" *ngIf="passwordVerified()">check_circle</mat-icon>
+    <mat-icon matSuffix class="red-cross" *ngIf="!passwordVerified()">clear</mat-icon>
     <mat-error>
       Password is required to register.
     </mat-error>
