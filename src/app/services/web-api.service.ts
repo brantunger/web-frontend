@@ -14,7 +14,7 @@ const { GET, POST, PUT, DELETE, PATCH } = HttpMethod;
   providedIn: 'root'
 })
 export class WebApiService {
-  private apiUrl = environment.baseApiUrl + '/v1';
+  private apiUrl = environment.baseApiUrl + '/api/v1';
 
   constructor(private http: HttpClient, private authorizationService: AuthorizationService) { }
 
