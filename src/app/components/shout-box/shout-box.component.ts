@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Message } from '@stomp/stompjs';
 import { AuthorizationService } from '../../services/authorization.service';
@@ -14,7 +14,7 @@ const SEND_URL = '/shout';
   templateUrl: './shout-box.component.html',
   styleUrls: ['./shout-box.component.scss']
 })
-export class ShoutBoxComponent implements OnInit {
+export class ShoutBoxComponent implements OnInit, AfterViewChecked {
   formGroup: FormGroup;
   messages = [];
   websocketMessagingService: WebsocketMessagingService;
@@ -22,7 +22,8 @@ export class ShoutBoxComponent implements OnInit {
   constructor(
     public authorizationService: AuthorizationService,
     private webServiceApi: WebApiService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group(
@@ -47,6 +48,10 @@ export class ShoutBoxComponent implements OnInit {
         const jsonMessage = JSON.parse(message.body);
         this.messages.push(jsonMessage.content);
       });
+  }
+
+  ngAfterViewChecked(): void {
+    this.cdr.detectChanges();
   }
 
   send(): void {
