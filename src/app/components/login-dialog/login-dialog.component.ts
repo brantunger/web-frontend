@@ -1,3 +1,4 @@
+import { HttpErrorResponse, HttpEvent, HttpResponse } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -58,7 +59,9 @@ export class LoginDialogComponent implements OnInit {
           this.authorizationService.login(response.token);
           this.dialogRef.close();
         },
-        error => this.alertService.error('app-login-dialog', error.error.message)
+        (error: HttpErrorResponse) => {
+          this.alertService.error('app-login-dialog', error.error.error);
+        }
       );
   }
 }
