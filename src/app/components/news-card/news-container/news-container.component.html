@@ -22,7 +22,7 @@
       <h5>- Posted by {{ newsStory.createdBy }} - {{ convertDate() }}</h5>
     </div>
     <div class="news-content">
-      <markdown [data]="newsStory.content" emoji lineNumbers ngPreserveWhitespaces></markdown>
+      <div>{{ newsStory.content }}</div>
     </div>
   </div>
 </div>
