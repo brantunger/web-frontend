@@ -9,24 +9,27 @@
     </div>
 </div>
 
-<form [formGroup]="formGroup">
-    <div>
-        <mat-form-field class="formFields">
-            <!-- <input matInput formControlName="titleInput" placeholder="Title" type="text" autocomplete="off" /> -->
-        </mat-form-field>
-    </div>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="formGroup">
+        <div>
+            <mat-form-field class="formFields">
+                <input matInput formControlName="titleInput" placeholder="Title" type="text" autocomplete="off" />
+            </mat-form-field>
+        </div>
 
-    <div>
-        <mat-form-field class="formFields" appearance="outline">
-            <!-- <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5"
+        <div>
+            <!-- <mat-form-field class="formFields" appearance="outline">
+             <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5"
                         formControlName="postInput" placeholder="Post Text" type="text" autocomplete="off"
-                        (input)="onChangePost($event.target.value)"></textarea> -->
-        </mat-form-field>
+                        (input)="onChangePost($event.target.value)"></textarea> 
+        </mat-form-field> -->
+        </div>
+    </form>
+
+    <h3>Preview:</h3>
+    <div class="markdownPreview-container">
     </div>
-</form>
-
-<h3>Preview:</h3>
-<div class="markdownPreview-container">
-</div>
-
-<button mat-raised-button color="accent">Post</button>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-raised-button color="accent">Post</button>
+</mat-dialog-actions>

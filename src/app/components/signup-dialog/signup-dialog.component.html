@@ -1,43 +1,46 @@
 <app-alert-banner viewLabel="app-signup-dialog"></app-alert-banner>
 <h1>Signup</h1>
-<form [formGroup]="formGroup" (keydown.enter)="$event.preventDefault()">
-  <mat-form-field>
-    <input matInput formControlName="usernameInput" placeholder="Username" type="text" [errorStateMatcher]="matcher" />
-    <mat-icon matSuffix>face</mat-icon>
-    <mat-error>
-      Username is required to register.
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput formControlName="emailInput" placeholder="Email" type="email" [errorStateMatcher]="matcher" />
-    <mat-icon matSuffix>email</mat-icon>
-    <mat-error>
-      Email is required to register.
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput formControlName="passwordInput" placeholder="Password" type="{{passwordInputType}}"
-      [errorStateMatcher]="matcher" />
-    <mat-error>
-      Password is required to register.
-    </mat-error>
-    <button mat-icon-button matSuffix (click)="toggleShowPassword()">
-      <mat-icon *ngIf="showPassword">visibility</mat-icon>
-      <mat-icon *ngIf="!showPassword">visibility_off</mat-icon>
-    </button>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput formControlName="passwordVerifyInput" placeholder="Verify Password" (keyup.enter)="register()"
-      type="{{passwordInputType}}" [errorStateMatcher]="matcher" />
-    <mat-icon matSuffix class="green-check" *ngIf="passwordVerified()">check_circle</mat-icon>
-    <mat-icon matSuffix class="red-cross" *ngIf="!passwordVerified()">clear</mat-icon>
-    <mat-error>
-      Password is required to register.
-    </mat-error>
-  </mat-form-field>
-</form>
+<mat-dialog-content>
+  <form [formGroup]="formGroup" (keydown.enter)="$event.preventDefault()">
+    <mat-form-field>
+      <input matInput formControlName="usernameInput" placeholder="Username" type="text"
+        [errorStateMatcher]="matcher" />
+      <mat-icon matSuffix>face</mat-icon>
+      <mat-error>
+        Username is required to register.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="emailInput" placeholder="Email" type="email" [errorStateMatcher]="matcher" />
+      <mat-icon matSuffix>email</mat-icon>
+      <mat-error>
+        Email is required to register.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="passwordInput" placeholder="Password" type="{{passwordInputType}}"
+        [errorStateMatcher]="matcher" />
+      <mat-error>
+        Password is required to register.
+      </mat-error>
+      <button mat-icon-button matSuffix (click)="toggleShowPassword()">
+        <mat-icon *ngIf="showPassword">visibility_off</mat-icon>
+        <mat-icon *ngIf="!showPassword">visibility</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="passwordVerifyInput" placeholder="Verify Password" (keyup.enter)="register()"
+        type="{{passwordInputType}}" [errorStateMatcher]="matcher" />
+      <mat-icon matSuffix class="green-check" *ngIf="passwordVerified()">check_circle</mat-icon>
+      <mat-icon matSuffix class="red-cross" *ngIf="!passwordVerified()">clear</mat-icon>
+      <mat-error>
+        Password is required to register.
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
 
-<div class="form-buttons">
+<mat-dialog-actions align="center">
   <button mat-raised-button color="accent" (click)="register()">Register</button>
   <button mat-button color="accent" [mat-dialog-close]="true">Cancel</button>
-</div>
+</mat-dialog-actions>

@@ -13,7 +13,6 @@ import { News } from 'src/app/models/News';
 export class CreateNewsDialogComponent implements OnInit {
   // @ViewChild('autosize') autosize!: CdkTextareaAutosize;
   formGroup!: FormGroup;
-  markdown?: string;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -23,12 +22,8 @@ export class CreateNewsDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
-      // titleInput: ['', Validators.required]
+      titleInput: ['', Validators.required]
     });
-  }
-
-  onChangePost(post: string): void {
-    this.markdown = post;
   }
 
   postNews(title: string, content: string): void {
