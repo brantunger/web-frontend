@@ -9,8 +9,7 @@
     <span *ngIf="authorizationService.getRole() === 'ADMIN'">
       <button mat-icon-button color="accent" matTooltip="Create news story." matTooltipPosition="before"
         (click)="openCreateDialog()">
-        <mat-icon class="create-news-icon">create
-        </mat-icon>
+        <mat-icon class="create-news-icon">create</mat-icon>
       </button>
     </span>
     <span *ngIf="authorizationService.isUserLoggedIn()" class="username-span">
