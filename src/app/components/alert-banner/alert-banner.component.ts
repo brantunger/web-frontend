@@ -1,11 +1,7 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import {
-  AlertService,
-  AlertServiceOptions,
-  AlertType
-} from '../services/alert.service';
 import { filter, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { AlertType, AlertService, AlertServiceOptions } from 'src/app/services/alert.service';
 
 @Component({
   selector: 'app-alert-banner',
