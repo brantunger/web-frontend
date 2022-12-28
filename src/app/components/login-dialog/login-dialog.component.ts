@@ -3,6 +3,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { take } from 'rxjs/operators';
+import { User } from 'src/app/models/User';
 import { EarlyErrorStateMatcher } from '../../../helpers/EarlyErrorStateMatcher';
 import { AlertService } from '../../services/alert.service';
 import { AuthorizationService } from '../../services/authorization.service';
@@ -14,13 +15,13 @@ import { WebApiService } from '../../services/web-api.service';
   styleUrls: ['./login-dialog.component.scss']
 })
 export class LoginDialogComponent implements OnInit {
-  formGroup: FormGroup;
-  matcher: EarlyErrorStateMatcher;
+  formGroup!: FormGroup;
+  matcher!: EarlyErrorStateMatcher;
   showPassword = false;
   passwordInputType = 'password';
 
   constructor(
-  @Inject(MAT_DIALOG_DATA) public data,
+  @Inject(MAT_DIALOG_DATA) public data: any,
   private formBuilder: FormBuilder,
   private webApiService: WebApiService,
   private authorizationService: AuthorizationService,
@@ -48,16 +49,18 @@ export class LoginDialogComponent implements OnInit {
       return;
     }
 
-    const username = this.formGroup.controls.usernameInput.value;
-    const password = this.formGroup.controls.passwordInput.value;
+    const username = this.formGroup.controls['usernameInput'].value;
+    const password = this.formGroup.controls['passwordInput'].value;
 
     this.webApiService
       .authenticate(username, password)
       .pipe(take(1))
       .subscribe(
-        response => {
-          this.authorizationService.login(response.token);
-          this.dialogRef.close();
+        (response: User) => {
+          if (response.token) {
+            this.authorizationService.login(response.token);
+            this.dialogRef.close();
+          }
         },
         (error: HttpErrorResponse) => {
           this.alertService.error('app-login-dialog', error.error.error);

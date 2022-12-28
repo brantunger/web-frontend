@@ -16,8 +16,8 @@ export class AlertBannerComponent implements OnInit, OnDestroy {
 
   unsubscribe$ = new Subject();
   message = '';
-  type: AlertType;
-  @Input() viewLabel: string;
+  type!: AlertType;
+  @Input() viewLabel!: string;
 
   constructor(private alertService: AlertService) {}
 
@@ -36,7 +36,7 @@ export class AlertBannerComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.unsubscribe$.next();
+    this.unsubscribe$.next;
     this.unsubscribe$.complete();
   }
 

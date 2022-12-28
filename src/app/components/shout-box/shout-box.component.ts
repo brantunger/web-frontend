@@ -1,4 +1,4 @@
-import { AfterViewChecked, AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { AfterViewChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Message } from '@stomp/stompjs';
 import { AuthorizationService } from '../../services/authorization.service';
@@ -15,9 +15,9 @@ const SEND_URL = '/shout';
   styleUrls: ['./shout-box.component.scss']
 })
 export class ShoutBoxComponent implements OnInit, AfterViewChecked {
-  formGroup: FormGroup;
+  formGroup!: FormGroup;
   messages = [];
-  websocketMessagingService: WebsocketMessagingService;
+  websocketMessagingService!: WebsocketMessagingService;
 
   constructor(
     public authorizationService: AuthorizationService,
@@ -37,7 +37,7 @@ export class ShoutBoxComponent implements OnInit, AfterViewChecked {
       .subscribe(shoutMessages => {
         shoutMessages
           .forEach(message =>
-            this.messages.push(`${message.username}: ${message.message}`));
+            this.messages.push(`${message.username}: ${message.message}` as never));
       }, error => console.error(error.error.message));
 
     this.websocketMessagingService = new WebsocketMessagingService(TOPIC_URL);
@@ -46,7 +46,7 @@ export class ShoutBoxComponent implements OnInit, AfterViewChecked {
       .stream()
       .subscribe((message: Message) => {
         const jsonMessage = JSON.parse(message.body);
-        this.messages.push(jsonMessage.content);
+        this.messages.push(jsonMessage.content as never);
       });
   }
 
@@ -55,9 +55,9 @@ export class ShoutBoxComponent implements OnInit, AfterViewChecked {
   }
 
   send(): void {
-    const message = this.formGroup.controls.messageInput.value;
+    const message = this.formGroup.controls['messageInput'].value;
     if (message !== '') {
-      this.formGroup.controls.messageInput.setValue('');
+      this.formGroup.controls['messageInput'].setValue('');
       this.websocketMessagingService.send(SEND_URL, {
         name: this.authorizationService.getUsername(),
         message: `${message}`

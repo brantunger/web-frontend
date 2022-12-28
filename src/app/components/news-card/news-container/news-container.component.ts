@@ -9,7 +9,7 @@ import { take } from 'rxjs/operators';
   styleUrls: ['./news-container.component.scss']
 })
 export class NewsContainerComponent implements OnInit {
-  @Input() newsStory: News;
+  @Input() newsStory!: News;
 
   constructor(private webApiService: WebApiService) { }
 

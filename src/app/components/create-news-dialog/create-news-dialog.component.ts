@@ -11,20 +11,19 @@ import { News } from 'src/app/models/News';
   styleUrls: ['./create-news-dialog.component.scss']
 })
 export class CreateNewsDialogComponent implements OnInit {
-  @ViewChild('autosize') autosize: CdkTextareaAutosize;
-  formGroup: FormGroup;
-  markdown: string;
+  // @ViewChild('autosize') autosize!: CdkTextareaAutosize;
+  formGroup!: FormGroup;
+  markdown?: string;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data,
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<CreateNewsDialogComponent>,
     private newsService: NewsService,
     private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
-      titleInput: ['', Validators.required],
-      postInput: ['', Validators.required]
+      // titleInput: ['', Validators.required]
     });
   }
 

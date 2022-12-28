@@ -9,32 +9,24 @@
     </div>
 </div>
 
-<mat-tab-group>
-    <mat-tab label="Post">
-        <form [formGroup]="formGroup">
-            <div>
-                <mat-form-field class="formFields">
-                    <input matInput formControlName="titleInput" placeholder="Title" type="text" autocomplete="off" />
-                </mat-form-field>
-            </div>
-        
-            <div>
-                <mat-form-field class="formFields" appearance="outline">
-                    <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5"
+<form [formGroup]="formGroup">
+    <div>
+        <mat-form-field class="formFields">
+            <!-- <input matInput formControlName="titleInput" placeholder="Title" type="text" autocomplete="off" /> -->
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field class="formFields" appearance="outline">
+            <!-- <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5"
                         formControlName="postInput" placeholder="Post Text" type="text" autocomplete="off"
-                        (input)="onChangePost($event.target.value)"></textarea>
-                </mat-form-field>
-            </div>
-        </form>
-        
-        <h3>Preview:</h3>
-        <div class="markdownPreview-container">
-        </div>
+                        (input)="onChangePost($event.target.value)"></textarea> -->
+        </mat-form-field>
+    </div>
+</form>
 
-        <button mat-raised-button color="accent">Post</button>
-    </mat-tab>
+<h3>Preview:</h3>
+<div class="markdownPreview-container">
+</div>
 
-    <mat-tab label="Markdown Help">
-        <app-markdown-help></app-markdown-help>
-    </mat-tab>
-</mat-tab-group>
+<button mat-raised-button color="accent">Post</button>

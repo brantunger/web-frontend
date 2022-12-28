@@ -13,13 +13,13 @@ import { WebApiService } from '../../services/web-api.service';
   styleUrls: ['./signup-dialog.component.scss']
 })
 export class SignupDialogComponent implements OnInit {
-  formGroup: FormGroup;
-  matcher: EarlyErrorStateMatcher;
+  formGroup!: FormGroup;
+  matcher!: EarlyErrorStateMatcher;
   showPassword = false;
   passwordInputType = 'password';
 
   constructor(
-  @Inject(MAT_DIALOG_DATA) public data,
+  @Inject(MAT_DIALOG_DATA) public data: any,
   private formBuilder: FormBuilder,
   private webApiService: WebApiService,
   private alertService: AlertService) { }
@@ -43,8 +43,8 @@ export class SignupDialogComponent implements OnInit {
   }
 
   passwordVerified(): boolean {
-    const password = this.formGroup.controls.passwordInput.value;
-    const passwordVerify = this.formGroup.controls.passwordVerifyInput.value;
+    const password = this.formGroup.controls['passwordInput'].value;
+    const passwordVerify = this.formGroup.controls['passwordVerifyInput'].value;
     return (password === passwordVerify && passwordVerify !== '');
   }
 
@@ -54,9 +54,9 @@ export class SignupDialogComponent implements OnInit {
     }
 
     const user: User = new User();
-    user.username = this.formGroup.controls.usernameInput.value;
-    user.password = this.formGroup.controls.passwordInput.value;
-    user.email = this.formGroup.controls.usernameInput.value;
+    user.username = this.formGroup.controls['usernameInput'].value;
+    user.password = this.formGroup.controls['passwordInput'].value;
+    user.email = this.formGroup.controls['usernameInput'].value;
     user.role = 'USER';
 
     this.webApiService
@@ -71,9 +71,9 @@ export class SignupDialogComponent implements OnInit {
   }
 
   private clearInputs(): void {
-    this.formGroup.controls.usernameInput.setValue('');
-    this.formGroup.controls.emailInput.setValue('');
-    this.formGroup.controls.passwordInput.setValue('');
-    this.formGroup.controls.passwordVerifyInput.setValue('');
+    this.formGroup.controls['usernameInput'].setValue('');
+    this.formGroup.controls['emailInput'].setValue('');
+    this.formGroup.controls['passwordInput'].setValue('');
+    this.formGroup.controls['passwordVerifyInput'].setValue('');
   }
 }

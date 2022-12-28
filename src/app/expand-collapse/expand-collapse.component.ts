@@ -43,7 +43,7 @@ export class ExpandCollapseComponent implements OnChanges, OnInit {
   @Input()
   trigger: any;
 
-  startHeight: number;
+  startHeight!: number;
 
   constructor(private element: ElementRef) {}
 

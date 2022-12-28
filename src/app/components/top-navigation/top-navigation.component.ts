@@ -11,6 +11,7 @@ import { CreateNewsDialogComponent } from '../create-news-dialog/create-news-dia
   styleUrls: ['./top-navigation.component.scss']
 })
 export class TopNavigationComponent implements OnInit {
+  
   constructor(public authorizationService: AuthorizationService, private dialog: MatDialog) { }
 
   ngOnInit(): void {

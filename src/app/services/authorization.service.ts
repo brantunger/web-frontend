@@ -6,13 +6,13 @@ import { CookieService } from 'ngx-cookie-service';
   providedIn: 'root'
 })
 export class AuthorizationService {
-  username: string;
-  role: string;
+  username!: string;
+  role!: string;
 
   constructor(private jwtService: JwtHelperService, private cookieService: CookieService) { }
 
   public setAccessToken(token: string): void {
-    const expiresOn = this.jwtService.getTokenExpirationDate(token);
+    const expiresOn = this.jwtService.getTokenExpirationDate(token)?.getDate();
     this.cookieService.set('access_token', token, expiresOn);
   }
 
@@ -51,8 +51,8 @@ export class AuthorizationService {
   }
 
   public logout(): void {
-    this.username = null;
-    this.role = null;
+    this.username = '';
+    this.role = '';
     this.cookieService.deleteAll('access_token');
   }
 }

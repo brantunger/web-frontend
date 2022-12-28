@@ -9,7 +9,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -23,7 +22,7 @@ import { SignupDialogComponent } from './components/signup-dialog/signup-dialog.
 import { TopNavigationComponent } from './components/top-navigation/top-navigation.component';
 import { NewsCardComponent } from './components/news-card/news-card.component';
 import { NewsContainerComponent } from './components/news-card/news-container/news-container.component';
-import { AuthenticationInterceptor } from './authentication-interceptor';
+// import { AuthenticationInterceptor } from './authentication-interceptor';
 import { NoSantizingHtmlPipe } from './pipes/no-santizing-html.pipe';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
@@ -62,7 +61,6 @@ import { MarkdownHelpComponent } from './components/create-news-dialog/markdown-
     MatInputModule,
     MatIconModule,
     MatDialogModule,
-    MatTabsModule,
     HttpClientModule,
     JwtModule.forRoot({
       config: {
@@ -73,11 +71,11 @@ import { MarkdownHelpComponent } from './components/create-news-dialog/markdown-
     })
   ],
   entryComponents: [LoginDialogComponent, SignupDialogComponent],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthenticationInterceptor,
-    multi: true
-  }],
+  // providers: [{
+  //   provide: HTTP_INTERCEPTORS,
+  //   useClass: AuthenticationInterceptor,
+  //   multi: true
+  // }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
