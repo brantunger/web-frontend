@@ -22,7 +22,7 @@
       <h5>- Posted by {{ newsStory.createdBy }} - {{ convertDate() }}</h5>
     </div>
     <div class="news-content">
-      <div>{{ newsStory.content }}</div>
+      <div [innerHTML]="newsStory.content | keepHtml"></div>
     </div>
   </div>
 </div>

@@ -35,8 +35,13 @@ export class CreateNewsDialogComponent implements OnInit {
     });
   }
 
-  postNews(title: string, content: string): void {
-    // this.newsService.addNews()
+  postNews(): void {
+    const news: News = new News();
+    news.title = this.formGroup.controls['titleInput'].value;
+    news.content = this.formGroup.controls['contentInput'].value;
+    news.dateCreated = new Date();
+
+    this.newsService.addNews(news);
   }
 
   getPluginsList(): string {

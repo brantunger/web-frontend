@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { News } from '../models/News';
-import { WebApiService } from './web-api.service';
 import { Observable, Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
+import { News } from '../models/News';
+import { WebApiService } from './web-api.service';
 
 @Injectable({
   providedIn: 'root'
