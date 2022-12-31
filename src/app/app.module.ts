@@ -27,6 +27,7 @@ import { NoSantizingHtmlPipe } from './pipes/no-santizing-html.pipe';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { CreateNewsDialogComponent } from './components/create-news-dialog/create-news-dialog.component';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { CreateNewsDialogComponent } from './components/create-news-dialog/creat
     CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    EditorModule,
     FormsModule,
     ReactiveFormsModule,
     MatToolbarModule,

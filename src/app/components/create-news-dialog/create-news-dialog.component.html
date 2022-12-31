@@ -11,24 +11,17 @@
 
 <mat-dialog-content class="mat-typography">
     <form [formGroup]="formGroup">
-        <div>
-            <mat-form-field class="formFields">
-                <input matInput formControlName="titleInput" placeholder="Title" type="text" autocomplete="off" />
-            </mat-form-field>
-        </div>
+        <mat-form-field class="formFields">
+            <input matInput formControlName="titleInput" placeholder="Title" type="text" autocomplete="off" />
+            <mat-error>
+                Title is required
+            </mat-error>
+        </mat-form-field>
 
-        <div>
-            <!-- <mat-form-field class="formFields" appearance="outline">
-             <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5"
-                        formControlName="postInput" placeholder="Post Text" type="text" autocomplete="off"
-                        (input)="onChangePost($event.target.value)"></textarea> 
-        </mat-form-field> -->
-        </div>
+        <editor formControlName="contentInput" apiKey="uti498f61h6qun3wwsh4lyxd1zmjnuh3nh9edgwma6ktdsks"
+            [toolbar]="getToolbarGroups()" [plugins]="getPluginsList()" [init]="{branding: false, statusbar: false}">
+        </editor>
     </form>
-
-    <h3>Preview:</h3>
-    <div class="markdownPreview-container">
-    </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-raised-button color="accent">Post</button>
