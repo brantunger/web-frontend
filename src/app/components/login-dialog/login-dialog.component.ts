@@ -21,12 +21,12 @@ export class LoginDialogComponent implements OnInit {
   passwordInputType = 'password';
 
   constructor(
-  @Inject(MAT_DIALOG_DATA) public data: any,
-  private formBuilder: FormBuilder,
-  private webApiService: WebApiService,
-  private authorizationService: AuthorizationService,
-  private dialogRef: MatDialogRef<LoginDialogComponent>,
-  private alertService: AlertService) { }
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private formBuilder: FormBuilder,
+    private webApiService: WebApiService,
+    private authorizationService: AuthorizationService,
+    private dialogRef: MatDialogRef<LoginDialogComponent>,
+    private alertService: AlertService) { }
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
@@ -55,16 +55,14 @@ export class LoginDialogComponent implements OnInit {
     this.webApiService
       .authenticate(username, password)
       .pipe(take(1))
-      .subscribe(
-        (response: User) => {
+      .subscribe({
+        next: (response: User) => {
           if (response.token) {
             this.authorizationService.login(response.token);
             this.dialogRef.close();
           }
         },
-        (error: HttpErrorResponse) => {
-          this.alertService.error('app-login-dialog', error.error.error);
-        }
-      );
+        error: (error: HttpErrorResponse) => this.alertService.error('app-login-dialog', error.error.error)
+      });
   }
 }

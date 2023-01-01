@@ -1,6 +1,7 @@
 .header {
     display: flex;
     margin: 10px;
+
     h4 {
         margin-top: 10px;
         margin-bottom: 0px;
@@ -26,5 +27,9 @@
     border-radius: 5px;
     min-height: 200px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 12px; 
+    font-size: 12px;
+}
+
+editor {
+    margin-bottom: 15px;
 }

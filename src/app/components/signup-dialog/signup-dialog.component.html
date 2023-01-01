@@ -41,6 +41,7 @@
 </mat-dialog-content>
 
 <mat-dialog-actions align="center">
-  <button mat-raised-button color="accent" (click)="register()">Register</button>
+  <button mat-raised-button color="accent" [disabled]="this.formGroup.invalid || !this.passwordVerified()"
+    (click)="register()">Register</button>
   <button mat-button color="accent" [mat-dialog-close]="true">Cancel</button>
 </mat-dialog-actions>

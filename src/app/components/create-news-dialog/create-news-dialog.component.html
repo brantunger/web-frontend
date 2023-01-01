@@ -22,7 +22,8 @@
             [toolbar]="getToolbarGroups()" [plugins]="getPluginsList()" [init]="{branding: false, statusbar: false}">
         </editor>
     </form>
+    <app-alert-banner viewLabel="app-create-news-dialog"></app-alert-banner>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-    <button mat-raised-button color="accent" (click)="postNews()">Post</button>
+    <button mat-raised-button color="accent" [disabled]="this.formGroup.invalid" (click)="postNews()">Post</button>
 </mat-dialog-actions>

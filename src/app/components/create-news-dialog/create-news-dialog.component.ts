@@ -1,9 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { NewsService } from 'src/app/services/news.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { CdkTextareaAutosize } from '@angular/cdk/text-field';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { News } from 'src/app/models/News';
+import { NewsService } from 'src/app/services/news.service';
 
 @Component({
   selector: 'app-create-news-dialog',
@@ -24,7 +23,6 @@ export class CreateNewsDialogComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private dialogRef: MatDialogRef<CreateNewsDialogComponent>,
     private newsService: NewsService,
     private formBuilder: FormBuilder) { }
 
@@ -36,11 +34,13 @@ export class CreateNewsDialogComponent implements OnInit {
   }
 
   postNews(): void {
+    if (this.formGroup.invalid) {
+      return;
+    }
+    
     const news: News = new News();
     news.title = this.formGroup.controls['titleInput'].value;
     news.content = this.formGroup.controls['contentInput'].value;
-    news.dateCreated = new Date();
-
     this.newsService.addNews(news);
   }
 

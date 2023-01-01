@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -62,10 +63,10 @@ export class SignupDialogComponent implements OnInit {
     this.webApiService
       .register(user)
       .pipe(take(1))
-      .subscribe(
-        () => this.alertService.success('app-signup-dialog', 'Registration Successful'),
-        error => this.alertService.error('app-signup-dialog', error.error.message)
-      );
+      .subscribe({
+        next: () => this.alertService.success('app-signup-dialog', 'Registration Successful'),
+        error: (error: HttpErrorResponse) => this.alertService.error('app-signup-dialog', error.error.error)
+      });
 
     this.clearInputs();
   }

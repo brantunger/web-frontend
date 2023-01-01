@@ -20,7 +20,7 @@ export class AlertService {
   alert$ = new Subject<AlertServiceOptions>();
   currentAlerts: { [key: string]: AlertServiceOptions } = {};
 
-  constructor() {}
+  constructor() { }
 
   public clear = (viewLabel: string): void => {
     delete this.currentAlerts[viewLabel];
@@ -46,7 +46,7 @@ export class AlertService {
 
   public error(viewLabel: string, message: string): void {
     this.updateAlert(viewLabel, message, AlertType.Error);
-    if ( message.toLowerCase().startsWith('insufficient privileges') ) {
+    if (message.toLowerCase().startsWith('insufficient privileges')) {
       setTimeout(() => {
         this.clear(viewLabel);
       }, 5000);
