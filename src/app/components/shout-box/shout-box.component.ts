@@ -17,10 +17,10 @@ const SEND_URL = '/shout';
 export class ShoutBoxComponent implements OnInit, AfterViewChecked {
   formGroup!: FormGroup;
   messages = [];
-  websocketMessagingService!: WebsocketMessagingService;
 
   constructor(
     public authorizationService: AuthorizationService,
+    private websocketMessagingService: WebsocketMessagingService,
     private webServiceApi: WebApiService,
     private formBuilder: FormBuilder,
     private cdr: ChangeDetectorRef) { }
@@ -40,10 +40,7 @@ export class ShoutBoxComponent implements OnInit, AfterViewChecked {
             this.messages.push(`${message.username}: ${message.message}` as never));
       }, error => console.error(error.error.message));
 
-    this.websocketMessagingService = new WebsocketMessagingService(TOPIC_URL);
-
-    this.websocketMessagingService
-      .stream()
+    this.websocketMessagingService.watch(TOPIC_URL)
       .subscribe((message: Message) => {
         const jsonMessage = JSON.parse(message.body);
         this.messages.push(jsonMessage.content as never);
@@ -56,11 +53,16 @@ export class ShoutBoxComponent implements OnInit, AfterViewChecked {
 
   send(): void {
     const message = this.formGroup.controls['messageInput'].value;
+    const body = {
+      name: this.authorizationService.getUsername(),
+      message: `${message}`
+    };
+    const bodyString = JSON.stringify(body);
+
     if (message !== '') {
       this.formGroup.controls['messageInput'].setValue('');
-      this.websocketMessagingService.send(SEND_URL, {
-        name: this.authorizationService.getUsername(),
-        message: `${message}`
+      this.websocketMessagingService.publish({
+        destination: SEND_URL, body: bodyString
       });
     }
   }

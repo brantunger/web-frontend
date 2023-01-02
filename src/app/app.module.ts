@@ -31,6 +31,8 @@ import { CreateNewsDialogComponent } from './components/create-news-dialog/creat
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { NewsPageComponent } from './components/news-page/news-page.component';
 import { FullFormattedTimestampPipe } from './pipes/full-formatted-timestamp.pipe';
+import { WebsocketMessagingService } from './services/websocket-messaging.service';
+import { websocketMessagingServiceFactory } from './services/rx-stomp-service-factory';
 
 @NgModule({
   declarations: [
@@ -76,6 +78,12 @@ import { FullFormattedTimestampPipe } from './pipes/full-formatted-timestamp.pip
     })
   ],
   entryComponents: [LoginDialogComponent, SignupDialogComponent],
+  providers: [
+    {
+      provide: WebsocketMessagingService,
+      useFactory: websocketMessagingServiceFactory,
+    }
+  ],
   // providers: [{
   //   provide: HTTP_INTERCEPTORS,
   //   useClass: AuthenticationInterceptor,
