@@ -3,6 +3,7 @@ import { News } from 'src/app/models/News';
 import { WebApiService } from 'src/app/services/web-api.service';
 import { take } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
+import { AuthorizationService } from 'src/app/services/authorization.service';
 
 @Component({
   selector: 'app-news-container',
@@ -12,7 +13,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class NewsContainerComponent implements OnInit {
   @Input() newsStory!: News;
 
-  constructor(private webApiService: WebApiService) { }
+  constructor(
+    public authorizationService: AuthorizationService,
+    private webApiService: WebApiService) { }
 
   ngOnInit(): void {
   }
