@@ -30,6 +30,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { CreateNewsDialogComponent } from './components/create-news-dialog/create-news-dialog.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { NewsPageComponent } from './components/news-page/news-page.component';
+import { FullFormattedTimestampPipe } from './pipes/full-formatted-timestamp.pipe';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { NewsPageComponent } from './components/news-page/news-page.component';
     PageNotFoundComponent,
     HomePageComponent,
     CreateNewsDialogComponent,
-    NewsPageComponent
+    NewsPageComponent,
+    FullFormattedTimestampPipe
   ],
   imports: [
     BrowserModule,

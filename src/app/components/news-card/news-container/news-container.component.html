@@ -17,7 +17,7 @@
   <div>
     <div class="news-header">
       <h3>{{ newsStory.title }}</h3>
-      <h5>- Posted by {{ newsStory.createdBy }} - {{ convertDate() }}</h5>
+      <h5>- Posted by {{ newsStory.createdBy }} - {{ newsStory.dateCreated | fullFormattedTimestamp }}</h5>
     </div>
     <div class="news-content">
       <div [innerHTML]="newsStory.content | keepHtml"></div>
