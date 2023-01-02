@@ -1,9 +1,11 @@
 <mat-toolbar class="mat-elevation-z2 top-nav-toolbar" color="primary">
   <mat-toolbar-row>
     <a routerLink=""><img class="nav-logo" src="../../../assets/DF_Icon.png" /></a>
-    <span>
-      <h5>Dread Fall</h5>
-    </span>
+    <a routerLink="" style="text-decoration: none;">
+      <span>
+        <h5>Dread Fall</h5>
+      </span>
+    </a>
     <!-- This fills the remaining space of the current row -->
     <span class="top-nav-bar"></span>
     <span *ngIf="authorizationService.getRole() === 'ADMIN'">
