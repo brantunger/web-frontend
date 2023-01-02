@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap, take } from 'rxjs';
 import { News } from 'src/app/models/News';
@@ -15,7 +16,8 @@ export class NewsPageComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private webApiService: WebApiService) { }
+    private webApiService: WebApiService,
+    private title: Title) { }
 
   ngOnInit(): void {
     this.route.paramMap.pipe(
@@ -23,7 +25,10 @@ export class NewsPageComponent implements OnInit {
         this.webApiService.getNewsById(params.get('id')!)))
         .pipe(take(1))
         .subscribe({
-          next: (response: News) => this.newsStory = response,
+          next: (response: News) => {
+            this.newsStory = response;
+            this.title.setTitle(`${this.newsStory?.title} | Dreadfall`);
+          },
           error: (error: HttpErrorResponse) => console.log(error.error.error)
         });
   }
