@@ -6,7 +6,8 @@ export class NoSantizingHtmlPipe implements PipeTransform {
   constructor(private sanitizer: DomSanitizer) {
   }
 
-  transform(content: string): SafeHtml {
+  transform(content: string | undefined): SafeHtml {
+    content = content === undefined ? '' : content;
     return this.sanitizer.bypassSecurityTrustHtml(content);
   }
 }

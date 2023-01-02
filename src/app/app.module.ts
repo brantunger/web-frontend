@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatDividerModule} from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -28,6 +29,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { CreateNewsDialogComponent } from './components/create-news-dialog/create-news-dialog.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
+import { NewsPageComponent } from './components/news-page/news-page.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { EditorModule } from '@tinymce/tinymce-angular';
     NoSantizingHtmlPipe,
     PageNotFoundComponent,
     HomePageComponent,
-    CreateNewsDialogComponent
+    CreateNewsDialogComponent,
+    NewsPageComponent
   ],
   imports: [
     BrowserModule,
@@ -60,6 +63,7 @@ import { EditorModule } from '@tinymce/tinymce-angular';
     MatInputModule,
     MatIconModule,
     MatDialogModule,
+    MatDividerModule,
     HttpClientModule,
     JwtModule.forRoot({
       config: {

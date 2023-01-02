@@ -34,6 +34,10 @@ export class WebApiService {
     return this.perform(GET, `${this.apiUrl}/news`);
   }
 
+  public getNewsById(id: number | string): Observable<News> {
+    return this.perform(GET, `${this.apiUrl}/news/${id}`);
+  }
+
   public postNews(news: News): Observable<News> {
     return this.perform(POST, `${this.apiUrl}/news`, news);
   }

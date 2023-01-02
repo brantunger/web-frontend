@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-subtitle>News</mat-card-subtitle>
+    <mat-card-title>
+      <div class="news-header">
+        <h3>{{ newsStory.title }}</h3>
+        <h5>- Posted by {{ newsStory.createdBy }} - {{ convertDate() }}</h5>
+      </div>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="news-content" [innerHTML]="newsStory.content | keepHtml"></div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>
