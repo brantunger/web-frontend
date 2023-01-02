@@ -16,14 +16,25 @@
       </div>
     </div>
   </div>
-
-  <div>
+  <div class="news-content-header">
     <div class="news-header">
       <h3>{{ newsStory.title }}</h3>
       <h5>- Posted by {{ newsStory.createdBy }} - {{ newsStory.dateCreated | fullFormattedTimestamp }}</h5>
+      <div class="news-menu-container">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item [routerLink]="'news/' + newsStory.newsId">
+            <mat-icon>open_in_new</mat-icon>
+            <span>Open Article</span>
+          </button>
+        </mat-menu>
+      </div>
     </div>
     <div class="news-content">
       <div [innerHTML]="newsStory.content | keepHtml"></div>
     </div>
   </div>
 </div>
+  
