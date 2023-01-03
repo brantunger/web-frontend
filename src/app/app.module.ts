@@ -34,6 +34,7 @@ import { FullFormattedTimestampPipe } from './pipes/full-formatted-timestamp.pip
 import { NoSantizingHtmlPipe } from './pipes/no-santizing-html.pipe';
 import { websocketMessagingServiceFactory } from './services/rx-stomp-service-factory';
 import { WebsocketMessagingService } from './services/websocket-messaging.service';
+import { BottomFooterComponent } from './components/bottom-footer/bottom-footer.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { WebsocketMessagingService } from './services/websocket-messaging.servic
     HomePageComponent,
     CreateNewsDialogComponent,
     NewsPageComponent,
-    FullFormattedTimestampPipe
+    FullFormattedTimestampPipe,
+    BottomFooterComponent
   ],
   imports: [
     BrowserModule,
