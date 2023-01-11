@@ -1,9 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { News } from 'src/app/models/News';
-import { WebApiService } from 'src/app/services/web-api.service';
-import { take } from 'rxjs/operators';
-import { HttpErrorResponse } from '@angular/common/http';
-import { AuthorizationService } from 'src/app/services/authorization.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {News} from 'src/app/models/News';
+import {WebApiService} from 'src/app/services/web-api.service';
+import {take} from 'rxjs/operators';
+import {HttpErrorResponse} from '@angular/common/http';
+import {AuthorizationService} from 'src/app/services/authorization.service';
 
 @Component({
   selector: 'app-news-container',
@@ -15,7 +15,8 @@ export class NewsContainerComponent implements OnInit {
 
   constructor(
     public authorizationService: AuthorizationService,
-    private webApiService: WebApiService) { }
+    private webApiService: WebApiService) {
+  }
 
   ngOnInit(): void {
   }

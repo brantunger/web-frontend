@@ -1,6 +1,6 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 
-@Pipe({ name: 'fullFormattedTimestamp' })
+@Pipe({name: 'fullFormattedTimestamp'})
 export class FullFormattedTimestampPipe implements PipeTransform {
   dateTimeFormat: Intl.DateTimeFormatOptions = {
     month: '2-digit',

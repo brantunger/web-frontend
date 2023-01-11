@@ -1,7 +1,15 @@
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.333);
+}
+
 .nav-logo {
   height: 50px;
   width: 50px;
-  border-radius:50%;
+  border-radius: 50%;
   border: #7e868d 1px solid;
   box-shadow: 2px 2px 10px #888888;
   margin-right: 1em;
@@ -9,6 +17,7 @@
 
 .top-nav-toolbar {
   background-color: white;
+
   h5 {
     color: #be5e24;
     text-shadow: 2px 2px 10px #be5e24;
@@ -25,6 +34,7 @@
 
 .username-span {
   margin-right: 1em;
+
   h3 {
     color: #bebfc1;
     font-size: .75em;

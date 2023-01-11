@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { CookieService } from 'ngx-cookie-service';
+import {Injectable} from '@angular/core';
+import {JwtHelperService} from '@auth0/angular-jwt';
+import {CookieService} from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,8 @@ export class AuthorizationService {
   username!: string;
   role!: string;
 
-  constructor(private jwtService: JwtHelperService, private cookieService: CookieService) { }
+  constructor(private jwtService: JwtHelperService, private cookieService: CookieService) {
+  }
 
   public setAccessToken(token: string): void {
     const expiresOn = this.jwtService.getTokenExpirationDate(token)?.getDate();

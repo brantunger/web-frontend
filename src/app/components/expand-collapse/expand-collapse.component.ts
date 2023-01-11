@@ -1,5 +1,5 @@
-import { animate, style, transition, trigger } from '@angular/animations';
-import { Component, ElementRef, HostBinding, Input, OnChanges, OnInit } from '@angular/core';
+import {animate, style, transition, trigger} from '@angular/animations';
+import {Component, ElementRef, HostBinding, Input, OnChanges, OnInit} from '@angular/core';
 
 const propRequired = (component: any, propName: string) => {
   if (component[propName] === undefined || component[propName] === null) {
@@ -29,8 +29,8 @@ const propRequired = (component: any, propName: string) => {
       transition('void <=> *', []),
       transition(
         '* <=> *',
-        [style({ height: '{{startHeight}}px' }), animate('{{duration}}s ease')],
-        { params: { startHeight: 0 } }
+        [style({height: '{{startHeight}}px'}), animate('{{duration}}s ease')],
+        {params: {startHeight: 0}}
       )
     ])
   ]
@@ -45,7 +45,8 @@ export class ExpandCollapseComponent implements OnChanges, OnInit {
 
   startHeight!: number;
 
-  constructor(private element: ElementRef) {}
+  constructor(private element: ElementRef) {
+  }
 
   ngOnInit(): void {
     propRequired(this, 'trigger');
@@ -54,7 +55,7 @@ export class ExpandCollapseComponent implements OnChanges, OnInit {
   @HostBinding('@grow') get grow() {
     return {
       value: this.trigger,
-      params: { startHeight: this.startHeight, duration: this.durationSeconds }
+      params: {startHeight: this.startHeight, duration: this.durationSeconds}
     };
   }
 

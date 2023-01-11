@@ -1,24 +1,24 @@
 .header {
-    display: flex;
-    margin: 10px;
+  display: flex;
+  margin: 10px;
 
-    h4 {
-        margin-top: 10px;
-        margin-bottom: 0;
-    }
+  h4 {
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
 }
 
 ::ng-deep .mat-form-field-wrapper {
-    padding-bottom: 0;
-    margin: 0 !important;
+  padding-bottom: 0;
+  margin: 0 !important;
 }
 
 .formFields {
-    width: 100%;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 12px;
+  width: 100%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
 }
 
 editor {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }

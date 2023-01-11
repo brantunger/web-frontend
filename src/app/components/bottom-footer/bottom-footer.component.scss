@@ -1,32 +1,74 @@
 footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 10em;
-    background-color: #f1f2f3;
-    color: #7e868d;
-    box-shadow: 0px -1px 5px 0px rgba(0, 0, 0, 0.333);
-    border-top: 1px solid #00000034;
-    padding-top: 1em;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  min-height: 10em;
+  background-color: #f1f2f3;
+  color: #7e868d;
+  box-shadow: 0 -5px 10px 0 rgba(0, 0, 0, 0.333);
+  border-top: 1px solid #00000034;
+  padding-top: 5px;
+
+  h5 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
 }
 
 .footer-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  min-height: 10em;
+}
+
+.company-info {
+  width: 20em;
+  img {
+    height: 48px;
+    width: 48px;
+  }
+}
+
+.company-info-header {
+  width: 9em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.company-info-content {
+  font-size: small;
+}
+
+.footer-links {
+  a {
+    display: block;
+    text-decoration: none;
+    font-size: small;
+  }
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  min-width: 22em;
+  font-size: small;
+
+  span {
+    padding-left: 1em;
+  }
 }
 
 .footer-bottom {
-    bottom: 0;
-    position: fixed;
-    width: 100%;
-    height: 2em;
-    background-color: #e0e0e0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  margin-top: 1em;
+  width: 100%;
+  height: 2em;
+  background-color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    span {
-        font-size: x-small;
-    }
+  span {
+    font-size: x-small;
+  }
 }

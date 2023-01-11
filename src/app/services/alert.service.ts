@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {Subject} from 'rxjs';
 
 export interface AlertServiceOptions {
   viewLabel: string;
@@ -20,11 +20,12 @@ export class AlertService {
   alert$ = new Subject<AlertServiceOptions>();
   currentAlerts: { [key: string]: AlertServiceOptions } = {};
 
-  constructor() { }
+  constructor() {
+  }
 
   public clear = (viewLabel: string): void => {
     delete this.currentAlerts[viewLabel];
-    this.alert$.next({ viewLabel, message: '', type: AlertType.Clear });
+    this.alert$.next({viewLabel, message: '', type: AlertType.Clear});
   }
 
   public clearAll = (): void => {
@@ -32,12 +33,12 @@ export class AlertService {
   }
 
   public updateAlert(viewLabel: string, message: string, type: AlertType): void {
-    this.pushAlert({ viewLabel, message, type });
+    this.pushAlert({viewLabel, message, type});
   }
 
   public updateApiAlert(viewLabel: string, response: any): void {
     const alertType = response.success ? AlertType.Success : AlertType.Error;
-    this.pushAlert({ viewLabel, message: response.message, type: alertType });
+    this.pushAlert({viewLabel, message: response.message, type: alertType});
   }
 
   public success(viewLabel: string, message: string): void {

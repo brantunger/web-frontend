@@ -1,16 +1,17 @@
 @use '@angular/material' as mat;
+
 @include mat.core();
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 
 // Define a light theme
 $light-theme: mat.define-light-theme((
- color: (
-   primary: mat.define-palette(mat.$gray-palette),
-   accent: mat.define-palette(mat.$orange-palette),
-   warn: mat.define-palette(mat.$red-palette)
- ),
- typography: mat.define-typography-config(),
- density: 0,
+  color: (
+    primary: mat.define-palette(mat.$gray-palette),
+    accent: mat.define-palette(mat.$orange-palette),
+    warn: mat.define-palette(mat.$red-palette)
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
 ));
 
 @include mat.all-component-themes($light-theme);

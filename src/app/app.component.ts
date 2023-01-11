@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthorizationService } from './services/authorization.service';
+import {Component, OnInit} from '@angular/core';
+import {AuthorizationService} from './services/authorization.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,8 @@ import { AuthorizationService } from './services/authorization.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private authorizationService: AuthorizationService) { }
+  constructor(private authorizationService: AuthorizationService) {
+  }
 
   // TODO: Refactor
   // TODO: Snackbar on login

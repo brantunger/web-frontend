@@ -1,7 +1,7 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { filter, takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
-import { AlertType, AlertService, AlertServiceOptions } from 'src/app/services/alert.service';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {filter, takeUntil} from 'rxjs/operators';
+import {Subject} from 'rxjs';
+import {AlertService, AlertServiceOptions, AlertType} from 'src/app/services/alert.service';
 
 @Component({
   selector: 'app-alert-banner',
@@ -15,7 +15,8 @@ export class AlertBannerComponent implements OnInit, OnDestroy {
   type!: AlertType;
   @Input() viewLabel!: string;
 
-  constructor(private alertService: AlertService) {}
+  constructor(private alertService: AlertService) {
+  }
 
   ngOnInit(): void {
     const currentAlert = this.alertService.currentAlerts[this.viewLabel];

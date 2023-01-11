@@ -1,29 +1,29 @@
 <div class="header">
-    <div style="width: 100%;">
-        <h4>Create Post</h4>
-    </div>
-    <div>
-        <button mat-mini-fab [mat-dialog-close]="true">
-            <mat-icon>clear</mat-icon>
-        </button>
-    </div>
+  <div style="width: 100%;">
+    <h4>Create Post</h4>
+  </div>
+  <div>
+    <button mat-mini-fab [mat-dialog-close]="true">
+      <mat-icon>clear</mat-icon>
+    </button>
+  </div>
 </div>
 
 <mat-dialog-content class="mat-typography">
-    <form [formGroup]="formGroup">
-        <mat-form-field class="formFields">
-            <input matInput formControlName="titleInput" placeholder="Title" type="text" autocomplete="off" />
-            <mat-error>
-                Title is required
-            </mat-error>
-        </mat-form-field>
+  <form [formGroup]="formGroup">
+    <mat-form-field class="formFields">
+      <input matInput formControlName="titleInput" placeholder="Title" type="text" autocomplete="off"/>
+      <mat-error>
+        Title is required
+      </mat-error>
+    </mat-form-field>
 
-        <editor formControlName="contentInput" apiKey="uti498f61h6qun3wwsh4lyxd1zmjnuh3nh9edgwma6ktdsks"
+    <editor formControlName="contentInput" apiKey="uti498f61h6qun3wwsh4lyxd1zmjnuh3nh9edgwma6ktdsks"
             [toolbar]="getToolbarGroups()" [plugins]="getPluginsList()" [init]="{branding: false, statusbar: false}">
-        </editor>
-    </form>
-    <app-alert-banner viewLabel="app-create-news-dialog"></app-alert-banner>
+    </editor>
+  </form>
+  <app-alert-banner viewLabel="app-create-news-dialog"></app-alert-banner>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-    <button mat-raised-button color="accent" [disabled]="this.formGroup.invalid" (click)="postNews()">Post</button>
+  <button mat-raised-button color="accent" [disabled]="this.formGroup.invalid" (click)="postNews()">Post</button>
 </mat-dialog-actions>

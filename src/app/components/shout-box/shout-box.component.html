@@ -12,9 +12,9 @@
     <form [formGroup]="formGroup">
       <mat-form-field style="width: 100%;" *ngIf="authorizationService.isUserLoggedIn()">
         <input matInput formControlName="messageInput" placeholder="Leave a comment" type="text" autocomplete="off"
-          (keyup.enter)="send()" />
+               (keyup.enter)="send()"/>
         <button mat-icon-button matSuffix color="accent" matTooltip="Send a message." matTooltipPosition="before"
-          (click)="send()">
+                (click)="send()">
           <mat-icon>send
           </mat-icon>
         </button>

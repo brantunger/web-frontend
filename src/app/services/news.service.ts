@@ -1,10 +1,10 @@
-import { HttpErrorResponse } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import { take } from 'rxjs/operators';
-import { News } from '../models/News';
-import { AlertService } from './alert.service';
-import { WebApiService } from './web-api.service';
+import {HttpErrorResponse} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable, Subject} from 'rxjs';
+import {take} from 'rxjs/operators';
+import {News} from '../models/News';
+import {AlertService} from './alert.service';
+import {WebApiService} from './web-api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,8 @@ export class NewsService {
 
   constructor(
     private webApiService: WebApiService,
-    private alertService: AlertService) { }
+    private alertService: AlertService) {
+  }
 
   public getAllNews(): Observable<News> {
     this.webApiService

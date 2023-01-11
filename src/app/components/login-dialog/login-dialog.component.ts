@@ -1,13 +1,13 @@
-import { HttpErrorResponse } from '@angular/common/http';
-import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { take } from 'rxjs/operators';
-import { User } from 'src/app/models/User';
-import { EarlyErrorStateMatcher } from '../../../helpers/EarlyErrorStateMatcher';
-import { AlertService } from '../../services/alert.service';
-import { AuthorizationService } from '../../services/authorization.service';
-import { WebApiService } from '../../services/web-api.service';
+import {HttpErrorResponse} from '@angular/common/http';
+import {Component, Inject, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {take} from 'rxjs/operators';
+import {User} from 'src/app/models/User';
+import {EarlyErrorStateMatcher} from '../../../helpers/EarlyErrorStateMatcher';
+import {AlertService} from '../../services/alert.service';
+import {AuthorizationService} from '../../services/authorization.service';
+import {WebApiService} from '../../services/web-api.service';
 
 @Component({
   selector: 'app-login-dialog',
@@ -26,7 +26,8 @@ export class LoginDialogComponent implements OnInit {
     private webApiService: WebApiService,
     private authorizationService: AuthorizationService,
     private dialogRef: MatDialogRef<LoginDialogComponent>,
-    private alertService: AlertService) { }
+    private alertService: AlertService) {
+  }
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({

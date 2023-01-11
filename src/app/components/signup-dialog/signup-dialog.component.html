@@ -4,14 +4,14 @@
   <form [formGroup]="formGroup" (keydown.enter)="$event.preventDefault()">
     <mat-form-field>
       <input matInput formControlName="usernameInput" placeholder="Username" type="text"
-        [errorStateMatcher]="matcher" />
+             [errorStateMatcher]="matcher"/>
       <mat-icon matSuffix>face</mat-icon>
       <mat-error>
         Username is required to register.
       </mat-error>
     </mat-form-field>
     <mat-form-field>
-      <input matInput formControlName="emailInput" placeholder="Email" type="email" [errorStateMatcher]="matcher" />
+      <input matInput formControlName="emailInput" placeholder="Email" type="email" [errorStateMatcher]="matcher"/>
       <mat-icon matSuffix>email</mat-icon>
       <mat-error>
         Email is required to register.
@@ -19,7 +19,7 @@
     </mat-form-field>
     <mat-form-field>
       <input matInput formControlName="passwordInput" placeholder="Password" type="{{passwordInputType}}"
-        [errorStateMatcher]="matcher" />
+             [errorStateMatcher]="matcher"/>
       <mat-error>
         Password is required to register.
       </mat-error>
@@ -30,7 +30,7 @@
     </mat-form-field>
     <mat-form-field>
       <input matInput formControlName="passwordVerifyInput" placeholder="Verify Password" (keyup.enter)="register()"
-        type="{{passwordInputType}}" [errorStateMatcher]="matcher" />
+             type="{{passwordInputType}}" [errorStateMatcher]="matcher"/>
       <mat-icon matSuffix class="green-check" *ngIf="passwordVerified()">check_circle</mat-icon>
       <mat-icon matSuffix class="red-cross" *ngIf="!passwordVerified()">clear</mat-icon>
       <mat-error>
@@ -42,6 +42,7 @@
 
 <mat-dialog-actions align="center">
   <button mat-raised-button color="accent" [disabled]="this.formGroup.invalid || !this.passwordVerified()"
-    (click)="register()">Register</button>
+          (click)="register()">Register
+  </button>
   <button mat-button color="accent" [mat-dialog-close]="true">Cancel</button>
 </mat-dialog-actions>

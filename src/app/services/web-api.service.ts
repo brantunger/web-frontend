@@ -1,14 +1,14 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { HttpMethod } from 'src/helpers/Constants';
-import { ShoutMessage } from '../models/ShoutMessage';
-import { User } from '../models/User';
-import { News } from '../models/News';
-import { AuthorizationService } from './authorization.service';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {environment} from 'src/environments/environment';
+import {HttpMethod} from 'src/helpers/Constants';
+import {ShoutMessage} from '../models/ShoutMessage';
+import {User} from '../models/User';
+import {News} from '../models/News';
+import {AuthorizationService} from './authorization.service';
 
-const { GET, POST, PUT, DELETE, PATCH } = HttpMethod;
+const {GET, POST, PUT, DELETE, PATCH} = HttpMethod;
 
 @Injectable({
   providedIn: 'root'
@@ -16,10 +16,11 @@ const { GET, POST, PUT, DELETE, PATCH } = HttpMethod;
 export class WebApiService {
   private apiUrl = environment.baseApiUrl + '/api/v1';
 
-  constructor(private http: HttpClient, private authorizationService: AuthorizationService) { }
+  constructor(private http: HttpClient, private authorizationService: AuthorizationService) {
+  }
 
   public authenticate(username: string, password: string): Observable<User> {
-    return this.perform(POST, `${this.apiUrl}/user/authenticate`, { username, password });
+    return this.perform(POST, `${this.apiUrl}/user/authenticate`, {username, password});
   }
 
   public register(user: User): Observable<User> {
