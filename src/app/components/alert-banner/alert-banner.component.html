@@ -1,7 +1,7 @@
 <app-expand-collapse [trigger]="message">
   <div class="alert-banner {{ getTypeClass() }}" *ngIf="message">
     <mat-icon [ngClass]="'icon-' + getTypeClass()">{{ getIcon() }}</mat-icon>
-    <div class="message" [innerHTML]="message" style="padding-left:4px"></div>
+    <div class="message" [innerHTML]="message" style="padding-left: 4px;"></div>
     <button mat-icon-button class="custom" (click)="clearThisAlert()" [ngClass]="'close-button icon-' + getTypeClass()">
       <mat-icon>close</mat-icon>
     </button>
