@@ -35,6 +35,7 @@ import {NoSantizingHtmlPipe} from './pipes/no-santizing-html.pipe';
 import {websocketMessagingServiceFactory} from './services/rx-stomp-service-factory';
 import {WebsocketMessagingService} from './services/websocket-messaging.service';
 import {BottomFooterComponent} from './components/bottom-footer/bottom-footer.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import {BottomFooterComponent} from './components/bottom-footer/bottom-footer.co
     AppRoutingModule,
     BrowserAnimationsModule,
     EditorModule,
+    FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
     MatToolbarModule,

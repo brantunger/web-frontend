@@ -8,6 +8,7 @@ footer {
   box-shadow: 0 -5px 10px 0 rgba(0, 0, 0, 0.333);
   border-top: 1px solid #00000034;
   padding-top: 5px;
+  z-index: 100;
 
   h5 {
     margin-top: 5px;
@@ -46,6 +47,14 @@ footer {
     text-decoration: none;
     font-size: small;
   }
+
+  a:visited {
+    color: #7e868d;
+  }
+
+  a:hover {
+    color: #b1bcc6;
+  }
 }
 
 .contact-row {
@@ -57,6 +66,17 @@ footer {
   span {
     padding-left: 1em;
   }
+}
+
+.social-links {
+  min-width: 12em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-icons {
+  color: #7e868d;
 }
 
 .footer-bottom {
