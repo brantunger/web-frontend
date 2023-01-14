@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {News} from '../../models/News';
-import {NewsService} from 'src/app/services/news.service';
+import { Component, OnInit } from '@angular/core';
+import { News } from '../../models/News';
+import { NewsService } from 'src/app/services/news.service';
 
 @Component({
   selector: 'app-news-card',
@@ -16,6 +16,6 @@ export class NewsCardComponent implements OnInit {
   ngOnInit(): void {
     this.newsService
       .getAllNews()
-      .subscribe((newsStory: News) => this.news.push(newsStory));
+      .subscribe((newsStory: News[]) => this.news = newsStory);
   }
 }
