@@ -3,10 +3,10 @@
     <div class="company-info">
       <div class="company-info-header">
         <img src="../../../favicon.ico" alt="Dreadfall Icon"/>
-        <h4>Dreadfall</h4>
+        <h4>{{ companyInfo?.name }}</h4>
       </div>
       <div class="company-info-content">
-        Our CMS allows you to add content to your website dynamically, using a beautiful responsive web design!
+        {{ companyInfo?.shortDescription}}
       </div>
     </div>
     <div class=footer-links>
@@ -21,38 +21,38 @@
       <div>
         <div class="contact-row">
           <mat-icon>location_city</mat-icon>
-          <span>5304 S 106th Place, Mesa, AZ 85212</span>
+          <span>{{ companyInfo?.address }}</span>
         </div>
         <div class="contact-row">
           <mat-icon>mail</mat-icon>
           <span>
-            <a>admin@dreadfall.com</a>
+            <a>{{ companyInfo?.email }}</a>
           </span>
         </div>
         <div class="contact-row">
           <mat-icon>phone_android</mat-icon>
-          <span>+1 480-555-5555</span>
+          <span>{{ companyInfo?.phone }}</span>
         </div>
         <div class="contact-row">
           <mat-icon>fax</mat-icon>
-          <span>+1 480-555-5555</span>
+          <span>{{ companyInfo?.fax }}</span>
         </div>
       </div>
     </div>
     <div class="social-links">
-      <a href="https://www.facebook.com">
+      <a [href]="companyInfo?.facebookUrl">
         <fa-icon class="brand-icons" [icon]="faFacebook" size="2x"></fa-icon>
       </a>
-      <a href="https://www.twitter.com">
+      <a [href]="companyInfo?.twitterUrl">
         <fa-icon class="brand-icons" [icon]="faTwitter" size="2x"></fa-icon>
       </a>
-      <a href="https://www.instagram.com">
+      <a [href]="companyInfo?.instagramUrl">
         <fa-icon class="brand-icons" [icon]="faInstagram" size="2x"></fa-icon>
       </a>
-      <a href="https://www.linkedin.com">
+      <a [href]="companyInfo?.linkedInUrl">
         <fa-icon class="brand-icons" [icon]="faLinkedIn" size="2x"></fa-icon>
       </a>
-      <a href="https://www.github.com">
+      <a [href]="companyInfo?.githubUrl">
         <fa-icon class="brand-icons" [icon]="faGithub" size="2x"></fa-icon>
       </a>
     </div>

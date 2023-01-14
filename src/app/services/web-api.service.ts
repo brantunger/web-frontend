@@ -7,6 +7,7 @@ import {ShoutMessage} from '../models/ShoutMessage';
 import {User} from '../models/User';
 import {News} from '../models/News';
 import {AuthorizationService} from './authorization.service';
+import { CompanyInfo } from '../models/CompanyInfo';
 
 const {GET, POST, PUT, DELETE, PATCH} = HttpMethod;
 
@@ -49,6 +50,10 @@ export class WebApiService {
 
   public updateNewsVoteCount(id: number, count: number): Observable<News> {
     return this.perform(PUT, `${this.apiUrl}/news?id=${id}&voteCount=${count}`);
+  }
+
+  public getCompanyInfo(): Observable<CompanyInfo> {
+    return this.perform(GET, `${this.apiUrl}/companyinfo`);
   }
 
   private perform(method: HttpMethod, url: string, data?: any): Observable<any> {
