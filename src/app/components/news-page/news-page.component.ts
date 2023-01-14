@@ -23,7 +23,7 @@ export class NewsPageComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
-        this.webApiService.getNewsById(params.get('id')!)))
+        this.webApiService.getNews(params.get('id')!)))
       .pipe(take(1))
       .subscribe({
         next: (response: News) => {

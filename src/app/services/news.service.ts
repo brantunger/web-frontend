@@ -1,10 +1,10 @@
-import {HttpErrorResponse} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {Observable, Subject} from 'rxjs';
-import {take} from 'rxjs/operators';
-import {News} from '../models/News';
-import {AlertService} from './alert.service';
-import {WebApiService} from './web-api.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+import { take } from 'rxjs/operators';
+import { News } from '../models/News';
+import { AlertService } from './alert.service';
+import { WebApiService } from './web-api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +18,7 @@ export class NewsService {
   }
 
   public getAllNews(): Observable<News> {
-    this.webApiService
-      .getAllNews()
+    this.webApiService.getAllNews()
       .pipe(take(1))
       .subscribe((allNews: News[]) =>
         allNews.forEach((news: News) => this.news.next(news))
@@ -37,5 +36,9 @@ export class NewsService {
         },
         error: (error: HttpErrorResponse) => this.alertService.error('app-create-news-dialog', error.error.error)
       });
+  }
+
+  public deleteNews(id: number | string): void {
+    
   }
 }

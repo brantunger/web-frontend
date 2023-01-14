@@ -18,5 +18,4 @@ export class NewsCardComponent implements OnInit {
       .getAllNews()
       .subscribe((newsStory: News) => this.news.push(newsStory));
   }
-
 }

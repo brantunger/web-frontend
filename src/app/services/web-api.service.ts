@@ -36,7 +36,7 @@ export class WebApiService {
     return this.perform(GET, `${this.apiUrl}/news`);
   }
 
-  public getNewsById(id: number | string): Observable<News> {
+  public getNews(id: number | string): Observable<News> {
     return this.perform(GET, `${this.apiUrl}/news/${id}`);
   }
 
@@ -46,6 +46,10 @@ export class WebApiService {
 
   public updateNews(id: number, news: News): Observable<News> {
     return this.perform(PUT, `${this.apiUrl}/news/${id}`, news);
+  }
+
+  public deleteNews(id: number | string): Observable<any> {
+    return this.perform(DELETE, `${this.apiUrl}/news/${id}`);
   }
 
   public updateNewsVoteCount(id: number, count: number): Observable<News> {
