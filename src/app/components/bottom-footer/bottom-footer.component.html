@@ -1,22 +1,22 @@
 <footer>
   <div class="footer-content">
-    <div class="company-info">
+    <section class="company-info">
       <div class="company-info-header">
-        <img src="../../../favicon.ico" alt="Dreadfall Icon"/>
+        <img src="../../../favicon.ico" alt="Dreadfall Icon" />
         <h4>{{ companyInfo?.name }}</h4>
       </div>
       <div class="company-info-content">
         {{ companyInfo?.shortDescription}}
       </div>
-    </div>
-    <div class=footer-links>
+    </section>
+    <section class=footer-links>
       <h5>LINKS</h5>
       <a href="https://www.facebook.com">Link 1</a>
       <a href="https://www.facebook.com">Link 2</a>
       <a href="https://www.facebook.com">Link 3</a>
       <a href="https://www.facebook.com">Link 4</a>
-    </div>
-    <div>
+    </section>
+    <section>
       <h5>CONTACT</h5>
       <div>
         <address class="contact-row">
@@ -38,8 +38,8 @@
           <span>{{ companyInfo?.fax }}</span>
         </div>
       </div>
-    </div>
-    <div class="social-links">
+    </section>
+    <section class="social-links">
       <a [href]="companyInfo?.facebookUrl">
         <fa-icon class="brand-icons" [icon]="faFacebook" size="2x"></fa-icon>
       </a>
@@ -55,12 +55,12 @@
       <a [href]="companyInfo?.githubUrl">
         <fa-icon class="brand-icons" [icon]="faGithub" size="2x"></fa-icon>
       </a>
-    </div>
+    </section>
   </div>
 
-  <div class="footer-bottom">
-        <span>
-            © 2023 <strong>Dreadfall</strong>. Crafted by <strong>Brant Unger</strong>
-        </span>
-  </div>
+  <section class="footer-bottom">
+    <span>
+      © 2023 <strong>Dreadfall</strong>. Crafted by <strong>Brant Unger</strong>
+    </span>
+  </section>
 </footer>
