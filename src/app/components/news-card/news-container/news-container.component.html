@@ -1,4 +1,4 @@
-<div class="news-container">
+<article>
   <div class="news-outer-vote-column">
     <div class="news-vote-column">
       <div *ngIf="authorizationService.isUserLoggedIn()">
@@ -41,4 +41,4 @@
       <div [innerHTML]="newsStory.content | keepHtml"></div>
     </div>
   </div>
-</div>
+</article>
