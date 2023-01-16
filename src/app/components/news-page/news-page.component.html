@@ -2,11 +2,13 @@
   <mat-card-header>
     <mat-card-subtitle>News</mat-card-subtitle>
     <mat-card-title>
-      <div class="news-header">
-        <h3>{{ newsStory?.title }}</h3>
-        <h5>{{ newsStory?.dateCreated | fullFormattedTimestamp }}</h5>
-        <h5>Posted by {{ newsStory?.createdBy }}</h5>
-      </div>
+      <mat-list>
+        <mat-list-item>
+          <span matListItemTitle>{{ newsStory?.title }}</span>
+          <span matListItemLine>{{ newsStory?.dateCreated | fullFormattedTimestamp }}</span>
+          <span>Posted by {{ newsStory?.createdBy }}</span>
+        </mat-list-item>
+      </mat-list>
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
