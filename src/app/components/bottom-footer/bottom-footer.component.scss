@@ -30,9 +30,18 @@ section {
   margin-bottom: 1em;
 }
 
-.company-info {
-  width: 20em;
+@media (min-width: 900px) {
+  .company-info {
+    width: 20em;
+  
+    img {
+      height: 48px;
+      width: 48px;
+    }
+  }
+}
 
+.company-info {
   img {
     height: 48px;
     width: 48px;
@@ -69,7 +78,6 @@ section {
 .contact-row {
   display: flex;
   align-items: center;
-  min-width: 22em;
   font-size: small;
 
   span {
@@ -93,7 +101,6 @@ address {
 }
 
 .footer-bottom {
-  // margin-top: 1em;
   margin-bottom: 0;
   width: 100%;
   height: 2em;
