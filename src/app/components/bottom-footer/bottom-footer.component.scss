@@ -14,14 +14,25 @@ footer {
   }
 }
 
+@media (min-width: 900px) {
+  .footer-content {
+    display: flex;
+    justify-content: space-evenly;
+    min-height: 8em;
+  }
+}
+
 .footer-content {
-  display: flex;
-  justify-content: space-evenly;
-  min-height: 10em;
+  margin: 1em;
+}
+
+section {
+  margin-bottom: 1em;
 }
 
 .company-info {
   width: 20em;
+
   img {
     height: 48px;
     width: 48px;
