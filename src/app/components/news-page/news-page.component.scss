@@ -3,7 +3,6 @@ mat-card {
 }
 
 .news-header {
-  display: flex;
   color: #7e868d;
 
   h3 {
@@ -12,7 +11,8 @@ mat-card {
 
   h5 {
     color: #cecfd1;
-    margin: 2px;
+    margin: 0px;
+    font-size: small;
   }
 }
 
