@@ -14,4 +14,15 @@ $light-theme: mat.define-light-theme((
   density: 0,
 ));
 
+// Define a dark theme
+$dark-theme: mat.define-dark-theme((
+  color: (
+    primary: mat.define-palette(mat.$gray-palette),
+    accent: mat.define-palette(mat.$orange-palette),
+    warn: mat.define-palette(mat.$red-palette)
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
 @include mat.all-component-themes($light-theme);
