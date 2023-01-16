@@ -3,7 +3,8 @@
 <mat-dialog-content>
   <form [formGroup]="formGroup" (keydown.enter)="$event.preventDefault()">
     <mat-form-field>
-      <input matInput formControlName="usernameInput" placeholder="Username" type="text"
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="usernameInput" type="text"
              [errorStateMatcher]="matcher"/>
       <mat-icon matSuffix>face</mat-icon>
       <mat-error>
@@ -11,14 +12,16 @@
       </mat-error>
     </mat-form-field>
     <mat-form-field>
-      <input matInput formControlName="emailInput" placeholder="Email" type="email" [errorStateMatcher]="matcher"/>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="emailInput" type="email" [errorStateMatcher]="matcher"/>
       <mat-icon matSuffix>email</mat-icon>
       <mat-error>
         Email is required to register.
       </mat-error>
     </mat-form-field>
     <mat-form-field>
-      <input matInput formControlName="passwordInput" placeholder="Password" type="{{passwordInputType}}"
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="passwordInput" type="{{passwordInputType}}"
              [errorStateMatcher]="matcher"/>
       <mat-error>
         Password is required to register.
@@ -29,6 +32,7 @@
       </button>
     </mat-form-field>
     <mat-form-field>
+      <mat-label>Password</mat-label>
       <input matInput formControlName="passwordVerifyInput" placeholder="Verify Password" (keyup.enter)="register()"
              type="{{passwordInputType}}" [errorStateMatcher]="matcher"/>
       <mat-icon matSuffix class="green-check" *ngIf="passwordVerified()">check_circle</mat-icon>
