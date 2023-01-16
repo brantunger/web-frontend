@@ -3,13 +3,11 @@ article {
   background-color: #f1f2f3;
   border: #7e868d 1px solid;
   border-radius: 5px;
-  // min-height: 200px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: flex;
 }
 
 .news-outer-vote-column {
-  // min-height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,8 +30,9 @@ article {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
   h3 {
-    margin: 5px;
+    margin: 0 0 0 5px;
   }
 }
 

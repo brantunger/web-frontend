@@ -36,8 +36,8 @@
         </mat-menu>
       </div>
     </div>
-    <h5>Posted by {{ newsStory.createdBy }}</h5>
     <h5>{{ newsStory.dateCreated | fullFormattedTimestamp }}</h5>
+    <h5>Posted by {{ newsStory.createdBy }}</h5>
     <div class="news-content">
       <div [innerHTML]="newsStory.content | keepHtml"></div>
     </div>
