@@ -4,8 +4,7 @@
   <form [formGroup]="formGroup" (keydown.enter)="$event.preventDefault()">
     <mat-form-field>
       <mat-label>Username</mat-label>
-      <input matInput formControlName="usernameInput" type="text" [errorStateMatcher]="matcher"
-             autocomplete="off"/>
+      <input matInput formControlName="usernameInput" type="text" autocomplete="off" />
       <mat-icon matSuffix>face</mat-icon>
       <mat-error>
         Username is required to login.
@@ -13,8 +12,8 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Password</mat-label>
-      <input matInput formControlName="passwordInput" placeholder="Password" (keyup.enter)="login()"
-             type="{{passwordInputType}}" [errorStateMatcher]="matcher" autocomplete="off"/>
+      <input matInput formControlName="passwordInput" (keyup.enter)="login()"
+        type="{{passwordInputType}}" autocomplete="off" />
       <mat-error>
         Password is required to login.
       </mat-error>

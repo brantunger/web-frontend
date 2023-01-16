@@ -4,7 +4,6 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {take} from 'rxjs/operators';
 import {User} from 'src/app/models/User';
-import {EarlyErrorStateMatcher} from '../../../helpers/EarlyErrorStateMatcher';
 import {AlertService} from '../../services/alert.service';
 import {AuthorizationService} from '../../services/authorization.service';
 import {WebApiService} from '../../services/web-api.service';
@@ -16,7 +15,6 @@ import {WebApiService} from '../../services/web-api.service';
 })
 export class LoginDialogComponent implements OnInit {
   formGroup!: FormGroup;
-  matcher!: EarlyErrorStateMatcher;
   showPassword = false;
   passwordInputType = 'password';
 

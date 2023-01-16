@@ -3,7 +3,6 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {take} from 'rxjs/operators';
-import {EarlyErrorStateMatcher} from 'src/helpers/EarlyErrorStateMatcher';
 import {User} from '../../models/User';
 import {AlertService} from '../../services/alert.service';
 import {WebApiService} from '../../services/web-api.service';
@@ -15,7 +14,6 @@ import {WebApiService} from '../../services/web-api.service';
 })
 export class SignupDialogComponent implements OnInit {
   formGroup!: FormGroup;
-  matcher!: EarlyErrorStateMatcher;
   showPassword = false;
   passwordInputType = 'password';
 

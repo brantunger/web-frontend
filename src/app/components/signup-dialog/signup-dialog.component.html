@@ -4,8 +4,7 @@
   <form [formGroup]="formGroup" (keydown.enter)="$event.preventDefault()">
     <mat-form-field>
       <mat-label>Username</mat-label>
-      <input matInput formControlName="usernameInput" type="text"
-             [errorStateMatcher]="matcher"/>
+      <input matInput formControlName="usernameInput" type="text" />
       <mat-icon matSuffix>face</mat-icon>
       <mat-error>
         Username is required to register.
@@ -13,7 +12,7 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Email</mat-label>
-      <input matInput formControlName="emailInput" type="email" [errorStateMatcher]="matcher"/>
+      <input matInput formControlName="emailInput" type="email" />
       <mat-icon matSuffix>email</mat-icon>
       <mat-error>
         Email is required to register.
@@ -21,8 +20,7 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Password</mat-label>
-      <input matInput formControlName="passwordInput" type="{{passwordInputType}}"
-             [errorStateMatcher]="matcher"/>
+      <input matInput formControlName="passwordInput" type="{{passwordInputType}}" />
       <mat-error>
         Password is required to register.
       </mat-error>
@@ -33,12 +31,11 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Password</mat-label>
-      <input matInput formControlName="passwordVerifyInput" placeholder="Verify Password" (keyup.enter)="register()"
-             type="{{passwordInputType}}" [errorStateMatcher]="matcher"/>
+      <input matInput formControlName="passwordVerifyInput" (keyup.enter)="register()" type="{{passwordInputType}}" />
       <mat-icon matSuffix class="green-check" *ngIf="passwordVerified()">check_circle</mat-icon>
       <mat-icon matSuffix class="red-cross" *ngIf="!passwordVerified()">clear</mat-icon>
       <mat-error>
-        Password is required to register.
+        Verifying Password is required to register.
       </mat-error>
     </mat-form-field>
   </form>
@@ -46,7 +43,7 @@
 
 <mat-dialog-actions align="center">
   <button mat-raised-button color="accent" [disabled]="this.formGroup.invalid || !this.passwordVerified()"
-          (click)="register()">Register
+    (click)="register()">Register
   </button>
   <button mat-button color="accent" [mat-dialog-close]="true">Cancel</button>
 </mat-dialog-actions>
