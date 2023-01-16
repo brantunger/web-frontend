@@ -1,5 +1,5 @@
 <article>
-  <div class="news-outer-vote-column">
+  <section class="news-outer-vote-column">
     <div class="news-vote-column">
       <div *ngIf="authorizationService.isUserLoggedIn()">
         <button mat-icon-button color="accent" matTooltip="Upvote for the story." matTooltipPosition="after"
@@ -15,12 +15,11 @@
         </button>
       </div>
     </div>
-  </div>
-  <div class="news-content-header">
+  </section>
+  <section class="news-content-header">
     <div class="news-header">
       <h3>{{ newsStory.title }}</h3>
-      <h5>- Posted by {{ newsStory.createdBy }} - {{ newsStory.dateCreated | fullFormattedTimestamp }}</h5>
-      <div class="news-menu-container">
+      <div>
         <button mat-icon-button [matMenuTriggerFor]="menu">
           <mat-icon>more_vert</mat-icon>
         </button>
@@ -37,8 +36,10 @@
         </mat-menu>
       </div>
     </div>
+    <h5>Posted by {{ newsStory.createdBy }}</h5>
+    <h5>{{ newsStory.dateCreated | fullFormattedTimestamp }}</h5>
     <div class="news-content">
       <div [innerHTML]="newsStory.content | keepHtml"></div>
     </div>
-  </div>
+  </section>
 </article>
