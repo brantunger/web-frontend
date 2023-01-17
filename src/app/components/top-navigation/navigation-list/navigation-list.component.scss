@@ -1,6 +1,5 @@
 a {
     text-decoration: none;
-    color: white;
 }
 
 a:hover,
@@ -8,7 +7,11 @@ a:active {
     color: lightgray;
 }
 
+.nav-item {
+    display: flex;
+    align-items: center;
+}
+
 .nav-caption {
-    display: inline-block;
-    padding-left: 6px;
+    margin-left: 1em;
 }
