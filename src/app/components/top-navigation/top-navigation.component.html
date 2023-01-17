@@ -1,6 +1,6 @@
 <header>
-  <mat-toolbar class="top-nav-toolbar">
-    <mat-toolbar-row color="secondary">
+  <mat-toolbar class="top-nav-toolbar" color="secondary">
+    <mat-toolbar-row>
       <a routerLink=""><img class="nav-logo" src="../../../assets/DF_Icon.png" alt="Dreadfall Logo" /></a>
       <a routerLink="" style="text-decoration: none;">
         <span>
@@ -9,23 +9,30 @@
       </a>
       <!-- This fills the remaining space of the current row -->
       <span class="top-nav-bar"></span>
-      <span *ngIf="authorizationService.getRole() === 'ADMIN'">
-        <button mat-icon-button color="accent" matTooltip="Create news story." matTooltipPosition="before"
-          (click)="openCreateDialog()">
-          <mat-icon>create</mat-icon>
-          <!-- <mat-icon class="create-news-icon">create</mat-icon> -->
+      <span class="nav-menu">
+        <button mat-icon-button color="accent" matTooltip="Open Navigation" matTooltipPosition="before"
+          (click)="openSideNav()">
+          <mat-icon>menu</mat-icon>
         </button>
       </span>
-      <span *ngIf="authorizationService.isUserLoggedIn()" class="username-span">
-        <h3>{{ authorizationService.getUsername() }}</h3>
-      </span>
-      <span *ngIf="!authorizationService.isUserLoggedIn()">
-        <button mat-stroked-button (click)="openLoginDialog()">Login</button>
-        <button mat-button color="accent" (click)="openSignupDialog()">Sign Up</button>
-      </span>
-      <span *ngIf="authorizationService.isUserLoggedIn()">
-        <button mat-stroked-button (click)="logout()">Logout</button>
-      </span>
+      <div class="nav-row">
+        <span *ngIf="authorizationService.getRole() === 'ADMIN'">
+          <button mat-icon-button color="accent" matTooltip="Create Content." matTooltipPosition="before"
+            (click)="openCreateDialog()">
+            <mat-icon>create</mat-icon>
+          </button>
+        </span>
+        <span *ngIf="authorizationService.isUserLoggedIn()" class="username-span">
+          <h3>{{ authorizationService.getUsername() }}</h3>
+        </span>
+        <span *ngIf="!authorizationService.isUserLoggedIn()">
+          <button mat-stroked-button (click)="openLoginDialog()">Login</button>
+          <button mat-button color="accent" (click)="openSignupDialog()">Sign Up</button>
+        </span>
+        <span *ngIf="authorizationService.isUserLoggedIn()">
+          <button mat-stroked-button (click)="logout()">Logout</button>
+        </span>
+      </div>
     </mat-toolbar-row>
   </mat-toolbar>
 </header>

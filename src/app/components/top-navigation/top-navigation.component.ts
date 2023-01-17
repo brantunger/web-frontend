@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
-import {LoginDialogComponent} from '../login-dialog/login-dialog.component';
-import {SignupDialogComponent} from '../signup-dialog/signup-dialog.component';
-import {AuthorizationService} from '../../services/authorization.service';
-import {CreateNewsDialogComponent} from '../create-news-dialog/create-news-dialog.component';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
+import { SignupDialogComponent } from '../signup-dialog/signup-dialog.component';
+import { AuthorizationService } from '../../services/authorization.service';
+import { CreateNewsDialogComponent } from '../create-news-dialog/create-news-dialog.component';
 
 @Component({
   selector: 'app-top-navigation',
@@ -11,8 +11,11 @@ import {CreateNewsDialogComponent} from '../create-news-dialog/create-news-dialo
   styleUrls: ['./top-navigation.component.scss']
 })
 export class TopNavigationComponent implements OnInit {
+  @Output() public sideNavToggle = new EventEmitter();
 
-  constructor(public authorizationService: AuthorizationService, private dialog: MatDialog) {
+  constructor(
+    public authorizationService: AuthorizationService,
+    private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -36,6 +39,10 @@ export class TopNavigationComponent implements OnInit {
       disableClose: true,
       maxHeight: '95vh'
     });
+  }
+
+  openSideNav(): void {
+    this.sideNavToggle.emit();
   }
 
   logout(): void {
