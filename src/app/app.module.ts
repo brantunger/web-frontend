@@ -38,6 +38,7 @@ import { websocketMessagingServiceFactory } from './services/rx-stomp-service-fa
 import { WebsocketMessagingService } from './services/websocket-messaging.service';
 import { BottomFooterComponent } from './components/bottom-footer/bottom-footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NavigationListComponent } from './components/top-navigation/navigation-list/navigation-list.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CreateNewsDialogComponent,
     NewsPageComponent,
     FullFormattedTimestampPipe,
-    BottomFooterComponent
+    BottomFooterComponent,
+    NavigationListComponent
   ],
   imports: [
     BrowserModule,

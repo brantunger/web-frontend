@@ -1,9 +1,9 @@
 <app-top-navigation (sideNavToggle)="sidenav.toggle()"></app-top-navigation>
 <mat-sidenav-container>
   <mat-sidenav #sidenav role="navigation">
+    <app-navigation-list (onNavLinkClick)="sidenav.toggle()"></app-navigation-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <!--in here all the content must reside. We will add a navigation header as well-->
     <main>
       <router-outlet></router-outlet>
     </main>
