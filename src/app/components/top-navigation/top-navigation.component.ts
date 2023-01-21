@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
 import { SignupDialogComponent } from '../signup-dialog/signup-dialog.component';
@@ -10,15 +10,12 @@ import { CreateNewsDialogComponent } from '../create-news-dialog/create-news-dia
   templateUrl: './top-navigation.component.html',
   styleUrls: ['./top-navigation.component.scss']
 })
-export class TopNavigationComponent implements OnInit {
+export class TopNavigationComponent {
   @Output() public sideNavToggle = new EventEmitter();
 
   constructor(
     public authorizationService: AuthorizationService,
     private dialog: MatDialog) {
-  }
-
-  ngOnInit(): void {
   }
 
   openLoginDialog(): void {

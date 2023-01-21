@@ -1,0 +1,32 @@
+section {
+  margin: 1em;
+}
+
+.header {
+    display: flex;
+    margin: 10px;
+  
+    h4 {
+      margin-top: 10px;
+      margin-bottom: 0;
+    }
+  }
+  
+  ::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 0;
+    margin: 0 !important;
+  }
+  
+  .formFields {
+    width: 100%;
+    font-size: 12px;
+  }
+  
+  editor {
+    margin-bottom: 15px;
+  }
+
+  .error {
+    font-size: small;
+    margin-bottom: 1em;
+  }

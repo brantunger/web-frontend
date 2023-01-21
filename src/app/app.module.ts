@@ -39,6 +39,7 @@ import { WebsocketMessagingService } from './services/websocket-messaging.servic
 import { BottomFooterComponent } from './components/bottom-footer/bottom-footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NavigationListComponent } from './components/top-navigation/navigation-list/navigation-list.component';
+import { CreateNewsPageComponent } from './components/create-news-page/create-news-page.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { NavigationListComponent } from './components/top-navigation/navigation-
     NewsPageComponent,
     FullFormattedTimestampPipe,
     BottomFooterComponent,
-    NavigationListComponent
+    NavigationListComponent,
+    CreateNewsPageComponent
   ],
   imports: [
     BrowserModule,
@@ -93,7 +95,7 @@ import { NavigationListComponent } from './components/top-navigation/navigation-
   providers: [
     {
       provide: WebsocketMessagingService,
-      useFactory: websocketMessagingServiceFactory,
+      useFactory: websocketMessagingServiceFactory
     }
   ],
   // providers: [{
