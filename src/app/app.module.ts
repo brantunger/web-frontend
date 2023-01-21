@@ -39,6 +39,7 @@ import { BottomFooterComponent } from './components/bottom-footer/bottom-footer.
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NavigationListComponent } from './components/top-navigation/navigation-list/navigation-list.component';
 import { CreateNewsPageComponent } from './components/create-news-page/create-news-page.component';
+import { AuthFailedComponent } from './components/auth-failed/auth-failed.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { CreateNewsPageComponent } from './components/create-news-page/create-ne
     FullFormattedTimestampPipe,
     BottomFooterComponent,
     NavigationListComponent,
-    CreateNewsPageComponent
+    CreateNewsPageComponent,
+    AuthFailedComponent
   ],
   imports: [
     BrowserModule,
