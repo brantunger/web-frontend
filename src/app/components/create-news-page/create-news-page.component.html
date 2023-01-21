@@ -1,4 +1,5 @@
 <section>
+    <app-alert-banner viewLabel="app-create-news-page"></app-alert-banner>
     <div class="header">
         <div style="width: 100%;">
             <h4>Create Post</h4>
@@ -18,7 +19,6 @@
                   }}">
             </editor>
         </form>
-        <app-alert-banner viewLabel="app-create-news-page"></app-alert-banner>
     </div>
     <div>
         <mat-error *ngIf="formGroup.invalid" class="error">*Content and Title are required</mat-error>

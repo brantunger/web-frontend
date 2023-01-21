@@ -35,9 +35,8 @@ export class NewsService {
         next: (response: News) => {
           this.newsData.push(response);
           this._news.next(this.newsData);
-          this.alertService.success('app-create-news-dialog', 'Posted News Successfully');
         },
-        error: (error: HttpErrorResponse) => this.alertService.error('app-create-news-dialog', error.error.error)
+        error: (error: HttpErrorResponse) => this.alertService.error('app-create-news-page', error.error.error)
       });
   }
 
