@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { News } from '../models/News';
@@ -15,7 +16,8 @@ export class NewsService {
 
   constructor(
     private webApiService: WebApiService,
-    private alertService: AlertService) {
+    private alertService: AlertService,
+    private router: Router) {
   }
 
   public getAllNews(): Observable<News[]> {
@@ -35,6 +37,7 @@ export class NewsService {
         next: (response: News) => {
           this.newsData.push(response);
           this._news.next(this.newsData);
+          this.router.navigateByUrl('');
         },
         error: (error: HttpErrorResponse) => this.alertService.error('app-create-news-page', error.error.error)
       });
