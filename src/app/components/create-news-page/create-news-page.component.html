@@ -13,8 +13,9 @@
             </mat-form-field>
 
             <editor formControlName="contentInput" apiKey="uti498f61h6qun3wwsh4lyxd1zmjnuh3nh9edgwma6ktdsks"
-                [toolbar]="getToolbarGroups()" [plugins]="getPluginsList()"
-                [init]="{ branding: false, statusbar: false }">
+                [toolbar]="getToolbarGroups()" [plugins]="getPluginsList()" [init]="{ branding: false, statusbar: false, mobile: {
+                    menubar: true
+                  }}">
             </editor>
         </form>
         <app-alert-banner viewLabel="app-create-news-page"></app-alert-banner>

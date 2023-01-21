@@ -1,14 +1,13 @@
 section {
-  margin: 1em;
+  margin: 0 1em 1em 1em;
 }
 
 .header {
     display: flex;
-    margin: 10px;
+    margin: 0 .75em .75em .75em;
   
     h4 {
-      margin-top: 10px;
-      margin-bottom: 0;
+      margin: 0;
     }
   }
   
@@ -23,7 +22,7 @@ section {
   }
   
   editor {
-    margin-bottom: 15px;
+    margin-bottom: 1em;
   }
 
   .error {
