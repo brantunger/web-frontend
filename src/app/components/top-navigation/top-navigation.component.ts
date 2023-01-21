@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
 import { SignupDialogComponent } from '../signup-dialog/signup-dialog.component';
 import { AuthorizationService } from '../../services/authorization.service';
-import { CreateNewsDialogComponent } from '../create-news-dialog/create-news-dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-top-navigation',
@@ -15,7 +15,8 @@ export class TopNavigationComponent {
 
   constructor(
     public authorizationService: AuthorizationService,
-    private dialog: MatDialog) {
+    private dialog: MatDialog,
+    private router: Router) {
   }
 
   openLoginDialog(): void {
@@ -30,12 +31,8 @@ export class TopNavigationComponent {
     });
   }
 
-  openCreateDialog(): void {
-    this.dialog.open(CreateNewsDialogComponent, {
-      width: '95vw',
-      disableClose: true,
-      maxHeight: '95vh'
-    });
+  navigateToCreate(): void {
+    this.router.navigateByUrl('/news/create');
   }
 
   openSideNav(): void {

@@ -1,4 +1,4 @@
-import {RxStompConfig} from "@stomp/rx-stomp";
+import {RxStompConfig} from '@stomp/rx-stomp';
 
 export const environment = {
   production: true,

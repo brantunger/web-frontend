@@ -28,7 +28,6 @@ import { SignupDialogComponent } from './components/signup-dialog/signup-dialog.
 import { TopNavigationComponent } from './components/top-navigation/top-navigation.component';
 // import { AuthenticationInterceptor } from './authentication-interceptor';
 import { EditorModule } from '@tinymce/tinymce-angular';
-import { CreateNewsDialogComponent } from './components/create-news-dialog/create-news-dialog.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { NewsPageComponent } from './components/news-page/news-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
@@ -55,7 +54,6 @@ import { CreateNewsPageComponent } from './components/create-news-page/create-ne
     NoSantizingHtmlPipe,
     PageNotFoundComponent,
     HomePageComponent,
-    CreateNewsDialogComponent,
     NewsPageComponent,
     FullFormattedTimestampPipe,
     BottomFooterComponent,
