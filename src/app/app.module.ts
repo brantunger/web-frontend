@@ -13,7 +13,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTreeModule } from '@angular/material/tree';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -41,6 +42,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NavigationListComponent } from './components/top-navigation/navigation-list/navigation-list.component';
 import { CreateNewsPageComponent } from './components/create-news-page/create-news-page.component';
 import { AuthFailedComponent } from './components/auth-failed/auth-failed.component';
+import { CommentsTreeComponent } from './components/news-page/comments-tree/comments-tree.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,8 @@ import { AuthFailedComponent } from './components/auth-failed/auth-failed.compon
     BottomFooterComponent,
     NavigationListComponent,
     CreateNewsPageComponent,
-    AuthFailedComponent
+    AuthFailedComponent,
+    CommentsTreeComponent
   ],
   imports: [
     BrowserModule,
@@ -84,6 +87,7 @@ import { AuthFailedComponent } from './components/auth-failed/auth-failed.compon
     MatDialogModule,
     MatDividerModule,
     MatSidenavModule,
+    MatTreeModule,
     HttpClientModule,
     JwtModule.forRoot({
       config: {
