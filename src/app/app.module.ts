@@ -13,6 +13,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatExpansionModule} from '@angular/material/expansion';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -72,6 +73,7 @@ import { AuthFailedComponent } from './components/auth-failed/auth-failed.compon
     FormsModule,
     ReactiveFormsModule,
     MatListModule,
+    MatExpansionModule,
     MatToolbarModule,
     MatButtonModule,
     MatTooltipModule,
