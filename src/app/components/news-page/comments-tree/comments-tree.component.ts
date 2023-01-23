@@ -1,40 +1,59 @@
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { Component } from '@angular/core';
 import { MatTreeFlattener, MatTreeFlatDataSource } from '@angular/material/tree';
+import { NewsComment } from 'src/app/models/NewsComment';
 
-/**
- * Food data with nested structure.
- * Each node has a name and an optional list of children.
- */
-interface FoodNode {
-  name: string;
-  children?: FoodNode[];
-}
 
-const TREE_DATA: FoodNode[] = [
+const TREE_DATA: NewsComment[] = [
   {
-    name: 'Fruit',
-    children: [{name: 'Apple'}, {name: 'Banana'}, {name: 'Fruit loops'}],
-  },
-  {
-    name: 'Vegetables',
-    children: [
+    commentId: 1,
+    newsId: 1,
+    content: 'I am a comment!',
+    createdBy: 'admin',
+    dateCreated: new Date(),
+    comments: [
       {
-        name: 'Green',
-        children: [{name: 'Broccoli'}, {name: 'Brussels sprouts'}],
+        commentId: 2,
+        newsId: 1,
+        parentId: 1,
+        content: 'I am a comment!',
+        createdBy: 'admin',
+        dateCreated: new Date(),
+        comments: [
+          {
+            commentId: 5,
+            newsId: 1,
+            parentId: 2,
+            content: 'I am a comment!',
+            createdBy: 'admin',
+            dateCreated: new Date()
+          }
+        ]
       },
       {
-        name: 'Orange',
-        children: [{name: 'Pumpkins'}, {name: 'Carrots'}],
+        commentId: 3,
+        newsId: 1,
+        parentId: 1,
+        content: 'I am a comment!',
+        createdBy: 'admin',
+        dateCreated: new Date()
       },
-    ],
-  },
+      {
+        commentId: 4,
+        newsId: 1,
+        parentId: 1,
+        content: 'I am a comment!',
+        createdBy: 'admin',
+        dateCreated: new Date()
+      }
+    ]
+  }
 ];
 
 /** Flat node with expandable and level information */
-interface ExampleFlatNode {
+interface FlatNode {
   expandable: boolean;
-  name: string;
+  nodeData: NewsComment;
   level: number;
 }
 
@@ -44,24 +63,24 @@ interface ExampleFlatNode {
   styleUrls: ['./comments-tree.component.scss']
 })
 export class CommentsTreeComponent {
-  private _transformer = (node: FoodNode, level: number) => {
+  private _transformer = (node: NewsComment, level: number) => {
     return {
-      expandable: !!node.children && node.children.length > 0,
-      name: node.name,
-      level: level,
+      expandable: !!node.comments && node.comments.length > 0,
+      nodeData: node,
+      level: level
     };
   };
 
-  treeControl = new FlatTreeControl<ExampleFlatNode>(
+  treeControl = new FlatTreeControl<FlatNode>(
     node => node.level,
-    node => node.expandable,
+    node => node.expandable
   );
 
   treeFlattener = new MatTreeFlattener(
     this._transformer,
     node => node.level,
     node => node.expandable,
-    node => node.children,
+    node => node.comments
   );
 
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
@@ -70,5 +89,5 @@ export class CommentsTreeComponent {
     this.dataSource.data = TREE_DATA;
   }
 
-  hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
+  hasChild = (_: number, node: FlatNode) => node.expandable;
 }
