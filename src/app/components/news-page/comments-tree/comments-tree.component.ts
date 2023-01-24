@@ -1,6 +1,6 @@
-import { FlatTreeControl } from '@angular/cdk/tree';
-import { Component } from '@angular/core';
-import { MatTreeFlattener, MatTreeFlatDataSource } from '@angular/material/tree';
+import { NestedTreeControl } from '@angular/cdk/tree';
+import { AfterViewInit, ChangeDetectorRef, Component } from '@angular/core';
+import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { NewsComment } from 'src/app/models/NewsComment';
 
 
@@ -47,47 +47,34 @@ const TREE_DATA: NewsComment[] = [
         dateCreated: new Date()
       }
     ]
+  },
+  {
+    commentId: 6,
+    newsId: 1,
+    content: 'I am a comment!',
+    createdBy: 'admin',
+    dateCreated: new Date()
   }
 ];
-
-/** Flat node with expandable and level information */
-interface FlatNode {
-  expandable: boolean;
-  nodeData: NewsComment;
-  level: number;
-}
 
 @Component({
   selector: 'app-comments-tree',
   templateUrl: './comments-tree.component.html',
   styleUrls: ['./comments-tree.component.scss']
 })
-export class CommentsTreeComponent {
-  private _transformer = (node: NewsComment, level: number) => {
-    return {
-      expandable: !!node.comments && node.comments.length > 0,
-      nodeData: node,
-      level: level
-    };
-  };
+export class CommentsTreeComponent implements AfterViewInit {
+  treeControl = new NestedTreeControl<NewsComment>(node => node.comments);
+  dataSource = new MatTreeNestedDataSource<NewsComment>();
 
-  treeControl = new FlatTreeControl<FlatNode>(
-    node => node.level,
-    node => node.expandable
-  );
-
-  treeFlattener = new MatTreeFlattener(
-    this._transformer,
-    node => node.level,
-    node => node.expandable,
-    node => node.comments
-  );
-
-  dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
-
-  constructor() {
+  constructor(private cdr: ChangeDetectorRef) {
     this.dataSource.data = TREE_DATA;
+    this.treeControl.dataNodes = TREE_DATA;
   }
 
-  hasChild = (_: number, node: FlatNode) => node.expandable;
+  ngAfterViewInit(): void {
+    this.treeControl.expandAll();
+    this.cdr.detectChanges();
+  }
+
+  hasChild = (_: number, node: NewsComment) =>  !!node.comments && node.comments.length > 0;
 }
