@@ -53,7 +53,17 @@ const TREE_DATA: NewsComment[] = [
     newsId: 1,
     content: 'I am a comment!',
     createdBy: 'admin',
-    dateCreated: new Date()
+    dateCreated: new Date(),
+    comments: [
+      {
+        commentId: 7,
+        newsId: 1,
+        parentId: 6,
+        content: 'I am a comment!',
+        createdBy: 'admin',
+        dateCreated: new Date()
+      }
+    ]
   }
 ];
 

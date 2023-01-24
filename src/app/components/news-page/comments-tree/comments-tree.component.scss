@@ -1,19 +1,22 @@
+mat-tree {
+  mat-nested-tree-node div[role=group] {
+    padding-left: 40px;
+  }
+
+  mat-tree-node {
+    padding-left: 50px;
+  }
+}
+
 .comments-tree-invisible {
   display: none;
 }
 
-/*
- * This padding sets alignment of the nested nodes.
- */
-.comments-tree .mat-nested-tree-node div[role=group] {
-  padding-left: 40px;
-}
 
-/*
- * Padding for leaf nodes.
- * Leaf nodes need to have padding so as to align with other non-leaf nodes
- * under the same parent.
- */
-.comments-tree div[role=group] > .mat-tree-node {
-  padding-left: 50px;
-}
+// .comments-tree .mat-nested-tree-node div[role=group] {
+//   padding-left: 40px;
+// }
+
+// .comments-tree div[role=group] > .mat-tree-node {
+//   padding-left: 50px;
+// }
