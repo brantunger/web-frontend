@@ -22,13 +22,13 @@
 </section>
 
 <section class="comments-section">
-  <mat-expansion-panel [expanded]="true">
+  <mat-expansion-panel [disabled]="!comments || comments.length === 0">
     <mat-expansion-panel-header>
       <mat-panel-title>
         Comments
       </mat-panel-title>
       <mat-panel-description>
-        There are no comments
+        {{ displayDescription() }}
       </mat-panel-description>
     </mat-expansion-panel-header>
     <app-comments-tree [nodeData]="comments"></app-comments-tree>
