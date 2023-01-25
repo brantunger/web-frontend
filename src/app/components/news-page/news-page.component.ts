@@ -1,10 +1,11 @@
-import {HttpErrorResponse} from '@angular/common/http';
-import {Component, OnInit} from '@angular/core';
-import {Title} from '@angular/platform-browser';
-import {ActivatedRoute, ParamMap} from '@angular/router';
-import {switchMap, take} from 'rxjs';
-import {News} from 'src/app/models/News';
-import {WebApiService} from 'src/app/services/web-api.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { switchMap, take } from 'rxjs';
+import { News } from 'src/app/models/News';
+import { NewsComment } from 'src/app/models/NewsComment';
+import { WebApiService } from 'src/app/services/web-api.service';
 
 @Component({
   selector: 'app-news-page',
@@ -13,6 +14,7 @@ import {WebApiService} from 'src/app/services/web-api.service';
 })
 export class NewsPageComponent implements OnInit {
   newsStory?: News;
+  comments!: NewsComment[];
 
   constructor(
     private route: ActivatedRoute,

@@ -1,8 +1,7 @@
 import { NestedTreeControl } from '@angular/cdk/tree';
-import { AfterViewInit, ChangeDetectorRef, Component } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, Input } from '@angular/core';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { NewsComment } from 'src/app/models/NewsComment';
-
 
 const TREE_DATA: NewsComment[] = [
   {
@@ -73,12 +72,14 @@ const TREE_DATA: NewsComment[] = [
   styleUrls: ['./comments-tree.component.scss']
 })
 export class CommentsTreeComponent implements AfterViewInit {
+  @Input() nodeData!: NewsComment[];
   treeControl = new NestedTreeControl<NewsComment>(node => node.comments);
   dataSource = new MatTreeNestedDataSource<NewsComment>();
 
   constructor(private cdr: ChangeDetectorRef) {
-    this.dataSource.data = TREE_DATA;
-    this.treeControl.dataNodes = TREE_DATA;
+    this.nodeData = TREE_DATA;
+    this.dataSource.data = this.nodeData;
+    this.treeControl.dataNodes = this.nodeData;
   }
 
   ngAfterViewInit(): void {
@@ -86,5 +87,9 @@ export class CommentsTreeComponent implements AfterViewInit {
     this.cdr.detectChanges();
   }
 
-  hasChild = (_: number, node: NewsComment) =>  !!node.comments && node.comments.length > 0;
+  addReply(node: NewsComment): void {
+    console.log("Adding reply to:", node.commentId);
+  }
+
+  hasChild = (_: number, node: NewsComment) => !!node.comments && node.comments.length > 0;
 }

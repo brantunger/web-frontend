@@ -5,6 +5,7 @@ mat-tree {
 
   mat-tree-node {
     padding-left: 50px;
+    display: block;
   }
 }
 
@@ -12,11 +13,43 @@ mat-tree {
   display: none;
 }
 
+.nested-node {
+  border-left: #7e868d 1px solid;
+  padding-bottom: 15px;
 
-// .comments-tree .mat-nested-tree-node div[role=group] {
-//   padding-left: 40px;
-// }
+  .reply {
+    padding-top: 10px;
+    padding-left: 50px
+  }
+}
 
-// .comments-tree div[role=group] > .mat-tree-node {
-//   padding-left: 50px;
-// }
+.nested-node-date, 
+.nested-node-content {
+  padding-left: 50px;
+}
+
+.leaf-node {
+  padding-bottom: 15px;
+  padding-top: 15px;
+
+  .reply {
+    padding-top: 10px;
+  }
+}
+
+.comments-tree .mat-nested-tree-node div[role=group], 
+.comments-tree div[role=group] > .mat-tree-node {
+  border-left: #7e868d 1px solid;
+}
+
+h4 {
+  display: inline;
+  margin: 0;
+  color: #7e868d;
+}
+
+h5 {
+  display: inline;
+  margin: 0;
+  color: #acacac;
+}

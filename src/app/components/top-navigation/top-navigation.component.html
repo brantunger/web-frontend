@@ -17,7 +17,7 @@
       </span>
       <div class="nav-row">
         <span *ngIf="authorizationService.getRole() === 'ADMIN'">
-          <button mat-icon-button color="accent" matTooltip="Create Content." matTooltipPosition="before"
+          <button mat-mini-fab color="accent" matTooltip="Create Content." matTooltipPosition="before"
             (click)="navigateToCreate()">
             <mat-icon>create</mat-icon>
           </button>
