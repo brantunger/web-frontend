@@ -11,14 +11,10 @@ export class AppComponent implements OnInit {
   constructor(private authorizationService: AuthorizationService) {
   }
 
-  // TODO: Refactor
-  // TODO: Snackbar on login
   ngOnInit(): void {
     const accessToken = this.authorizationService.getAccessToken();
 
-    if (accessToken !== '') {
-      this.authorizationService.setUsernameFromToken(accessToken);
-      this.authorizationService.setRoleFromToken(accessToken);
+    if (accessToken !== '' && !this.authorizationService.isTokenExpired()) {
       this.authorizationService.login(accessToken);
     } else {
       this.authorizationService.logout();
