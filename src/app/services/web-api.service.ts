@@ -8,6 +8,7 @@ import {User} from '../models/User';
 import {News} from '../models/News';
 import {AuthorizationService} from './authorization.service';
 import { CompanyInfo } from '../models/CompanyInfo';
+import {NewsComment} from "../models/NewsComment";
 
 const {GET, POST, PUT, DELETE, PATCH} = HttpMethod;
 
@@ -50,6 +51,10 @@ export class WebApiService {
 
   public deleteNews(id: number | string): Observable<any> {
     return this.perform(DELETE, `${this.apiUrl}/news/${id}`);
+  }
+
+  public getNewsComments(newsId: number): Observable<NewsComment[]> {
+    return this.perform(GET, `${this.apiUrl}/comments?newsId=${newsId}`);
   }
 
   public updateNewsVoteCount(id: number, count: number): Observable<News> {
