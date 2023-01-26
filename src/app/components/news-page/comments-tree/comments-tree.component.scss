@@ -4,6 +4,7 @@ mat-tree {
   }
 
   mat-tree-node {
+    border-left: #7e868d 1px solid;
     padding-left: 50px;
     display: block;
   }
@@ -23,7 +24,7 @@ mat-tree {
   }
 }
 
-.nested-node-date, 
+.nested-node-date,
 .nested-node-content {
   padding-left: 50px;
 }
@@ -31,13 +32,9 @@ mat-tree {
 .leaf-node {
   padding-bottom: 15px;
   padding-top: 15px;
-
-  .reply {
-    padding-top: 10px;
-  }
 }
 
-.comments-tree .mat-nested-tree-node div[role=group], 
+.comments-tree .mat-nested-tree-node div[role=group],
 .comments-tree div[role=group] > .mat-tree-node {
   border-left: #7e868d 1px solid;
 }

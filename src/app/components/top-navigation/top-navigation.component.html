@@ -19,7 +19,7 @@
         <span *ngIf="authorizationService.getRole() === 'ADMIN'">
           <button mat-mini-fab color="accent" matTooltip="Create Content." matTooltipPosition="before"
             (click)="navigateToCreate()">
-            <mat-icon>create</mat-icon>
+            <mat-icon>edit_document</mat-icon>
           </button>
         </span>
         <span *ngIf="authorizationService.isUserLoggedIn()" class="username-span">

@@ -2,6 +2,7 @@ import {NestedTreeControl} from '@angular/cdk/tree';
 import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {MatTreeNestedDataSource} from '@angular/material/tree';
 import {NewsComment} from 'src/app/models/NewsComment';
+import {AuthorizationService} from "../../../services/authorization.service";
 
 @Component({
   selector: 'app-comments-tree',
@@ -13,7 +14,7 @@ export class CommentsTreeComponent implements OnChanges {
   treeControl = new NestedTreeControl<NewsComment>(node => node.comments);
   dataSource = new MatTreeNestedDataSource<NewsComment>();
 
-  constructor() {
+  constructor(public authorizationService: AuthorizationService) {
   }
 
   ngOnChanges(changes: SimpleChanges): void {

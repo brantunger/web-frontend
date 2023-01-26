@@ -16,7 +16,6 @@ import {NewsCommentsService} from "../../services/news-comments.service";
 export class NewsPageComponent implements OnInit {
   newsStory?: News;
   comments!: NewsComment[];
-  newsId?: string;
 
   constructor(
     private route: ActivatedRoute,

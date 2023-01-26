@@ -13,8 +13,11 @@ export class AuthorizationService {
   }
 
   public setAccessToken(token: string): void {
-    const expiresOn = this.jwtService.getTokenExpirationDate(token)?.getDate();
-    this.cookieService.set('access_token', token, expiresOn);
+    const expiresOnDay = this.jwtService.getTokenExpirationDate(token)?.getDate();
+    const expiresOnDate = new Date();
+
+    expiresOnDate.setDate(expiresOnDay as number);
+    this.cookieService.set('access_token', token, expiresOnDate);
   }
 
   public getAccessToken(): string {
@@ -54,6 +57,6 @@ export class AuthorizationService {
   public logout(): void {
     this.username = '';
     this.role = '';
-    this.cookieService.deleteAll('access_token');
+    this.cookieService.delete('access_token');
   }
 }
