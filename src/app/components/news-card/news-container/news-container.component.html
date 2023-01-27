@@ -9,7 +9,7 @@
       </div>
       <div class="vote-number">{{ newsStory.votes }}</div>
       <div *ngIf="authorizationService.isUserLoggedIn()">
-        <button mat-icon-button color="accent" matTooltip="Downvote for the story." matTooltipPosition="after"
+        <button mat-icon-button color="accent" matTooltip="Down vote for the story." matTooltipPosition="after"
           (click)="voteDown()">
           <mat-icon>thumb_down</mat-icon>
         </button>

@@ -35,7 +35,7 @@ export class NewsPageComponent implements OnInit {
         next: (response: News) => {
           this.newsStory = response;
           this.title.setTitle(`${this.newsStory?.title} | Dreadfall`);
-          this.newsCommentsService.getNewsComments(newsId)
+          this.newsCommentsService.getComments(newsId)
             .subscribe((commentResponse: NewsComment[]) => this.comments = commentResponse);
         },
         error: (error: HttpErrorResponse) => console.log(error.error.error)

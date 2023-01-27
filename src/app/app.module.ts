@@ -34,7 +34,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { NewsPageComponent } from './components/news-page/news-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { FullFormattedTimestampPipe } from './pipes/full-formatted-timestamp.pipe';
-import { NoSantizingHtmlPipe } from './pipes/no-santizing-html.pipe';
+import { NoSanitizingHtmlPipe } from './pipes/no-sanitizing-html.pipe';
 import { websocketMessagingServiceFactory } from './services/rx-stomp-service-factory';
 import { WebsocketMessagingService } from './services/websocket-messaging.service';
 import { BottomFooterComponent } from './components/bottom-footer/bottom-footer.component';
@@ -55,7 +55,7 @@ import { CommentsTreeComponent } from './components/news-page/comments-tree/comm
     ExpandCollapseComponent,
     NewsCardComponent,
     NewsContainerComponent,
-    NoSantizingHtmlPipe,
+    NoSanitizingHtmlPipe,
     PageNotFoundComponent,
     HomePageComponent,
     NewsPageComponent,

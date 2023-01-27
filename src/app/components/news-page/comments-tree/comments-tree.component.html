@@ -19,7 +19,7 @@
           <mat-icon>reply</mat-icon>
         </button>
         <button *ngIf="authorizationService.isUserLoggedIn() && authorizationService.getRole() === 'ADMIN'"
-                mat-icon-button color="primary" matTooltip="Delete comment">
+                mat-icon-button color="primary" matTooltip="Delete comment" (click)="deleteReply(node)">
           <mat-icon>delete</mat-icon>
         </button>
       </div>
@@ -43,7 +43,7 @@
           <mat-icon>reply</mat-icon>
         </button>
         <button *ngIf="authorizationService.isUserLoggedIn() && authorizationService.getRole() === 'ADMIN'"
-                mat-icon-button color="primary" matTooltip="Delete comment">
+                mat-icon-button color="primary" matTooltip="Delete comment" (click)="deleteReply(node)">
           <mat-icon>delete</mat-icon>
         </button>
       </div>

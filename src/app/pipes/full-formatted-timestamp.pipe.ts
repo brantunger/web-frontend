@@ -16,7 +16,6 @@ export class FullFormattedTimestampPipe implements PipeTransform {
   transform(value: Date | undefined): string {
     value = value === undefined ? new Date() : value;
     const unformattedDateTime = new Date(value);
-    const formattedDateTime = Intl.DateTimeFormat(this.locale, this.dateTimeFormat).format(unformattedDateTime);
-    return formattedDateTime;
+    return Intl.DateTimeFormat(this.locale, this.dateTimeFormat).format(unformattedDateTime);
   }
 }

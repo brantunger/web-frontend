@@ -54,7 +54,11 @@ export class WebApiService {
   }
 
   public getNewsComments(newsId: number): Observable<NewsComment[]> {
-    return this.perform(GET, `${this.apiUrl}/comments?newsId=${newsId}`);
+    return this.perform(GET, `${this.apiUrl}/news/${newsId}/comments`);
+  }
+
+  public deleteNewsComment(newsId: number, commentId: number): Observable<NewsComment[]> {
+    return this.perform(DELETE, `${this.apiUrl}/news/${newsId}/comments/${commentId}`);
   }
 
   public updateNewsVoteCount(id: number, count: number): Observable<News> {

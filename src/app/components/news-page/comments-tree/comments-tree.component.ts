@@ -3,6 +3,7 @@ import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {MatTreeNestedDataSource} from '@angular/material/tree';
 import {NewsComment} from 'src/app/models/NewsComment';
 import {AuthorizationService} from "../../../services/authorization.service";
+import {NewsCommentsService} from "../../../services/news-comments.service";
 
 @Component({
   selector: 'app-comments-tree',
@@ -14,7 +15,9 @@ export class CommentsTreeComponent implements OnChanges {
   treeControl = new NestedTreeControl<NewsComment>(node => node.comments);
   dataSource = new MatTreeNestedDataSource<NewsComment>();
 
-  constructor(public authorizationService: AuthorizationService) {
+  constructor(
+    public authorizationService: AuthorizationService,
+    private newsCommentsService: NewsCommentsService) {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -25,8 +28,12 @@ export class CommentsTreeComponent implements OnChanges {
     this.treeControl.expandAll();
   }
 
-  addReply(node: NewsComment): void {
-    console.log('Adding reply to:', node.commentId);
+  addReply(newsComment: NewsComment): void {
+    console.log('Adding reply to:', newsComment.commentId);
+  }
+
+  deleteReply(newsComment: NewsComment): void {
+    this.newsCommentsService.deleteNewsComment(newsComment.newsId, newsComment.commentId);
   }
 
   hasChild = (_: number, node: NewsComment) => !!node.comments && node.comments.length > 0;
