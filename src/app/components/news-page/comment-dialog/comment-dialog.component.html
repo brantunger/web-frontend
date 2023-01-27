@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Comment</h1>
+<mat-dialog-content>
+  <form [formGroup]="formGroup">
+    <mat-form-field>
+      <mat-label>Leave a comment</mat-label>
+      <textarea matInput formControlName="textareaInput"></textarea>
+      <mat-error>You cannot leave a blank comment</mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+  <button mat-raised-button color="accent" (click)="createOrEditComment()" [disabled]="formGroup.invalid">Comment
+  </button>
+  <button mat-button color="accent" [mat-dialog-close]="{action: 'close'}">Cancel</button>
+</mat-dialog-actions>

@@ -21,13 +21,19 @@ export class TopNavigationComponent {
 
   openLoginDialog(): void {
     this.dialog.open(LoginDialogComponent, {
-      width: '400px'
+      width: '400px',
+      disableClose: true,
+      enterAnimationDuration: 400,
+      exitAnimationDuration: 400
     });
   }
 
   openSignupDialog(): void {
     this.dialog.open(SignupDialogComponent, {
-      width: '400px'
+      width: '400px',
+      disableClose: true,
+      enterAnimationDuration: 400,
+      exitAnimationDuration: 400
     });
   }
 

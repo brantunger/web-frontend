@@ -11,7 +11,7 @@ import { SignupDialogComponent } from '../../signup-dialog/signup-dialog.compone
 })
 export class NavigationListComponent {
   @Output() onNavLinkClick = new EventEmitter();
-  
+
   constructor(
     public authorizationService: AuthorizationService,
     private dialog: MatDialog) {}
@@ -32,7 +32,9 @@ export class NavigationListComponent {
     this.navigationClose();
     this.dialog.open(SignupDialogComponent, {
       width: '400px',
-      disableClose: true
+      disableClose: true,
+      enterAnimationDuration: 400,
+      exitAnimationDuration: 400
     });
   }
 

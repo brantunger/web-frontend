@@ -7,6 +7,8 @@ import {News} from 'src/app/models/News';
 import {NewsComment} from 'src/app/models/NewsComment';
 import {WebApiService} from 'src/app/services/web-api.service';
 import {NewsCommentsService} from "../../services/news-comments.service";
+import {MatDialog} from "@angular/material/dialog";
+import {CommentDialogComponent} from "./comment-dialog/comment-dialog.component";
 
 @Component({
   selector: 'app-news-page',
@@ -21,7 +23,8 @@ export class NewsPageComponent implements OnInit {
     private route: ActivatedRoute,
     private webApiService: WebApiService,
     private newsCommentsService: NewsCommentsService,
-    private title: Title) {
+    private title: Title,
+    private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -61,5 +64,24 @@ export class NewsPageComponent implements OnInit {
       commentCount += this.getCommentCount(subComments);
     }
     return commentCount;
+  }
+
+  openCommentDialog(): void {
+    const dialogRef = this.dialog.open(CommentDialogComponent, {
+      width: '80vw',
+      data: {
+        action: 'create',
+        newsId: this.newsStory?.newsId,
+        text: ''
+      },
+      disableClose: true,
+      enterAnimationDuration: 400,
+      exitAnimationDuration: 400
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result.action === 'close') return;
+      console.log(result);
+    });
   }
 }

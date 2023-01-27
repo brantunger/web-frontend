@@ -43,6 +43,7 @@ import {NavigationListComponent} from './components/top-navigation/navigation-li
 import {CreateNewsPageComponent} from './components/create-news-page/create-news-page.component';
 import {AuthFailedComponent} from './components/auth-failed/auth-failed.component';
 import {CommentsTreeComponent} from './components/news-page/comments-tree/comments-tree.component';
+import { CommentDialogComponent } from './components/news-page/comment-dialog/comment-dialog.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import {CommentsTreeComponent} from './components/news-page/comments-tree/commen
     NavigationListComponent,
     CreateNewsPageComponent,
     AuthFailedComponent,
-    CommentsTreeComponent
+    CommentsTreeComponent,
+    CommentDialogComponent
   ],
   imports: [
     BrowserModule,

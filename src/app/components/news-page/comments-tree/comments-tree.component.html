@@ -18,8 +18,14 @@
         <button mat-icon-button color="accent" (click)="addReply(node)" matTooltip="Reply to comment">
           <mat-icon>reply</mat-icon>
         </button>
-        <button *ngIf="authorizationService.isUserLoggedIn() && authorizationService.getRole() === 'ADMIN'"
-                mat-icon-button color="primary" matTooltip="Delete comment" (click)="deleteReply(node)">
+        <button
+          *ngIf="authorizationService.isUserLoggedIn() && (authorizationService.getRole() === 'ADMIN' || authorizationService.getUsername() === node.createdBy)"
+          mat-icon-button color="primary" matTooltip="Edit comment" (click)="editReply(node)">
+          <mat-icon>edit_note</mat-icon>
+        </button>
+        <button
+          *ngIf="authorizationService.isUserLoggedIn() && (authorizationService.getRole() === 'ADMIN' || authorizationService.getUsername() === node.createdBy)"
+          mat-icon-button color="primary" matTooltip="Delete comment" (click)="deleteReply(node)">
           <mat-icon>delete</mat-icon>
         </button>
       </div>
@@ -42,8 +48,14 @@
         <button mat-icon-button color="accent" (click)="addReply(node)" matTooltip="Reply to comment">
           <mat-icon>reply</mat-icon>
         </button>
-        <button *ngIf="authorizationService.isUserLoggedIn() && authorizationService.getRole() === 'ADMIN'"
-                mat-icon-button color="primary" matTooltip="Delete comment" (click)="deleteReply(node)">
+        <button
+          *ngIf="authorizationService.isUserLoggedIn() && (authorizationService.getRole() === 'ADMIN' || authorizationService.getUsername() === node.createdBy)"
+          mat-icon-button color="primary" matTooltip="Edit comment" (click)="editReply(node)">
+          <mat-icon>edit_note</mat-icon>
+        </button>
+        <button
+          *ngIf="authorizationService.isUserLoggedIn() && (authorizationService.getRole() === 'ADMIN' || authorizationService.getUsername() === node.createdBy)"
+          mat-icon-button color="primary" matTooltip="Delete comment" (click)="deleteReply(node)">
           <mat-icon>delete</mat-icon>
         </button>
       </div>
