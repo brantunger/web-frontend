@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
@@ -28,7 +28,7 @@ import { NewsContainerComponent } from './components/news-card/news-container/ne
 import { ShoutBoxComponent } from './components/shout-box/shout-box.component';
 import { SignupDialogComponent } from './components/signup-dialog/signup-dialog.component';
 import { TopNavigationComponent } from './components/top-navigation/top-navigation.component';
-// import { AuthenticationInterceptor } from './authentication-interceptor';
+import { AuthenticationInterceptor } from './authentication-interceptor';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { NewsPageComponent } from './components/news-page/news-page.component';
@@ -102,13 +102,13 @@ import { CommentsTreeComponent } from './components/news-page/comments-tree/comm
     {
       provide: WebsocketMessagingService,
       useFactory: websocketMessagingServiceFactory
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthenticationInterceptor,
+      multi: true
     }
   ],
-  // providers: [{
-  //   provide: HTTP_INTERCEPTORS,
-  //   useClass: AuthenticationInterceptor,
-  //   multi: true
-  // }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
