@@ -9,6 +9,7 @@ import {WebApiService} from 'src/app/services/web-api.service';
 import {NewsCommentsService} from "../../services/news-comments.service";
 import {MatDialog} from "@angular/material/dialog";
 import {CommentDialogComponent} from "./comment-dialog/comment-dialog.component";
+import {CommentDialogData} from "../../models/CommentDialogData";
 
 @Component({
   selector: 'app-news-page',
@@ -79,9 +80,15 @@ export class NewsPageComponent implements OnInit {
       exitAnimationDuration: 400
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result.action === 'close') return;
-      console.log(result);
+    dialogRef.afterClosed().subscribe((result: CommentDialogData) => {
+      if (result.action === 'create') {
+        const newsComment: NewsComment = {
+          commentId: result.commentId as number,
+          newsId: result.newsId as number,
+          content: result.text as string
+        };
+        this.newsCommentsService.addComment(newsComment);
+      }
     });
   }
 }

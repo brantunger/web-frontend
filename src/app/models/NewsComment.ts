@@ -3,7 +3,7 @@ export class NewsComment {
     newsId!: number;
     parentId?: number;
     content!: string;
-    createdBy!: string;
-    dateCreated!: Date;
+    createdBy?: string;
+    dateCreated?: Date;
     comments?: NewsComment[];
 }

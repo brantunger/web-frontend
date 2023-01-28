@@ -57,6 +57,10 @@ export class WebApiService {
     return this.perform(GET, `${this.apiUrl}/news/${newsId}/comments`);
   }
 
+  public addComment(newsComment: NewsComment): Observable<NewsComment> {
+    return this.perform(POST, `${this.apiUrl}/news/${newsComment.newsId}/comments`, newsComment);
+  }
+
   public deleteNewsComment(newsId: number, commentId: number): Observable<NewsComment[]> {
     return this.perform(DELETE, `${this.apiUrl}/news/${newsId}/comments/${commentId}`);
   }
