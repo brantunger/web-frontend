@@ -29,8 +29,20 @@ export class NewsCommentsService {
     this.webApiService.addComment(comments)
       .pipe(take(1))
       .subscribe({
-        next: (response: NewsComment) => {
-          this.commentsData = [...this.commentsData, response];
+        next: (response: NewsComment[]) => {
+          this.commentsData = response;
+          this._comments.next(this.commentsData);
+        },
+        error: (error: HttpErrorResponse) => console.error(error.error.error)
+      });
+  }
+
+  public editComment(comments: NewsComment): void {
+    this.webApiService.editComment(comments)
+      .pipe(take(1))
+      .subscribe({
+        next: (response: NewsComment[]) => {
+          this.commentsData = response;
           this._comments.next(this.commentsData);
         },
         error: (error: HttpErrorResponse) => console.error(error.error.error)

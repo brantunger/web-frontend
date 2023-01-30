@@ -33,7 +33,31 @@ export class CommentsTreeComponent implements OnChanges {
   }
 
   addReply(newsComment: NewsComment): void {
-    console.log('Adding reply to:', newsComment.commentId);
+    const dialogRef = this.dialog.open(CommentDialogComponent, {
+      width: '80vw',
+      data: {
+        action: 'create',
+        newsId: newsComment.newsId,
+        commentId: newsComment.commentId,
+        parentId: newsComment.parentId,
+        text: ''
+      },
+      disableClose: true,
+      enterAnimationDuration: 400,
+      exitAnimationDuration: 400
+    });
+
+    dialogRef.afterClosed().subscribe((result: CommentDialogData) => {
+      if (result.action === 'create') {
+        const newsComment: NewsComment = {
+          commentId: result.commentId as number,
+          newsId: result.newsId as number,
+          parentId: result.commentId as number,
+          content: result.text as string
+        };
+        this.newsCommentsService.addComment(newsComment);
+      }
+    });
   }
 
   deleteReply(newsComment: NewsComment): void {
@@ -47,6 +71,7 @@ export class CommentsTreeComponent implements OnChanges {
         action: 'edit',
         newsId: newsComment.newsId,
         commentId: newsComment.commentId,
+        parentId: newsComment.parentId,
         text: newsComment.content
       },
       disableClose: true,
@@ -55,8 +80,16 @@ export class CommentsTreeComponent implements OnChanges {
     });
 
     dialogRef.afterClosed().subscribe((result: CommentDialogData) => {
-      if (result.action === 'close') return;
-      console.log(result);
+      if (result.action === 'edit') {
+        const newsComment: NewsComment = {
+          commentId: result.commentId as number,
+          newsId: result.newsId as number,
+          parentId: result.commentId as number,
+          content: result.text as string
+        };
+
+        this.newsCommentsService.editComment(newsComment);
+      }
     });
   }
 

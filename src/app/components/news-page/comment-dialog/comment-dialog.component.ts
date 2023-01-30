@@ -27,6 +27,7 @@ export class CommentDialogComponent implements OnInit {
       action: this.data.action,
       newsId: this.data.newsId,
       commentId: this.data.commentId,
+      parentId: this.data.parentId,
       text: this.formGroup.controls['textareaInput'].value
     };
 

@@ -57,8 +57,12 @@ export class WebApiService {
     return this.perform(GET, `${this.apiUrl}/news/${newsId}/comments`);
   }
 
-  public addComment(newsComment: NewsComment): Observable<NewsComment> {
+  public addComment(newsComment: NewsComment): Observable<NewsComment[]> {
     return this.perform(POST, `${this.apiUrl}/news/${newsComment.newsId}/comments`, newsComment);
+  }
+
+  public editComment(newsComment: NewsComment): Observable<NewsComment[]> {
+    return this.perform(PATCH, `${this.apiUrl}/news/${newsComment.newsId}/comments/${newsComment.commentId}`, newsComment);
   }
 
   public deleteNewsComment(newsId: number, commentId: number): Observable<NewsComment[]> {
