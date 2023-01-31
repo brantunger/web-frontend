@@ -17,11 +17,18 @@
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button color="accent" *ngIf="authorizationService.isUserLoggedIn()"
-              (click)="openCommentDialog()">Comment
+              (click)="openCommentDialog()">
+        <mat-icon>comment</mat-icon>Comment
       </button>
       <button mat-stroked-button color="accent"
               *ngIf="authorizationService.isUserLoggedIn() && authorizationService.getRole() === 'ADMIN'"
-              (click)="deleteComment()">Delete
+              [routerLink]="'/news/edit/' + newsStory?.newsId">
+        <mat-icon>edit</mat-icon>Edit
+      </button>
+      <button mat-stroked-button color="accent"
+              *ngIf="authorizationService.isUserLoggedIn() && authorizationService.getRole() === 'ADMIN'"
+              (click)="deleteComment()">
+        <mat-icon>delete</mat-icon>Delete
       </button>
     </mat-card-actions>
   </mat-card>

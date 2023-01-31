@@ -45,8 +45,8 @@ export class WebApiService {
     return this.perform(POST, `${this.apiUrl}/news`, news);
   }
 
-  public updateNews(id: number, news: News): Observable<News> {
-    return this.perform(PUT, `${this.apiUrl}/news/${id}`, news);
+  public updateNews(news: News): Observable<News> {
+    return this.perform(PATCH, `${this.apiUrl}/news/${news.newsId}`, news);
   }
 
   public deleteNews(id: number | string): Observable<any> {

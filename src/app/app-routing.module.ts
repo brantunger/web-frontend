@@ -15,6 +15,12 @@ const routes: Routes = [
     component: CreateNewsPageComponent,
     title: 'Dreadfall | Create News'
   },
+  {
+    path: 'news/edit/:id',
+    canActivate: [AuthorizationGuardService],
+    component: CreateNewsPageComponent,
+    title: 'Dreadfall | Edit News'
+  },
   { path: 'news/:id', component: NewsPageComponent },
   { path: 'auth', component: AuthFailedComponent },
   { path: '**', component: PageNotFoundComponent }

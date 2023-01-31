@@ -2,7 +2,7 @@
   <app-alert-banner viewLabel="app-create-news-page"></app-alert-banner>
   <div class="header">
     <div style="width: 100%;">
-      <h4>Create Post</h4>
+      <h4>{{ this.editing ? 'Edit Post' : 'Create Post' }}</h4>
     </div>
   </div>
 
@@ -26,6 +26,9 @@
   </div>
   <div>
     <mat-error *ngIf="formGroup.invalid" class="error">*Content and Title are required</mat-error>
-    <button mat-raised-button color="accent" [disabled]="formGroup.invalid" (click)="postNews()">Post</button>
+    <button mat-raised-button color="accent" [disabled]="formGroup.invalid" (click)="postNews()">
+      <mat-icon>publish</mat-icon>
+      Publish
+    </button>
   </div>
 </section>

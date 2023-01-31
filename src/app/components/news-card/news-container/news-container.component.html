@@ -24,9 +24,14 @@
           <mat-icon>more_vert</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item [routerLink]="'news/' + newsStory.newsId">
+          <button mat-menu-item [routerLink]="'/news/' + newsStory.newsId">
             <mat-icon>open_in_new</mat-icon>
             <span>Open Article</span>
+          </button>
+          <button *ngIf="authorizationService.isUserLoggedIn() && authorizationService.getRole() === 'ADMIN'"
+                  mat-menu-item [routerLink]="'/news/edit/' + newsStory.newsId">
+            <mat-icon>edit</mat-icon>
+            <span>Edit Article</span>
           </button>
           <button *ngIf="authorizationService.isUserLoggedIn() && authorizationService.getRole() === 'ADMIN'"
                   mat-menu-item (click)="deleteNews()">
@@ -42,7 +47,7 @@
       <div [innerHTML]="newsStory.content | keepHtml"></div>
     </div>
     <div class="news-article-link">
-      <a [routerLink]="'news/' + newsStory.newsId">Keep reading...</a>
+      <a [routerLink]="'/news/' + newsStory.newsId">Keep reading...</a>
     </div>
   </section>
 </article>
