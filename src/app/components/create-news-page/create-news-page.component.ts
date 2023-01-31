@@ -11,7 +11,6 @@ import {environment} from "../../../environments/environment";
   styleUrls: ['./create-news-page.component.scss']
 })
 export class CreateNewsPageComponent implements OnInit {
-  apiKey = environment.tinyApiKey;
   private plugins: Array<string> = ['lists', 'advlist', 'link', 'image', 'table', 'code', 'codesample', 'help', 'wordcount',
     'anchor', 'autolink', 'autoresize', 'autosave', 'charmap', 'emoticons', 'fullscreen', 'importcss',
     'insertdatetime', 'media', 'nonbreaking', 'pagebreak', 'preview', 'save', 'searchreplace', 'template',
@@ -21,6 +20,7 @@ export class CreateNewsPageComponent implements OnInit {
     'bold italic strikethrough underline subscript superscript', 'link image', 'alignleft aligncenter alignright alignjustify lineheight',
     'bullist numlist indent outdent'];
 
+  apiKey = environment.tinyApiKey;
   formGroup!: FormGroup;
 
   constructor(
