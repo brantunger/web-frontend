@@ -47,4 +47,24 @@ article {
 
 .news-content {
   margin: 20px 10px 20px 10px;
+  filter: blur(1px);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 5%, rgba(255, 255, 255, 0) 95%);
+}
+
+.news-article-link {
+  margin: 1em;
+
+  a {
+    text-decoration: none;
+    font-size: small;
+    color: #7e868d;
+  }
+
+  a:visited {
+    color: #7e868d;
+  }
+
+  a:hover {
+    color: #b1bcc6;
+  }
 }

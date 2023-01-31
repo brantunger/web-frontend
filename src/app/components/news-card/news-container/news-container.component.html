@@ -3,14 +3,14 @@
     <div class="news-vote-column">
       <div *ngIf="authorizationService.isUserLoggedIn()">
         <button mat-icon-button color="accent" matTooltip="Upvote for the story." matTooltipPosition="after"
-          (click)="voteUp()">
+                (click)="voteUp()">
           <mat-icon>thumb_up</mat-icon>
         </button>
       </div>
       <div class="vote-number">{{ newsStory.votes }}</div>
       <div *ngIf="authorizationService.isUserLoggedIn()">
         <button mat-icon-button color="accent" matTooltip="Down vote for the story." matTooltipPosition="after"
-          (click)="voteDown()">
+                (click)="voteDown()">
           <mat-icon>thumb_down</mat-icon>
         </button>
       </div>
@@ -29,7 +29,7 @@
             <span>Open Article</span>
           </button>
           <button *ngIf="authorizationService.isUserLoggedIn() && authorizationService.getRole() === 'ADMIN'"
-            mat-menu-item (click)="deleteNews()">
+                  mat-menu-item (click)="deleteNews()">
             <mat-icon>delete</mat-icon>
             <span>Delete Article</span>
           </button>
@@ -40,6 +40,9 @@
     <h5>Posted by {{ newsStory.createdBy }}</h5>
     <div class="news-content">
       <div [innerHTML]="newsStory.content | keepHtml"></div>
+    </div>
+    <div class="news-article-link">
+      <a [routerLink]="'news/' + newsStory.newsId">Keep reading...</a>
     </div>
   </section>
 </article>

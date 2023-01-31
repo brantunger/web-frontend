@@ -12,7 +12,8 @@ const routes: Routes = [
   {
     path: 'news/create',
     canActivate: [AuthorizationGuardService],
-    component: CreateNewsPageComponent
+    component: CreateNewsPageComponent,
+    title: 'Dreadfall | Create News'
   },
   { path: 'news/:id', component: NewsPageComponent },
   { path: 'auth', component: AuthFailedComponent },
