@@ -1,7 +1,7 @@
 <header>
   <mat-toolbar class="top-nav-toolbar" color="secondary">
     <mat-toolbar-row>
-      <a routerLink=""><img class="nav-logo" src="../../../assets/DF_Icon.png" alt="Dreadfall Logo" /></a>
+      <a routerLink=""><img class="nav-logo" src="../../../assets/DF_Icon.png" alt="Dreadfall Logo"/></a>
       <a routerLink="" style="text-decoration: none;">
         <span>
           <h5>Dread Fall</h5>
@@ -11,14 +11,14 @@
       <span class="top-nav-bar"></span>
       <span class="nav-menu">
         <button mat-icon-button color="accent" matTooltip="Open Navigation" matTooltipPosition="before"
-          (click)="openSideNav()">
+                (click)="openSideNav()">
           <mat-icon>menu</mat-icon>
         </button>
       </span>
       <div class="nav-row">
         <span *ngIf="authorizationService.getRole() === 'ADMIN'">
           <button mat-mini-fab color="accent" matTooltip="Create Content." matTooltipPosition="before"
-            (click)="navigateToCreate()">
+                  (click)="navigateToCreate()">
             <mat-icon>edit_document</mat-icon>
           </button>
         </span>
@@ -26,11 +26,17 @@
           <h3>{{ authorizationService.getUsername() }}</h3>
         </span>
         <span *ngIf="!authorizationService.isUserLoggedIn()">
-          <button mat-stroked-button (click)="openLoginDialog()">Login</button>
-          <button mat-button color="accent" (click)="openSignupDialog()">Sign Up</button>
+          <button mat-stroked-button (click)="openLoginDialog()">Login
+            <mat-icon>login</mat-icon>
+          </button>
+          <button mat-button color="accent" (click)="openSignupDialog()">Sign Up
+            <mat-icon>person_add</mat-icon>
+          </button>
         </span>
         <span *ngIf="authorizationService.isUserLoggedIn()">
-          <button mat-stroked-button (click)="logout()">Logout</button>
+          <button mat-stroked-button (click)="logout()">Logout
+            <mat-icon>logout</mat-icon>
+          </button>
         </span>
       </div>
     </mat-toolbar-row>
