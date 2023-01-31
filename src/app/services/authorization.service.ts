@@ -13,10 +13,9 @@ export class AuthorizationService {
   }
 
   public setAccessToken(token: string): void {
-    const expiresOnDay = this.jwtService.getTokenExpirationDate(token)?.getDate();
-    const expiresOnDate = new Date();
+    const expiresOnDay = this.jwtService.getTokenExpirationDate(token)?.getTime();
+    const expiresOnDate = new Date(expiresOnDay as number);
 
-    expiresOnDate.setDate(expiresOnDay as number);
     this.cookieService.set('access_token', token, expiresOnDate);
   }
 

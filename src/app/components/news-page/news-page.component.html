@@ -16,7 +16,7 @@
       <div class="news-content" [innerHTML]="newsStory?.content | keepHtml"></div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-stroked-button color="accent" (click)="openCommentDialog()">Comment</button>
+      <button mat-stroked-button color="accent" *ngIf="authorizationService.isUserLoggedIn()" (click)="openCommentDialog()">Comment</button>
     </mat-card-actions>
   </mat-card>
 </section>

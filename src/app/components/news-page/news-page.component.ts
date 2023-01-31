@@ -10,6 +10,7 @@ import {NewsCommentsService} from "../../services/news-comments.service";
 import {MatDialog} from "@angular/material/dialog";
 import {CommentDialogComponent} from "./comment-dialog/comment-dialog.component";
 import {CommentDialogData} from "../../models/CommentDialogData";
+import { AuthorizationService } from 'src/app/services/authorization.service';
 
 @Component({
   selector: 'app-news-page',
@@ -24,6 +25,7 @@ export class NewsPageComponent implements OnInit {
     private route: ActivatedRoute,
     private webApiService: WebApiService,
     private newsCommentsService: NewsCommentsService,
+    public authorizationService: AuthorizationService,
     private title: Title,
     private dialog: MatDialog) {
   }

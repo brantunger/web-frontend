@@ -15,7 +15,7 @@
         {{node.content}}
       </div>
       <div class="reply">
-        <button mat-icon-button color="accent" (click)="addReply(node)" matTooltip="Reply to comment">
+        <button mat-icon-button color="accent" *ngIf="authorizationService.isUserLoggedIn()" (click)="addReply(node)" matTooltip="Reply to comment">
           <mat-icon>reply</mat-icon>
         </button>
         <button
@@ -45,7 +45,7 @@
         {{node.content}}
       </div>
       <div class="reply">
-        <button mat-icon-button color="accent" (click)="addReply(node)" matTooltip="Reply to comment">
+        <button mat-icon-button color="accent" *ngIf="authorizationService.isUserLoggedIn()" (click)="addReply(node)" matTooltip="Reply to comment">
           <mat-icon>reply</mat-icon>
         </button>
         <button

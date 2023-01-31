@@ -84,7 +84,7 @@ export class CommentsTreeComponent implements OnChanges {
         const newsComment: NewsComment = {
           commentId: result.commentId as number,
           newsId: result.newsId as number,
-          parentId: result.commentId as number,
+          parentId: result.parentId as number,
           content: result.text as string
         };
 

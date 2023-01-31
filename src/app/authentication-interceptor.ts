@@ -27,7 +27,7 @@ export class AuthenticationInterceptor implements HttpInterceptor {
         error: (error: HttpErrorResponse) => {
           console.error('Error has occurred in HTTP Request', error.error);
           if (error.status === 401 || error.status === 403) {
-            this.authorizationService.logout();
+            // this.authorizationService.logout();
           }
         }
       }));
