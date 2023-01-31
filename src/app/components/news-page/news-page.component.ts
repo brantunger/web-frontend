@@ -1,7 +1,7 @@
 import {HttpErrorResponse} from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {ActivatedRoute, ParamMap} from '@angular/router';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {switchMap} from 'rxjs';
 import {News} from 'src/app/models/News';
 import {NewsComment} from 'src/app/models/NewsComment';
@@ -11,6 +11,8 @@ import {MatDialog} from "@angular/material/dialog";
 import {CommentDialogComponent} from "./comment-dialog/comment-dialog.component";
 import {CommentDialogData} from "../../models/CommentDialogData";
 import { AuthorizationService } from 'src/app/services/authorization.service';
+import {ConfirmationDialogComponent} from "../confirmation-dialog/confirmation-dialog.component";
+import {NewsService} from "../../services/news.service";
 
 @Component({
   selector: 'app-news-page',
@@ -24,10 +26,12 @@ export class NewsPageComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private webApiService: WebApiService,
+    private newsService: NewsService,
     private newsCommentsService: NewsCommentsService,
     public authorizationService: AuthorizationService,
     private title: Title,
-    private dialog: MatDialog) {
+    private dialog: MatDialog,
+    private router: Router) {
   }
 
   ngOnInit(): void {
@@ -90,6 +94,21 @@ export class NewsPageComponent implements OnInit {
           content: result.text as string
         };
         this.newsCommentsService.addComment(newsComment);
+      }
+    });
+  }
+
+  deleteComment(): void {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      disableClose: true,
+      enterAnimationDuration: 400,
+      exitAnimationDuration: 400
+    });
+
+    dialogRef.afterClosed().subscribe((response: any) => {
+      if (response.confirm) {
+        this.newsService.deleteNews(this.newsStory?.newsId as number);
+        this.router.navigateByUrl('');
       }
     });
   }

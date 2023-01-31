@@ -16,7 +16,13 @@
       <div class="news-content" [innerHTML]="newsStory?.content | keepHtml"></div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-stroked-button color="accent" *ngIf="authorizationService.isUserLoggedIn()" (click)="openCommentDialog()">Comment</button>
+      <button mat-raised-button color="accent" *ngIf="authorizationService.isUserLoggedIn()"
+              (click)="openCommentDialog()">Comment
+      </button>
+      <button mat-stroked-button color="accent"
+              *ngIf="authorizationService.isUserLoggedIn() && authorizationService.getRole() === 'ADMIN'"
+              (click)="deleteComment()">Delete
+      </button>
     </mat-card-actions>
   </mat-card>
 </section>

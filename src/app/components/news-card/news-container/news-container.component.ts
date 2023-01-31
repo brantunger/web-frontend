@@ -1,10 +1,12 @@
-import { HttpErrorResponse } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
-import { take } from 'rxjs/operators';
-import { News } from 'src/app/models/News';
-import { AuthorizationService } from 'src/app/services/authorization.service';
-import { NewsService } from 'src/app/services/news.service';
-import { WebApiService } from 'src/app/services/web-api.service';
+import {HttpErrorResponse} from '@angular/common/http';
+import {Component, Input} from '@angular/core';
+import {take} from 'rxjs/operators';
+import {News} from 'src/app/models/News';
+import {AuthorizationService} from 'src/app/services/authorization.service';
+import {NewsService} from 'src/app/services/news.service';
+import {WebApiService} from 'src/app/services/web-api.service';
+import {MatDialog} from "@angular/material/dialog";
+import {ConfirmationDialogComponent} from "../../confirmation-dialog/confirmation-dialog.component";
 
 @Component({
   selector: 'app-news-container',
@@ -17,11 +19,22 @@ export class NewsContainerComponent {
   constructor(
     public authorizationService: AuthorizationService,
     private webApiService: WebApiService,
-    private newsService: NewsService) {
+    private newsService: NewsService,
+    private dialog: MatDialog) {
   }
 
   deleteNews(): void {
-    this.newsService.deleteNews(this.newsStory.newsId);
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      disableClose: true,
+      enterAnimationDuration: 400,
+      exitAnimationDuration: 400
+    });
+
+    dialogRef.afterClosed().subscribe((response: any) => {
+      if (response.confirm) {
+        this.newsService.deleteNews(this.newsStory.newsId);
+      }
+    });
   }
 
   voteUp(): void {
