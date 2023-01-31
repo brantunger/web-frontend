@@ -15,5 +15,6 @@ export const environment = {
     debug: (msg: string): void => {
       console.log(new Date(), msg);
     }
-  } as RxStompConfig
+  } as RxStompConfig,
+  tinyApiKey: 'uti498f61h6qun3wwsh4lyxd1zmjnuh3nh9edgwma6ktdsks'
 };

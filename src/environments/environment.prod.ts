@@ -8,5 +8,6 @@ export const environment = {
     heartbeatIncoming: 0,
     heartbeatOutgoing: 20000,
     reconnectDelay: 500
-  } as RxStompConfig
+  } as RxStompConfig,
+  tinyApiKey: 'uti498f61h6qun3wwsh4lyxd1zmjnuh3nh9edgwma6ktdsks'
 };

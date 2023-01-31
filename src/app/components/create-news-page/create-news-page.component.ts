@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { News } from 'src/app/models/News';
 import { NewsService } from 'src/app/services/news.service';
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-create-news-page',
@@ -10,6 +11,7 @@ import { NewsService } from 'src/app/services/news.service';
   styleUrls: ['./create-news-page.component.scss']
 })
 export class CreateNewsPageComponent implements OnInit {
+  apiKey = environment.tinyApiKey;
   private plugins: Array<string> = ['lists', 'advlist', 'link', 'image', 'table', 'code', 'codesample', 'help', 'wordcount',
     'anchor', 'autolink', 'autoresize', 'autosave', 'charmap', 'emoticons', 'fullscreen', 'importcss',
     'insertdatetime', 'media', 'nonbreaking', 'pagebreak', 'preview', 'save', 'searchreplace', 'template',

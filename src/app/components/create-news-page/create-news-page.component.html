@@ -1,27 +1,31 @@
 <section>
-    <app-alert-banner viewLabel="app-create-news-page"></app-alert-banner>
-    <div class="header">
-        <div style="width: 100%;">
-            <h4>Create Post</h4>
-        </div>
+  <app-alert-banner viewLabel="app-create-news-page"></app-alert-banner>
+  <div class="header">
+    <div style="width: 100%;">
+      <h4>Create Post</h4>
     </div>
+  </div>
 
-    <div>
-        <form [formGroup]="formGroup">
-            <mat-form-field class="formFields">
-                <input matInput formControlName="titleInput" placeholder="Title" type="text" autocomplete="off" />
-                <mat-error>Title is required</mat-error>
-            </mat-form-field>
+  <div>
+    <form [formGroup]="formGroup">
+      <mat-form-field class="formFields">
+        <input matInput formControlName="titleInput" placeholder="Title" type="text" autocomplete="off"/>
+        <mat-error>Title is required</mat-error>
+      </mat-form-field>
 
-            <editor formControlName="contentInput" apiKey="uti498f61h6qun3wwsh4lyxd1zmjnuh3nh9edgwma6ktdsks"
-                [toolbar]="getToolbarGroups()" [plugins]="getPluginsList()" [init]="{ branding: false, statusbar: false, mobile: {
-                    menubar: true
-                  }}">
-            </editor>
-        </form>
-    </div>
-    <div>
-        <mat-error *ngIf="formGroup.invalid" class="error">*Content and Title are required</mat-error>
-        <button mat-raised-button color="accent" [disabled]="formGroup.invalid" (click)="postNews()">Post</button>
-    </div>
+      <editor formControlName="contentInput"
+              [apiKey]="apiKey"
+              [toolbar]="getToolbarGroups()"
+              [plugins]="getPluginsList()"
+              [init]="{
+              branding: false,
+              statusbar: false,
+               mobile: { menubar: true }}">
+      </editor>
+    </form>
+  </div>
+  <div>
+    <mat-error *ngIf="formGroup.invalid" class="error">*Content and Title are required</mat-error>
+    <button mat-raised-button color="accent" [disabled]="formGroup.invalid" (click)="postNews()">Post</button>
+  </div>
 </section>
