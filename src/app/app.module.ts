@@ -45,6 +45,10 @@ import {AuthFailedComponent} from './components/auth-failed/auth-failed.componen
 import {CommentsTreeComponent} from './components/news-page/comments-tree/comments-tree.component';
 import { CommentDialogComponent } from './components/news-page/comment-dialog/comment-dialog.component';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
+import { UserManagementPageComponent } from './components/user-management-page/user-management-page.component';
+import {MatTableModule} from "@angular/material/table";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatSortModule} from "@angular/material/sort";
 
 @NgModule({
   declarations: [
@@ -68,39 +72,43 @@ import { ConfirmationDialogComponent } from './components/confirmation-dialog/co
     AuthFailedComponent,
     CommentsTreeComponent,
     CommentDialogComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    UserManagementPageComponent
   ],
-  imports: [
-    BrowserModule,
-    CommonModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    EditorModule,
-    FontAwesomeModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatListModule,
-    MatExpansionModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatTooltipModule,
-    MatCardModule,
-    MatInputModule,
-    MatIconModule,
-    MatMenuModule,
-    MatDialogModule,
-    MatDividerModule,
-    MatSidenavModule,
-    MatTreeModule,
-    HttpClientModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: () => {
-          return sessionStorage.getItem('access_token');
-        }
-      }
-    })
-  ],
+    imports: [
+        BrowserModule,
+        CommonModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        EditorModule,
+        FontAwesomeModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatListModule,
+        MatExpansionModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatTooltipModule,
+        MatCardModule,
+        MatInputModule,
+        MatIconModule,
+        MatMenuModule,
+        MatDialogModule,
+        MatDividerModule,
+        MatSidenavModule,
+        MatTreeModule,
+        HttpClientModule,
+        JwtModule.forRoot({
+            config: {
+                tokenGetter: () => {
+                    return sessionStorage.getItem('access_token');
+                }
+            }
+        }),
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule
+    ],
   providers: [
     {
       provide: WebsocketMessagingService,

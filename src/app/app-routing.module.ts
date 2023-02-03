@@ -6,9 +6,16 @@ import { NewsPageComponent } from './components/news-page/news-page.component';
 import { CreateNewsPageComponent } from './components/create-news-page/create-news-page.component';
 import { AuthorizationGuardService } from './services/authorization-guard.service';
 import { AuthFailedComponent } from './components/auth-failed/auth-failed.component';
+import {UserManagementPageComponent} from "./components/user-management-page/user-management-page.component";
 
 const routes: Routes = [
   { path: '', component: HomePageComponent, title: 'Dreadfall' },
+  {
+    path: 'users',
+    canActivate: [AuthorizationGuardService],
+    component: UserManagementPageComponent,
+    title: 'Dreadfall | User Management'
+  },
   {
     path: 'news/create',
     canActivate: [AuthorizationGuardService],

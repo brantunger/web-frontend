@@ -21,6 +21,10 @@ export class WebApiService {
   constructor(private http: HttpClient, private authorizationService: AuthorizationService) {
   }
 
+  public getAllUsers(): Observable<User[]> {
+    return this.perform(GET, `${this.apiUrl}/user`);
+  }
+
   public authenticate(username: string, password: string): Observable<User> {
     return this.perform(POST, `${this.apiUrl}/user/authenticate`, {username, password});
   }
