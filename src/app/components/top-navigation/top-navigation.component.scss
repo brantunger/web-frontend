@@ -32,6 +32,10 @@ mat-toolbar-row {
 
 .nav-row {
   display: none;
+
+  button {
+    margin: .25em;
+  }
 }
 
 @media (min-width: 550px) {

@@ -19,7 +19,7 @@ export class UserManagementPageComponent implements AfterViewInit {
   dataSource!: MatTableDataSource<User>;
   formGroup!: FormGroup;
   filterValue = '';
-  displayedColumns: string[] = ['userId', 'username', 'email', 'role'];
+  displayedColumns: string[] = ['userId', 'username', 'email', 'role', 'star'];
 
   constructor(private formBuilder: FormBuilder,
               private webApiService: WebApiService) {

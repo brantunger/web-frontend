@@ -2,6 +2,10 @@ section {
   margin: 1em;
 }
 
+.overflow-container {
+  overflow: auto;
+}
+
 mat-form-field {
   width: 100%;
 }

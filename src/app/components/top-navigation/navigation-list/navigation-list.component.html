@@ -1,15 +1,22 @@
 <mat-nav-list>
   <a *ngIf="authorizationService.isUserLoggedIn()" mat-list-item routerLink="" (click)="navigationClose()">
     <div class="nav-item">
-      <mat-icon>manage_accounts</mat-icon>
-      <span class="nav-caption">{{ authorizationService.getUsername()
-        }}</span>
+      <mat-icon>person</mat-icon>
+      <span class="nav-caption">{{ authorizationService.getUsername() }}</span>
     </div>
   </a>
   <a mat-list-item routerLink="" (click)="navigationClose()">
     <div class="nav-item">
       <mat-icon color="accent">home</mat-icon>
       <span class="nav-caption">Home</span>
+    </div>
+  </a>
+  <a *ngIf="authorizationService.isUserLoggedIn() && authorizationService.getRole() === 'ADMIN'" mat-list-item
+     routerLink="/users"
+     (click)="navigationClose()">
+    <div class="nav-item">
+      <mat-icon>manage_accounts</mat-icon>
+      <span class="nav-caption">Manage Accounts</span>
     </div>
   </a>
   <a *ngIf="authorizationService.isUserLoggedIn() && authorizationService.getRole() === 'ADMIN'" mat-list-item
