@@ -25,6 +25,10 @@ export class WebApiService {
     return this.perform(GET, `${this.apiUrl}/user`);
   }
 
+  public updateUser(user: User): Observable<User> {
+    return this.perform(PATCH, `${this.apiUrl}/user/${user.userId}`, user);
+  }
+
   public authenticate(username: string, password: string): Observable<User> {
     return this.perform(POST, `${this.apiUrl}/user/authenticate`, {username, password});
   }

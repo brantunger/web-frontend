@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>Edit User</h1>
+<h5>{{currentUser.userId}} - {{currentUser.username}}</h5>
+<div mat-dialog-content>
+  <form [formGroup]="formGroup">
+    <div class="user-details">
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="usernameInput" type="text" autocomplete="off"/>
+        <mat-error>Username is required</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="emailInput" type="email" autocomplete="off"/>
+        <mat-error>Email is required</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>User role</mat-label>
+        <mat-select formControlName="roleInput">
+          <mat-option *ngFor="let role of userRoles" [value]="role">
+            {{ role }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+</div>
+
+<mat-dialog-actions align="start">
+  <button mat-raised-button color="accent" [mat-dialog-close]="true" [disabled]="formGroup.invalid"
+          (click)="saveUser()">
+    <mat-icon>save</mat-icon>
+    Save
+  </button>
+  <button mat-button color="accent" [mat-dialog-close]="{action: 'cancel'}">Cancel</button>
+</mat-dialog-actions>

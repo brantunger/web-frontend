@@ -49,6 +49,8 @@ import { UserManagementPageComponent } from './components/user-management-page/u
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
+import { EditUserDialogComponent } from './components/user-management-page/edit-user-dialog/edit-user-dialog.component';
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -73,7 +75,8 @@ import {MatSortModule} from "@angular/material/sort";
     CommentsTreeComponent,
     CommentDialogComponent,
     ConfirmationDialogComponent,
-    UserManagementPageComponent
+    UserManagementPageComponent,
+    EditUserDialogComponent
   ],
     imports: [
         BrowserModule,
@@ -107,7 +110,8 @@ import {MatSortModule} from "@angular/material/sort";
         }),
         MatTableModule,
         MatPaginatorModule,
-        MatSortModule
+        MatSortModule,
+        MatSelectModule
     ],
   providers: [
     {

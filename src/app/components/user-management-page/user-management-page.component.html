@@ -44,13 +44,13 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="openEditDialog(row)">
+              <mat-icon>edit</mat-icon>
+              <span>Edit User</span>
+            </button>
             <button mat-menu-item>
               <mat-icon>person_remove</mat-icon>
               <span>Delete User</span>
-            </button>
-            <button mat-menu-item>
-              <mat-icon>edit</mat-icon>
-              <span>Edit User</span>
             </button>
           </mat-menu>
         </td>

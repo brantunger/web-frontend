@@ -1,0 +1,22 @@
+h5 {
+  margin: 0 0 0 1.85em;
+  font-weight: normal;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+@media (min-width: 670px) {
+
+  mat-form-field {
+    min-width: 2em;
+    max-width: 15em;
+  }
+
+  .user-details {
+    display: flex;
+    justify-content: space-evenly;
+    min-width: 100%;
+  }
+}
