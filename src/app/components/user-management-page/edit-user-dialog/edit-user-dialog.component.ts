@@ -1,7 +1,10 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {User} from "../../../models/User";
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { User } from "../../../models/User";
+import { WebApiService } from 'src/app/services/web-api.service';
+import { take } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-edit-user-dialog',
@@ -14,8 +17,9 @@ export class EditUserDialogComponent implements OnInit {
   currentUser!: User;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-              private dialogRef: MatDialogRef<EditUserDialogComponent>,
-              private formBuilder: FormBuilder) {
+    private dialogRef: MatDialogRef<EditUserDialogComponent>,
+    private formBuilder: FormBuilder,
+    private webApiService: WebApiService) {
   }
 
   ngOnInit(): void {
@@ -31,6 +35,14 @@ export class EditUserDialogComponent implements OnInit {
     this.currentUser.username = this.formGroup.controls['usernameInput'].value;
     this.currentUser.email = this.formGroup.controls['emailInput'].value;
     this.currentUser.role = this.formGroup.controls['roleInput'].value;
-    this.dialogRef.close({action: 'save', user: this.currentUser});
+
+    this.webApiService.updateUser(this.currentUser)
+      .pipe(take(1))
+      .subscribe({
+        next: (response: User) => this.currentUser = response,
+        error: (error: HttpErrorResponse) => console.error(error.error.error)
+      });
+
+    this.dialogRef.close({ action: 'save', user: this.currentUser });
   }
 }

@@ -26,7 +26,11 @@ export class WebApiService {
   }
 
   public updateUser(user: User): Observable<User> {
-    return this.perform(PATCH, `${this.apiUrl}/user/${user.userId}`, user);
+    return this.perform(PATCH, `${this.apiUrl}/user/`, user);
+  }
+
+  public deleteUser(userId: number): Observable<any> {
+    return this.perform(DELETE, `${this.apiUrl}/user/${userId}`);
   }
 
   public authenticate(username: string, password: string): Observable<User> {
